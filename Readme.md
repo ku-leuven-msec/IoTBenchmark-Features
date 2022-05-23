@@ -31,7 +31,7 @@ Scripts:
 - Varia
   - ...
   - scripts to help setup the device
-- LoneVulnerablilities
+- Vulnerablilities
   - LanguageFaults
     - ...
     - scripts that introduce specific faults implemented in different languages
