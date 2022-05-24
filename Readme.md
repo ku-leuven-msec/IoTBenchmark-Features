@@ -9,7 +9,7 @@ Images
 
 Features:    
  - Resources
-  - Resource1
+   - Resource1
    - setupscript
    - file(s)
  - vulnerabilities 
