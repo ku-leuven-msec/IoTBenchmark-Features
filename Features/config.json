@@ -1,0 +1,67 @@
+{
+  "resources": [
+    {
+      "name": "ssh",
+      "info": "install ssh service",
+      "attributes": {"port": "22", "service": "ssh"},
+      "installers": [
+        {
+          "architecture": "alpine",
+          "installscript": "./ssh/add_ssh.sh"
+        }
+      ]
+    }],
+    "misconfiguration":[
+        {
+            "name": "misconfig ssh",
+            "info": "bla bla bla",
+            "dependencies":[
+                { "service":"ssh" }
+            ],
+            "installers":[
+                {
+                    "architecture": "alpine",
+                    "installscript":"./ssh/config_ssh.sh"
+                }
+            ]
+        }
+    ],
+    "vulnerabilities":[
+    {
+        "name": "vulnerable ssh",
+        "info": "SSH service with backdoor",
+        "attributes": {"port": "22", "service": "ssh"},
+        "vulnerabilities":["backdoor with login: totalrootcontrol"],
+        "installers": [
+          {
+            "architecture": "alpine",
+            "buildscript": "./ssh-vuln/build_ssh-vuln.sh",
+            "installscript": "./ssh-vuln/add_ssh-vuln.sh"
+          }
+        ]
+      },
+    {
+      "name": "coap",
+      "type": "vulnerabilitiy",
+      "attributes": { "port": "5683" },
+      "dependencies": [
+        { "resource": "pip", "version": "3.0" },
+        { "resource": "cron" }
+      ],
+      "installers": [
+        {
+          "architecture": "alpine",
+          "attributes": {},
+          "buildscript": "./coap/build_coap.sh",
+          "installscript": "./coap/add_coap.sh"
+        },
+        {
+          "architecture": "arm64",
+          "attributes": { "endianess": "BE" },
+          "buildscript": "./coap/arm/build_coap.sh",
+          "installscript": "./coap/arm/add_coap.sh"
+        }
+      ]
+    }
+  ]
+}
