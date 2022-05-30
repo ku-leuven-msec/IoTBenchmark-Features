@@ -1,16 +1,6 @@
-SERVICE_PATH="/opt/dvd/services/coap"
-mkdir -p "$SERVICE_PATH"
+mkdir -p /opt/dvd/services/coap
+cp /tmp/coap/ /opt/dvd/services/coap/
+pip install -r /opt/dvd/services/coap/requirements.txt
 
-cd $SERVICE_PATH
-
-wget REST #TODO!
-
-log "Installing rest service"
-
-
-if [ -f "$SERVICE_PATH/requirements.txt" ]; then
-      pip install -r "$SERVICE_PATH/requirements.txt"
-fi
- 
-chmod +x "$SERVICE_PATH/check_daemon.sh"
-echo "*/1 * * * * $SERVICE_PATH/check_daemon.sh" >> /etc/crontabs/root
+chmod +x /opt/dvd/services/coap/check_daemon.sh
+echo "*/1 * * * * /opt/dvd/services/coap/check_daemon.sh" >> /etc/crontabs/root

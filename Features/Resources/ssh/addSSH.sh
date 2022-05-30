@@ -1,2 +1,1 @@
-apk add openssh
-sshd
+apk add openssl openssh
