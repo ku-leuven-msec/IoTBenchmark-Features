@@ -1,3 +1,4 @@
+#!/bin/bash
 wget "${MisconfigurationsURL}ssh/sshd_config" -O sshd_config 
 #TODO from github
 #TODO work with symbolic link instead of 2 different files

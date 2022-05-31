@@ -1,3 +1,4 @@
+#!/bin/bash
 mkdir -p /opt/dvd/services/
 mv /tmp/coap/ /opt/dvd/services/
 pip install -r /opt/dvd/services/coap/requirements.txt
