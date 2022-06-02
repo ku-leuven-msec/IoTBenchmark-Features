@@ -1,12 +1,11 @@
 #!/bin/bash
-apk add openssl openssh
+apk add openssl openssh libressl-dev
 mkdir -p /usr/local/sbin/
-wget "${Vulnerabilities}vulnerableSSHD/sshd" -O sshd
+wget "${VulnerabilitiesURL}vulnerableSSHD/sshd" -O sshd
+chmod +x sshd
 rm /usr/sbin/sshd
-mv sshd /usr/sbin/sshd
-ln -s /etc/ssh /usr/local/etc
+mv sshd /usr/sbin/
 # Fixing library bug with the binary
-ln /usr/lib/libcrypto.so.46.0.2 /usr/lib/libcrypto.so.47
-ldconfig
+ln /usr/lib/libcrypto.so.46 /usr/lib/libcrypto.so.47
 #make sure all libs are on the device
-ldd /usr/local/sbin/sshd
+#ldd /usr/local/sbin/sshd
