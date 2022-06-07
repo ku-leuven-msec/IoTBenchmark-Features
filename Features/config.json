@@ -1,5 +1,5 @@
 {
-  "resources": [
+  "Resources": [
     {
       "name": "ssh",
       "info": "install ssh service",
@@ -10,24 +10,267 @@
           "installscript": "./ssh/add_ssh.sh"
         }
       ]
-    }],
-    "misconfiguration":[
+    },
+    {
+      "name": "Certificates",
+      "info": "install certificates on device needed for some other services",
+      "installers": [
         {
-            "name": "misconfig ssh",
-            "info": "bla bla bla",
+          "architecture": "alpine",
+          "installscript": "./certificates/addCertificates.sh"
+        }
+      ]
+    },
+    {
+      "name": "cron",
+      "info": "install cron",
+      "installers": [
+        {
+          "architecture": "alpine",
+          "installscript": "./cron/addCron.sh"
+        }
+      ]
+    },
+    {
+      "name": "ftp",
+      "info": "install ftp service",
+      "attributes": {"port": "21", "service": "ftp"},
+      "installers": [
+        {
+          "architecture": "alpine",
+          "installscript": "./ftp/addFtp.sh"
+        }
+      ]
+    },
+    {
+      "name": "openrc",
+      "info": "install & initialise openrc service",
+      "installers": [
+        {
+          "architecture": "alpine",
+          "installscript": "./openrc/addOpenrc.sh"
+        }
+      ]
+    },
+    {
+      "name": "python",
+      "info": "install pyhton3 and pip3",
+      "installers": [
+        {
+          "architecture": "alpine",
+          "installscript": "./python/addPython.sh"
+        }
+      ]
+    },
+    {
+      "name": "rest",
+      "info": "Install rest service",
+      "dependencies":[
+        { "resource":"cron" }
+    ],
+      "installers": [
+        {
+          "architecture": "alpine",
+          "installscript": "./rest/addRest.sh"
+        }
+      ]
+    },
+    {
+      "name": "ssh keys",
+      "info": "Add ssh keys & authorised keys",
+      "dependencies":[
+        { "service":"ssh" }
+    ],
+      "installers": [
+        {
+          "architecture": "alpine",
+          "installscript": "./sshKeys/setupSSH.sh"
+        }
+      ]
+    },
+    {
+      "name": "sudo",
+      "info": "install sudo",
+      "installers": [
+        {
+          "architecture": "alpine",
+          "installscript": "./sudo/addSudo.sh"
+        }
+      ]
+    },
+    {
+      "name": "telnet",
+      "info": "install telnet service",
+      "attributes": {"port": "23", "service": "telnet"},
+      "dependencies":[
+        { "resource":"openrc" }
+    ],
+      "installers": [
+        {
+          "architecture": "alpine",
+          "installscript": "./telnet/addTelnet.sh"
+        }
+      ]
+    },
+    {
+      "name": "add users",
+      "info": "add basic users (without password)",
+      "installers": [
+        {
+          "architecture": "alpine",
+          "installscript": "./users/addUsers.sh"
+        }
+      ]
+    }
+  ],
+    "Misconfigurations":[
+        {
+            "name": "misconfigured ssh",
+            "info": "Weak cipher, permitted root login, Permitted empty passwords",
+
             "dependencies":[
                 { "service":"ssh" }
             ],
             "installers":[
                 {
                     "architecture": "alpine",
-                    "installscript":"./ssh/config_ssh.sh"
+                    "installscript":"./ssh/addBadSSHConfig.sh"
                 }
             ]
-        }
+        },
+        {
+          "name": "misconfigured vsftp",
+          "info": "Allow anonymous FTP, write enabled, upload enabled, ...",
+
+          "dependencies":[
+              { "service":"ftp" }
+          ],
+          "installers":[
+              {
+                  "architecture": "alpine",
+                  "installscript":"./vsftp/addBadFTPConfig.sh"
+              }
+          ]
+      },
+      {
+        "name": "misconfigured telnet",
+        "info": "Hardcoded credentials in code for the telnet server",
+        "attributes":{"port":23, "service":"telnet"},
+        "dependencies":[
+            { "resource":"python" },
+            { "resource": "cron" }
+        ],
+        "installers":[
+            {
+                "architecture": "alpine",
+                "installscript":"./customTelnet/addCustomTelnet.sh"
+            }
+        ]
+    }
     ],
-    "vulnerabilities":[
-    {
+    "Vulnerabilities":[
+      {
+        "name": "vulnerable sudo rights",
+        "info": "Adding a sudo right on the less command, this can be exploited",
+        "dependencies": [
+          { "resource": "addUsers"},
+          { "resource": "sudo" }
+        ],        
+        "vulnerabilities":["sudo right on the less command"],
+        "installers": [
+          {
+            "architecture": "alpine",
+            "installscript": "./badSudoRights/sudoRights.sh"
+          }
+        ]
+      },
+      {
+        "name": "vulnerable coap server",
+        "info": "Installing a coap server that contains a command injection",
+        "dependencies": [
+          { "resource": "python"},
+          { "resource": "cron" }
+        ],     
+        "attributes": {"port": "5683", "service": "coap"},   
+        "vulnerabilities":["Command injection in the coap server"],
+        "installers": [
+          {
+            "architecture": "alpine",
+            "attributes": {},
+            "buildscript": "./coap/build_coap.sh",
+            "installscript": "./coap/addCoap.sh"
+          },
+          {
+            "architecture": "arm64",
+            "attributes": { "endianess": "BE" },
+            "buildscript": "./coap/arm/build_coap.sh",
+            "installscript": "./coap/arm/add_coap.sh"
+          }
+        ]
+      },
+      {
+        "name": "vulnerable cronjob",
+        "info": "adding a cronjob to cron that will be able to be exploited",
+        "dependencies": [
+          { "resource": "cron" }
+        ],     
+        "vulnerabilities":["Command injection in the cronjob"],
+        "installers": [
+          {
+            "architecture": "alpine",
+            "installscript": "./cron/exploitableCronjob.sh"
+          }
+        ]
+      },
+      {
+        "name": "hardcoded passwords",
+        "info": "Adding hardcoded passwords to alll the users",
+        "dependencies": [
+          { "resource": "addUsers"}
+        ],        
+        "vulnerabilities":["Hardcoded passwords"],
+        "installers": [
+          {
+            "architecture": "alpine",
+            "installscript": "./hardcodedPassword/hardcodedPasswords.sh"
+          }
+        ]
+      },
+      {
+        "name": "vulnerable http server",
+        "info": "Installing http server with a sql injection and a information leak",
+        "dependencies": [
+          { "resource": "python"},
+          { "resource": "cron"}
+        ],        
+        "attributes":[
+           {"port": "80", "service": "http"},
+           {"port": "443", "service":"https"}   
+          ],
+           "vulnerabilities":["SQL injection and information leak"],
+        "installers": [
+          {
+            "architecture": "alpine",
+            "installscript": "./http/addHttp.sh"
+          }
+        ]
+      },
+      {
+        "name": "infoleak",
+        "info": "Leaking passes and hashes",
+        "dependencies": [
+          { "resource": "addusers"},
+          { "resource": "hardcodedPassword"}
+        ],
+        "vulnerabilities":["Leaking user password and root hash"],
+        "installers": [
+          {
+            "architecture": "alpine",
+            "installscript": "./infoleak/addInfoLeak.sh"
+          }
+        ]
+      },
+      {
         "name": "vulnerable ssh",
         "info": "SSH service with backdoor",
         "attributes": {"port": "22", "service": "ssh"},
@@ -39,29 +282,6 @@
             "installscript": "./ssh-vuln/add_ssh-vuln.sh"
           }
         ]
-      },
-    {
-      "name": "coap",
-      "type": "vulnerabilitiy",
-      "attributes": { "port": "5683" },
-      "dependencies": [
-        { "resource": "pip", "version": "3.0" },
-        { "resource": "cron" }
-      ],
-      "installers": [
-        {
-          "architecture": "alpine",
-          "attributes": {},
-          "buildscript": "./coap/build_coap.sh",
-          "installscript": "./coap/add_coap.sh"
-        },
-        {
-          "architecture": "arm64",
-          "attributes": { "endianess": "BE" },
-          "buildscript": "./coap/arm/build_coap.sh",
-          "installscript": "./coap/arm/add_coap.sh"
-        }
-      ]
-    }
-  ]
+      }
+    ]
 }
