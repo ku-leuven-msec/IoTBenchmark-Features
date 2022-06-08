@@ -1,3 +1,4 @@
+#!/bin/bash
 wget "${ResourcesURL}certificates/client.cnf" -O client.cnf
 wget "${ResourcesURL}certificates/root.cnf" -O root.cnf
 wget "${ResourcesURL}certificates/server.cnf" -O server.cnf
