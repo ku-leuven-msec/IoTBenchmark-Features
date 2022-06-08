@@ -1,4 +1,3 @@
-ResourcesURL="https://raw.githubusercontent.com/DairodR/Benchmark-Repo-Features/main/Features/Resources/"
 wget "${ResourcesURL}certificates/client.cnf" -O client.cnf
 wget "${ResourcesURL}certificates/root.cnf" -O root.cnf
 wget "${ResourcesURL}certificates/server.cnf" -O server.cnf
@@ -15,12 +14,7 @@ openssl x509 -req -in /tmp/tmp/client.csr -CA /tmp/cert/root.cer -CAkey /tmp/cer
 #Ceeate pkc12 keystore for android
 openssl pkcs12 -export -inkey /tmp/cert/client.key  -in /tmp/cert/client.cer -certfile /tmp/cert/root.cer -passout pass:test -out /tmp/cert/client.pfx
 
-DNS="DVD"
-CFG_PATH="/tmp"
-NAME="server"
-
-echo "DNS.2 = $DNS">> s
-server.cnf
+echo "DNS.2 = DVD">> server.cnf
 echo "IP.1 = 127.0.0.1" >> server.cnf 
 
 #Create server key pair & certificate request
