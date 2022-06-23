@@ -1,12 +1,13 @@
 {
-  "Resources": [
+  "resources": [
     {
       "name": "ssh",
       "info": "install ssh service",
-      "attributes": {"port": "22", "service": "ssh"},
+      "attributes": [{"port": "22", "service": "ssh"}],
+      "dependencies":[],
       "installers": [
         {
-          "architecture": "alpine",
+          "architecture": "x86",
           "installscript": "./ssh/add_ssh.sh"
         }
       ]
@@ -14,9 +15,11 @@
     {
       "name": "Certificates",
       "info": "install certificates on device needed for some other services",
+      "attributes":[],
+      "dependencies":[],
       "installers": [
         {
-          "architecture": "alpine",
+          "architecture": "x86",
           "installscript": "./certificates/addCertificates.sh"
         }
       ]
@@ -24,9 +27,11 @@
     {
       "name": "cron",
       "info": "install cron",
+      "attributes":[],
+      "dependencies":[],
       "installers": [
         {
-          "architecture": "alpine",
+          "architecture": "x86",
           "installscript": "./cron/addCron.sh"
         }
       ]
@@ -34,10 +39,11 @@
     {
       "name": "ftp",
       "info": "install ftp service",
-      "attributes": {"port": "21", "service": "ftp"},
+      "attributes": [{"port": "21", "service": "ftp"}],
+      "dependencies":[],
       "installers": [
         {
-          "architecture": "alpine",
+          "architecture": "x86",
           "installscript": "./ftp/addFtp.sh"
         }
       ]
@@ -45,19 +51,23 @@
     {
       "name": "openrc",
       "info": "install & initialise openrc service",
+      "attributes":[],
+      "dependencies":[],
       "installers": [
         {
-          "architecture": "alpine",
+          "architecture": "x86",
           "installscript": "./openrc/addOpenrc.sh"
         }
       ]
     },
     {
-      "name": "python",
+      "name": "Python3",
       "info": "install pyhton3 and pip3",
+      "attributes":[],
+      "dependencies":[],
       "installers": [
         {
-          "architecture": "alpine",
+          "architecture": "x86",
           "installscript": "./python/addPython.sh"
         }
       ]
@@ -65,12 +75,13 @@
     {
       "name": "rest",
       "info": "Install rest service",
+      "attributes":[],
       "dependencies":[
         { "resource":"cron" }
     ],
       "installers": [
         {
-          "architecture": "alpine",
+          "architecture": "x86",
           "installscript": "./rest/addRest.sh"
         }
       ]
@@ -78,12 +89,13 @@
     {
       "name": "ssh keys",
       "info": "Add ssh keys & authorised keys",
+      "attributes":[],
       "dependencies":[
-        { "service":"ssh" }
+        { "resource":"ssh" }
     ],
       "installers": [
         {
-          "architecture": "alpine",
+          "architecture": "x86",
           "installscript": "./sshKeys/setupSSH.sh"
         }
       ]
@@ -91,9 +103,11 @@
     {
       "name": "sudo",
       "info": "install sudo",
+      "attributes":[],
+      "dependencies":[],
       "installers": [
         {
-          "architecture": "alpine",
+          "architecture": "x86",
           "installscript": "./sudo/addSudo.sh"
         }
       ]
@@ -101,13 +115,13 @@
     {
       "name": "telnet",
       "info": "install telnet service",
-      "attributes": {"port": "23", "service": "telnet"},
+      "attributes": [{"port": "23", "service": "telnet"}],
       "dependencies":[
         { "resource":"openrc" }
     ],
       "installers": [
         {
-          "architecture": "alpine",
+          "architecture": "x86",
           "installscript": "./telnet/addTelnet.sh"
         }
       ]
@@ -115,25 +129,27 @@
     {
       "name": "add users",
       "info": "add basic users (without password)",
+      "attributes":[],
+      "dependencies":[],
       "installers": [
         {
-          "architecture": "alpine",
+          "architecture": "x86",
           "installscript": "./users/addUsers.sh"
         }
       ]
     }
   ],
-    "Misconfigurations":[
+    "misconfigurations":[
         {
             "name": "misconfigured ssh",
             "info": "Weak cipher, permitted root login, Permitted empty passwords",
-
+            "attributes":[],
             "dependencies":[
-                { "service":"ssh" }
+                { "resource":"ssh" }
             ],
             "installers":[
                 {
-                    "architecture": "alpine",
+                    "architecture": "x86",
                     "installscript":"./ssh/addBadSSHConfig.sh"
                 }
             ]
@@ -141,13 +157,13 @@
         {
           "name": "misconfigured vsftp",
           "info": "Allow anonymous FTP, write enabled, upload enabled, ...",
-
+          "attributes":[],
           "dependencies":[
-              { "service":"ftp" }
+              { "resource":"ftp" }
           ],
           "installers":[
               {
-                  "architecture": "alpine",
+                  "architecture": "x86",
                   "installscript":"./vsftp/addBadFTPConfig.sh"
               }
           ]
@@ -155,31 +171,32 @@
       {
         "name": "misconfigured telnet",
         "info": "Hardcoded credentials in code for the telnet server",
-        "attributes":{"port":23, "service":"telnet"},
+        "attributes":[{"port":"23", "service":"telnet"}],
         "dependencies":[
-            { "resource":"python" },
+            { "resource":"Python3" },
             { "resource": "cron" }
         ],
         "installers":[
             {
-                "architecture": "alpine",
+                "architecture": "x86",
                 "installscript":"./customTelnet/addCustomTelnet.sh"
             }
         ]
     }
     ],
-    "Vulnerabilities":[
+    "vulnerabilities":[
       {
         "name": "vulnerable sudo rights",
         "info": "Adding a sudo right on the less command, this can be exploited",
+        "attributes":[],
         "dependencies": [
-          { "resource": "addUsers"},
+          { "resource": "add users"},
           { "resource": "sudo" }
         ],        
         "vulnerabilities":["sudo right on the less command"],
         "installers": [
           {
-            "architecture": "alpine",
+            "architecture": "x86",
             "installscript": "./badSudoRights/sudoRights.sh"
           }
         ]
@@ -188,14 +205,14 @@
         "name": "vulnerable coap server",
         "info": "Installing a coap server that contains a command injection",
         "dependencies": [
-          { "resource": "python"},
+          { "resource": "Python3"},
           { "resource": "cron" }
         ],     
-        "attributes": {"port": "5683", "service": "coap"},   
+        "attributes": [{"port": "5683", "service": "coap"}],   
         "vulnerabilities":["Command injection in the coap server"],
         "installers": [
           {
-            "architecture": "alpine",
+            "architecture": "x86",
             "attributes": {},
             "buildscript": "./coap/build_coap.sh",
             "installscript": "./coap/addCoap.sh"
@@ -211,13 +228,14 @@
       {
         "name": "vulnerable cronjob",
         "info": "adding a cronjob to cron that will be able to be exploited",
+        "attributes":[],
         "dependencies": [
           { "resource": "cron" }
         ],     
         "vulnerabilities":["Command injection in the cronjob"],
         "installers": [
           {
-            "architecture": "alpine",
+            "architecture": "x86",
             "installscript": "./cron/exploitableCronjob.sh"
           }
         ]
@@ -225,13 +243,14 @@
       {
         "name": "hardcoded passwords",
         "info": "Adding hardcoded passwords to alll the users",
+        "attributes":[],
         "dependencies": [
-          { "resource": "addUsers"}
+          { "resource": "add users"}
         ],        
         "vulnerabilities":["Hardcoded passwords"],
         "installers": [
           {
-            "architecture": "alpine",
+            "architecture": "x86",
             "installscript": "./hardcodedPassword/hardcodedPasswords.sh"
           }
         ]
@@ -240,7 +259,7 @@
         "name": "vulnerable http server",
         "info": "Installing http server with a sql injection and a information leak",
         "dependencies": [
-          { "resource": "python"},
+          { "resource": "Python3"},
           { "resource": "cron"}
         ],        
         "attributes":[
@@ -250,22 +269,42 @@
            "vulnerabilities":["SQL injection and information leak"],
         "installers": [
           {
-            "architecture": "alpine",
+            "architecture": "x86",
             "installscript": "./http/addHttp.sh"
+          }
+        ]
+      },
+      {
+        "name": "vulnerable apache server",
+        "info": "Installing apache server with a sql injection, a information leak, directory traversal, LFI, RCE and a Command injection",
+        "dependencies": [
+          { "resource": "python"},
+          { "resource": "openrc"}
+        ],
+        "attributes":[
+           {"port": "80", "service": "http"},
+           {"port": "443", "service":"https"}
+          ],
+           "vulnerabilities":["SQL injection, information leak, directory traversal, LFI, RCE and a command injection"],
+        "installers": [
+          {
+            "architecture": "x86",
+            "installscript": "./apache2/addApache.sh"
           }
         ]
       },
       {
         "name": "infoleak",
         "info": "Leaking passes and hashes",
+        "attributes":[],
         "dependencies": [
-          { "resource": "addusers"},
-          { "resource": "hardcodedPassword"}
+          { "resource": "add users"},
+          { "resource": "hardcoded passwords"}
         ],
         "vulnerabilities":["Leaking user password and root hash"],
         "installers": [
           {
-            "architecture": "alpine",
+            "architecture": "x86",
             "installscript": "./infoleak/addInfoLeak.sh"
           }
         ]
@@ -273,7 +312,8 @@
       {
         "name": "vulnerable ssh",
         "info": "SSH service with backdoor",
-        "attributes": {"port": "22", "service": "ssh"},
+        "attributes": [{"port": "22", "service": "ssh"}],
+        "dependencies":[],
         "vulnerabilities":["backdoor with login: totalrootcontrol"],
         "installers": [
           {
@@ -282,7 +322,7 @@
             "installscript": "./vulnerabeSSHD/addVulnerableSSH.sh"
           },
           {
-            "architecture": "armv7",
+            "architecture": "arm32v7",
             "buildscript": "./vulnerableSSHD/build_ssh-vuln.sh",
             "installscript": "./vulnerabeSSHD/addVulnerableSSH_armv7.sh"
           }
