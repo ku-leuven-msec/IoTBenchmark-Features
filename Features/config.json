@@ -1,5 +1,5 @@
 {
-  "Resources": [
+  "resources": [
     {
       "name": "ssh",
       "info": "install ssh service",
@@ -139,7 +139,7 @@
       ]
     }
   ],
-    "Misconfigurations":[
+    "misconfigurations":[
         {
             "name": "misconfigured ssh",
             "info": "Weak cipher, permitted root login, Permitted empty passwords",
@@ -184,7 +184,7 @@
         ]
     }
     ],
-    "Vulnerabilities":[
+    "vulnerabilities":[
       {
         "name": "vulnerable sudo rights",
         "info": "Adding a sudo right on the less command, this can be exploited",
@@ -192,7 +192,7 @@
         "dependencies": [
           { "resource": "add users"},
           { "resource": "sudo" }
-        ],
+        ],        
         "vulnerabilities":["sudo right on the less command"],
         "installers": [
           {
@@ -207,8 +207,8 @@
         "dependencies": [
           { "resource": "Python3"},
           { "resource": "cron" }
-        ],
-        "attributes": [{"port": "5683", "service": "coap"}],
+        ],     
+        "attributes": [{"port": "5683", "service": "coap"}],   
         "vulnerabilities":["Command injection in the coap server"],
         "installers": [
           {
@@ -216,12 +216,6 @@
             "attributes": {},
             "buildscript": "./coap/build_coap.sh",
             "installscript": "./coap/addCoap.sh"
-          },
-          {
-            "architecture": "arm64",
-            "attributes": { "endianess": "BE" },
-            "buildscript": "./coap/arm/build_coap.sh",
-            "installscript": "./coap/arm/add_coap.sh"
           }
         ]
       },
@@ -231,7 +225,7 @@
         "attributes":[],
         "dependencies": [
           { "resource": "cron" }
-        ],
+        ],     
         "vulnerabilities":["Command injection in the cronjob"],
         "installers": [
           {
@@ -246,7 +240,7 @@
         "attributes":[],
         "dependencies": [
           { "resource": "add users"}
-        ],
+        ],        
         "vulnerabilities":["Hardcoded passwords"],
         "installers": [
           {
@@ -261,10 +255,10 @@
         "dependencies": [
           { "resource": "Python3"},
           { "resource": "cron"}
-        ],
+        ],        
         "attributes":[
            {"port": "80", "service": "http"},
-           {"port": "443", "service":"https"}
+           {"port": "443", "service":"https"}   
           ],
            "vulnerabilities":["SQL injection and information leak"],
         "installers": [
@@ -332,8 +326,8 @@
         "name": "bash",
         "info": "Adding the languague bash that contains certain vulnerabilities",
         "attributes":[],
-        "dependencies": [],
-        "vulnerabilities":["command injection"],
+        "dependencies": [],        
+        "vulnerabilities":["command injection and path traversal"],
         "installers": [
           {
             "architecture": "x86",
@@ -343,9 +337,9 @@
       },
       {
         "name": "c",
-        "info": "Adding the languague c that contains certain vulnerabilities",
+        "info": "Adding binaries written in c that contains certain vulnerabilities",
         "attributes":[],
-        "dependencies": [],
+        "dependencies": [],        
         "vulnerabilities":["buffer overflow, command injection, connection string injection, denial of service, format string attacks, integer overflow, out of bounds, symlink, use after free"],
         "installers": [
           {
@@ -355,24 +349,11 @@
         ]
       },
       {
-        "name": "go",
-        "info": "Adding the languague go that contains certain vulnerabilities",
-        "attributes":[],
-        "dependencies": [],
-        "vulnerabilities":["Server side template injection"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./go/addGo.sh"
-          }
-        ]
-      },
-      {
         "name": "java",
         "info": "Adding the languague java that contains certain vulnerabilities",
         "attributes":[],
-        "dependencies": [],
-        "vulnerabilities":["Connection string injection, path traversal, SQL injection, unsafe deserialization, XSS"],
+        "dependencies": [],        
+        "vulnerabilities":["Command injection , path traversal, SQL injection"],
         "installers": [
           {
             "architecture": "x86",
@@ -381,81 +362,15 @@
         ]
       },
       {
-        "name": "javascript",
-        "info": "Adding the languague javascript that contains certain vulnerabilities",
-        "attributes":[],
-        "dependencies": [],
-        "vulnerabilities":["command injection, connection string injection, denial of service, LDAP injection, log forging, noSQL injection, open redirect, path traversal, postmessage security, prototype pollution, ReDoS, resource injection, SQL injection, SSRF, unsafe deserialization, XPATH injection, XXS, XXE, zip traversal"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./javascript/addJavascript.sh"
-          }
-        ]
-      },
-      {
-        "name": "php",
-        "info": "Adding the languague php that contains certain vulnerabilities",
-        "attributes":[],
-        "dependencies": [],
-        "vulnerabilities":["code injection, command injection, file inclusion, IDOR, insecure file uploads, LDAP injection, open redirect, path traversal, PHP object injection, server side template injection, SQL injection, unsafe deserialization, XSS, XXE"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./php/addPhp.sh"
-          }
-        ]
-      },
-      {
         "name": "python",
         "info": "Adding the languague python that contains certain vulnerabilities",
         "attributes":[],
-        "dependencies": [],
-        "vulnerabilities":["command injection, server side template injection, unsafe deserialization"],
+        "dependencies": [],        
+        "vulnerabilities":["command injection, path traversal, SQL inection, server side template injection"],
         "installers": [
           {
             "architecture": "x86",
-            "installscript": "./python/addPythonWithVuln.sh"
-          }
-        ]
-      },
-      {
-        "name": "ruby",
-        "info": "Adding the languague ruby that contains certain vulnerabilities",
-        "attributes":[],
-        "dependencies": [],
-        "vulnerabilities":["code exection, open redirect, SQL injection, sensitive data exposure"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./ruby/addRuby.sh"
-          }
-
-        ]
-      },
-      {
-        "name": "rust",
-        "info": "Adding the languague rust that contains certain vulnerabilities",
-        "attributes":[],
-        "dependencies": [],
-        "vulnerabilities":["command injection"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./rust/addRust.sh"
-          }
-        ]
-      },
-      {
-        "name": "binary",
-        "info": "Adding binaries that contain certain vulnerabilities",
-        "attributes":[],
-        "dependencies": [],
-        "vulnerabilities":["buffer overflow, integer overflow, out of bounds, use after free, format string, command injection"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./binary/addBinary.sh"
+            "installscript": "./pythonVuln/addPythonWithVuln.sh"
           }
         ]
       }
