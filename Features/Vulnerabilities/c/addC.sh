@@ -8,6 +8,8 @@ if [[ $(uname -a | grep "arm") ]] ; then
     chmod -R +s /opt/dvd/code/c/armv7
 elif [[ $(uname -a | grep "x86") ]] ; then
     rm -rf /opt/dvd/code/c/armv7
+    chmod -R +x /opt/dvd/code/c/x86
+    chmod -R +s /opt/dvd/code/c/x86
 else
     echo "shouldn't get here"
 fi
