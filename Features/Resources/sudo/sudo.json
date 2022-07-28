@@ -1,0 +1,12 @@
+{
+    "name": "sudo",
+    "info": "install sudo",
+    "attributes":[],
+    "dependencies":[],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./sudo/addSudo.sh"
+      }
+    ]
+  }
