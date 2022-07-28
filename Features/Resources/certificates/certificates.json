@@ -1,0 +1,12 @@
+{
+    "name": "Certificates",
+    "info": "install certificates on device needed for some other services",
+    "attributes":[],
+    "dependencies":[],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./certificates/addCertificates.sh"
+      }
+    ]
+  }

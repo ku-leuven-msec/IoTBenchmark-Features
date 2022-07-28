@@ -1,0 +1,12 @@
+{
+    "name": "add users",
+    "info": "add basic users (without password)",
+    "attributes":[],
+    "dependencies":[],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./users/addUsers.sh"
+      }
+    ]
+  }

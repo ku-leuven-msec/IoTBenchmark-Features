@@ -1,0 +1,15 @@
+{
+    "name": "Customtelnet",
+    "info": "Hardcoded credentials in code for the telnet server",
+    "attributes":[{"port":"23", "service":"telnet"}],
+    "dependencies":[
+        { "resource":"Python3" },
+        { "resource": "cron" }
+    ],
+    "installers":[
+        {
+            "architecture": "x86",
+            "installscript":"./customTelnet/addCustomTelnet.sh"
+        }
+    ]
+}

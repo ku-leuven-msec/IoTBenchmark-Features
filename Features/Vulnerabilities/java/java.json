@@ -1,0 +1,13 @@
+{
+    "name": "java",
+    "info": "Adding the languague java that contains certain vulnerabilities",
+    "attributes":[],
+    "dependencies": [],        
+    "vulnerabilities":["Command injection , path traversal, SQL injection"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./java/addJava.sh"
+      }
+    ]
+  }

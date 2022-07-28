@@ -1,0 +1,19 @@
+{
+    "name": "http",
+    "info": "Installing http server with a sql injection and a information leak",
+    "dependencies": [
+      { "resource": "Python3"},
+      { "resource": "cron"}
+    ],        
+    "attributes":[
+       {"port": "80", "service": "http"},
+       {"port": "443", "service":"https"}   
+      ],
+       "vulnerabilities":["SQL injection and information leak"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./http/addHttp.sh"
+      }
+    ]
+  }

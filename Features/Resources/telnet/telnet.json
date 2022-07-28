@@ -1,0 +1,14 @@
+{
+    "name": "telnet",
+    "info": "install telnet service",
+    "attributes": [{"port": "23", "service": "telnet"}],
+    "dependencies":[
+      { "resource":"openrc" }
+  ],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./telnet/addTelnet.sh"
+      }
+    ]
+  }

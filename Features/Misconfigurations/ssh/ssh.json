@@ -1,0 +1,14 @@
+{
+    "name": "misconfigured ssh",
+    "info": "Weak cipher, permitted root login, Permitted empty passwords",
+    "attributes":[],
+    "dependencies":[
+        { "resource":"ssh" }
+    ],
+    "installers":[
+        {
+            "architecture": "x86",
+            "installscript":"./ssh/addBadSSHConfig.sh"
+        }
+    ]
+}

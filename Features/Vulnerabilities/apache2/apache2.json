@@ -1,0 +1,19 @@
+{
+    "name": "apache2",
+    "info": "Installing apache server with a sql injection, a information leak, directory traversal, LFI, RCE and a Command injection",
+    "dependencies": [
+      { "resource": "python"},
+      { "resource": "openrc"}
+    ],
+    "attributes":[
+       {"port": "80", "service": "http"},
+       {"port": "443", "service":"https"}
+      ],
+       "vulnerabilities":["SQL injection, information leak, directory traversal, LFI, RCE and a command injection"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./apache2/addApache.sh"
+      }
+    ]
+  }

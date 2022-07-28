@@ -1,0 +1,14 @@
+{
+    "name": "misconfigured vsftp",
+    "info": "Allow anonymous FTP, write enabled, upload enabled, ...",
+    "attributes":[],
+    "dependencies":[
+        { "resource":"ftp" }
+    ],
+    "installers":[
+        {
+            "architecture": "x86",
+            "installscript":"./vsftp/addBadFTPConfig.sh"
+        }
+    ]
+}

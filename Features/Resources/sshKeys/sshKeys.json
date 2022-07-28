@@ -1,0 +1,14 @@
+{
+    "name": "ssh keys",
+    "info": "Add ssh keys & authorised keys",
+    "attributes":[],
+    "dependencies":[
+      { "resource":"ssh" }
+  ],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./sshKeys/setupSSH.sh"
+      }
+    ]
+  }

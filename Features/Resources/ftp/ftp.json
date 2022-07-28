@@ -1,0 +1,12 @@
+{
+    "name": "ftp",
+    "info": "install ftp service",
+    "attributes": [{"port": "21", "service": "ftp"}],
+    "dependencies":[],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./ftp/addFtp.sh"
+      }
+    ]
+  }

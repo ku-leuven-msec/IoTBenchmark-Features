@@ -1,0 +1,16 @@
+{
+    "name": "infoleak",
+    "info": "Leaking passes and hashes",
+    "attributes":[],
+    "dependencies": [
+      { "resource": "add users"},
+      { "resource": "hardcoded passwords"}
+    ],
+    "vulnerabilities":["Leaking user password and root hash"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./infoleak/addInfoLeak.sh"
+      }
+    ]
+  }

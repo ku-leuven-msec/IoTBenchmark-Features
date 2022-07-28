@@ -1,0 +1,12 @@
+{
+    "name": "Python3",
+    "info": "install pyhton3 and pip3",
+    "attributes":[],
+    "dependencies":[],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./python/addPython.sh"
+      }
+    ]
+  }

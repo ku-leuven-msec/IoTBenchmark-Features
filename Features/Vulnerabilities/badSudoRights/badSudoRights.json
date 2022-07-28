@@ -1,0 +1,16 @@
+{
+    "name": "vulnerable sudo rights",
+    "info": "Adding a sudo right on the less command, this can be exploited",
+    "attributes":[],
+    "dependencies": [
+      { "resource": "add users"},
+      { "resource": "sudo" }
+    ],        
+    "vulnerabilities":["sudo right on the less command"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./badSudoRights/sudoRights.sh"
+      }
+    ]
+  }

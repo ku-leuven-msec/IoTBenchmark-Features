@@ -1,0 +1,13 @@
+{
+    "name": "python",
+    "info": "Adding the languague python that contains certain vulnerabilities",
+    "attributes":[],
+    "dependencies": [],        
+    "vulnerabilities":["command injection, path traversal, SQL inection, server side template injection"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./pythonVuln/addPythonWithVuln.sh"
+      }
+    ]
+  }

@@ -1,0 +1,15 @@
+{
+    "name": "vulnerable cronjob",
+    "info": "adding a cronjob to cron that will be able to be exploited",
+    "attributes":[],
+    "dependencies": [
+      { "resource": "cron" }
+    ],     
+    "vulnerabilities":["Command injection in the cronjob"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./cron/exploitableCronjob.sh"
+      }
+    ]
+  }

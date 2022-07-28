@@ -1,0 +1,12 @@
+{
+    "name": "ssh",
+    "info": "install ssh service",
+    "attributes": [{"port": "22", "service": "ssh"}],
+    "dependencies":[],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./ssh/addSSH.sh"
+      }
+    ]
+  }

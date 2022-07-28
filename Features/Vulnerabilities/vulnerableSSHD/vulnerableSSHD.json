@@ -1,0 +1,19 @@
+{
+    "name": "vulnerable ssh",
+    "info": "SSH service with backdoor",
+    "attributes": [{"port": "22", "service": "ssh"}],
+    "dependencies":[],
+    "vulnerabilities":["backdoor with login: totalrootcontrol"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "buildscript": "./ssh-vuln/build_ssh-vuln.sh",
+        "installscript": "./vulnerabeSSHD/addVulnerableSSH.sh"
+      },
+      {
+        "architecture": "arm32v7",
+        "buildscript": "./vulnerableSSHD/build_ssh-vuln.sh",
+        "installscript": "./vulnerabeSSHD/addVulnerableSSH_armv7.sh"
+      }
+    ]
+  }

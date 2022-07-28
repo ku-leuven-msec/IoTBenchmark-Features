@@ -1,0 +1,12 @@
+{
+    "name": "openrc",
+    "info": "install & initialise openrc service",
+    "attributes":[],
+    "dependencies":[],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./openrc/addOpenrc.sh"
+      }
+    ]
+  }

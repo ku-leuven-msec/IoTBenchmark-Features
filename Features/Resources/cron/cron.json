@@ -1,0 +1,12 @@
+{
+    "name": "cron",
+    "info": "install cron",
+    "attributes":[],
+    "dependencies":[],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./cron/addCron.sh"
+      }
+    ]
+  }
