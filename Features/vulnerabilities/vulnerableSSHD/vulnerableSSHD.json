@@ -7,7 +7,7 @@
     "installers": [
       {
         "architecture": "x86",
-        "buildscript": "./ssh-vuln/build_ssh-vuln.sh",
+        "buildscript": "./vulnerabeSSHD/build_ssh-vuln.sh",
         "installscript": "./vulnerabeSSHD/addVulnerableSSH.sh"
       },
       {
