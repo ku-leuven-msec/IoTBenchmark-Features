@@ -18,3 +18,17 @@ def validate_email(self, email):
     valemail = curs.fetchone()
     if valemail is None:
         raise ValidationError('This Email ID is not registered. Please register before login')
+
+
+def update_email(self, email, user_id):
+    conn = sqlite3.connect('login.db')
+    curs = conn.cursor()
+    curs.execute("UPDATE login set email = (?) where user_id = (?)", [email.data, user_id])
+    curs.execute("SELECT * from login where id = (?)", [user_id])
+    data = curs.fetchone()
+    print(data)
+    
+class updateForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired()])
+    submit = SubmitField('Update')
+
