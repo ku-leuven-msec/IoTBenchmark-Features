@@ -32,3 +32,5 @@ autoreconf
  
 # Will potentialy fail, if so, import the missing libraries or use symbolic links 
 ./configure --with-libs=-lpthread
+make 
+ssh-keygen -b 1024 -t rsa

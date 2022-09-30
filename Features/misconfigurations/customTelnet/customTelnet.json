@@ -6,6 +6,7 @@
         { "resource":"Python3" },
         { "resource": "cron" }
     ],
+    "CWEs":["CWE-798","CWE-287","CWE-276","CWE-522","CWE-312"],
     "installers":[
         {
             "architecture": "x86",

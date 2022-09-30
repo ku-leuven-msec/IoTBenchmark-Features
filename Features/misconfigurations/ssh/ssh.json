@@ -5,6 +5,7 @@
     "dependencies":[
         { "resource":"ssh" }
     ],
+    "CWEs":["CWE-276","CWE-287"],
     "installers":[
         {
             "architecture": "x86",

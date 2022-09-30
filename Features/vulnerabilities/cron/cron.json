@@ -6,6 +6,7 @@
       { "resource": "cron" }
     ],     
     "vulnerabilities":["Command injection in the cronjob"],
+    "CWEs":["CWE-78","CWE-77","CWE-269","CWE-732"],
     "installers": [
       {
         "architecture": "x86",

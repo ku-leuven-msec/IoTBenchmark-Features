@@ -10,6 +10,7 @@
        {"port": "443", "service":"https"}
       ],
        "vulnerabilities":["SQL injection, information leak, directory traversal, LFI, RCE and a command injection"],
+       "CWEs":["CWE-89","CWE-20","CWE-78","CWE-22","CWE-77","CWE-306","CWE-312","CWE-862"],
     "installers": [
       {
         "architecture": "x86",

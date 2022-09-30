@@ -7,6 +7,7 @@
     ],     
     "attributes": [{"port": "5683", "service": "coap"}],   
     "vulnerabilities":["Command injection in the coap server"],
+    "CWEs":["CWE-78","CWE-77","CWE-20"],
     "installers": [
       {
         "architecture": "x86",

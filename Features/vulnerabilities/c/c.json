@@ -3,7 +3,8 @@
     "info": "Adding binaries written in c that contains certain vulnerabilities",
     "attributes":[],
     "dependencies": [],        
-    "vulnerabilities":["buffer overflow, command injection, connection string injection, denial of service, format string attacks, integer overflow, out of bounds, symlink, use after free"],
+    "vulnerabilities":["buffer overflow, command injection, sql injection, path traversal, connection string injection, denial of service, format string attacks, integer overflow, out of bounds, symlink, use after free"],
+    "CWEs":["CWE-787","CWE-89","CWE-20","CWE-416","CWE-22","CWE-77","CWE-125","CWE-190","CWE-400"],
     "installers": [
       {
         "architecture": "x86",

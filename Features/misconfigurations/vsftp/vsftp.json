@@ -5,6 +5,7 @@
     "dependencies":[
         { "resource":"ftp" }
     ],
+    "CWEs":["CWE-434","CWE-287","CWE-276"],
     "installers":[
         {
             "architecture": "x86",

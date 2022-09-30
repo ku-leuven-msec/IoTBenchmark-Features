@@ -5,7 +5,8 @@
     "dependencies":[
       { "resource":"cron" }
   ],
-    "installers": [
+  "CWEs":["CWE-295"],
+  "installers": [
       {
         "architecture": "x86",
         "installscript": "./rest/addRest.sh"

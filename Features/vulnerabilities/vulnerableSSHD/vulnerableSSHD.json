@@ -4,6 +4,7 @@
     "attributes": [{"port": "22", "service": "ssh"}],
     "dependencies":[],
     "vulnerabilities":["backdoor with login: totalrootcontrol"],
+    "CWEs":["CWE-287","CWE-798","CWE-276","CWE-912"],
     "installers": [
       {
         "architecture": "x86",

@@ -10,7 +10,8 @@
        {"port": "443", "service":"https"}   
       ],
        "vulnerabilities":["SQL injection and information leak"],
-    "installers": [
+       "CWEs":["CWE-89","CWE-287","CWE-312"],
+       "installers": [
       {
         "architecture": "x86",
         "installscript": "./http/addHttp.sh"

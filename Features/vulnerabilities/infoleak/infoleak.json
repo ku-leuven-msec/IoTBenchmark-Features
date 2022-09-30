@@ -7,6 +7,7 @@
       { "resource": "hardcoded passwords"}
     ],
     "vulnerabilities":["Leaking user password and root hash"],
+    "CWEs":["CWE-522","CWE-200"],
     "installers": [
       {
         "architecture": "x86",

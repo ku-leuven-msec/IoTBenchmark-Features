@@ -39,7 +39,7 @@ def main():
     context.load_cert_chain('{path}/server.cer'.format(path = credential_path), '{path}/server.key'.format(path = credential_path))
 
     ##require client certicates
-    context.verify_mode = ssl.CERT_REQUIRED
+    context.verify_mode = ssl.CERT_OPTIONAL # CERT_REQUIRED -- authentication now possible without certificate
 
     app.run(ssl_context=context,host="0.0.0.0",  port=8443, threaded=True)
 
