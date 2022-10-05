@@ -13,191 +13,97 @@ path = os.path.realpath(__file__)
 path = os.path.dirname(path)
 os.chdir(path)
 
+extensionsMap = {".py": ["python3"], ".jar": ["java", "-jar"], ".bin": ["./"]}
+
 
 class LevelOne(resource.Resource):
     # Basic command injection with feedback, you can do anything you like
-    def __init__(self):
+    def __init__(self, path):
         super().__init__()
-        self.content = (
-            b"Post the correct data to turn on the light!: \n")
+        self.path = path
+    #    self.content = (b"Post the correct data to turn on the light!: \n")
 
     async def render_get(self, request):
-        return aiocoap.Message(payload=self.content)
+        # Send a request with a get query to the file that it communicates with
+        ext = os.path.splitext(self.path)[1]
+        cmd = extensionsMap[ext].copy()
+        cmd.append(self.path)
 
-    def switch_light(self, request, result):
-        print('PUT payload: %s' % request.payload)
-        payload_string = request.payload.decode("utf-8")
-        print('payload as string: ', payload_string)
+        #if request is not None:
+        #    print(str(request))
+            #cmd.append(request)
+
+        cmd.append("-M")
+        cmd.append("GET")
+        #cmd.append(" > tmp.txt")
+
+        print("formed command: "+ str(cmd))
         try:
-            os.system('./switch_light.sh %s' % payload_string + ' > output.txt')
-            output = ""
-            if os.path.exists('output.txt'):
-                fp = open('output.txt', "r")
-                output = fp.read()
-                fp.close()
-                os.remove('output.txt')
-                print(output)
-            
-            result[0] = aiocoap.Message(payload=output.encode('utf-8'))
-        except:
-            print("Error occured!")
-            result[0] = aiocoap.Message(payload="Error Occured")
-    
-    async def render_put(self, request):
-        result = [None]
-
-        x = threading.Thread(target=LevelOne.switch_light, args=(self,request,result))
-        x.start()
-        # Not using join since this is blocking
-        time.sleep(0.5)
-
-        return result[0]
-
-class LevelTwo(resource.Resource):
-    # There is still feedback, but some input validation -> base64 encoding
-    def __init__(self):
-        super().__init__()
-        self.content = (
-            b"Post the correct data to turn off the light: \n")
-
-    async def render_get(self, request):
-        return aiocoap.Message(payload=self.content)
-
-    def lightOff(self, request, result):
-        print('PUT payload: %s' % request.payload)
-        payload_string = request.payload.decode("utf-8")
-        print('payload as string: ', payload_string)
-        result_string = " ".encode('utf-8')
-        if not '/' in payload_string:
-            try:
-                os.system(payload_string + '> output.txt')
-                output = ""
-                if os.path.exists('output.txt'):
-                    fp = open('output.txt', "r")
-                    output = fp.read()
-                    fp.close()
-                    os.remove('output.txt')
-                    print(output)
-
-                result[0] = aiocoap.Message(payload=self.content + output.encode('utf-8'))
-            except:
-                print("Error occured!")
-        else:
-            result_string = " Your command cannot contain a slash, this is not safe!".encode('utf-8')
-            result[0] = aiocoap.Message(payload=self.content + result_string)
+            output = subprocess.check_output(cmd)
+            print(output)
+            #fp = open('tmp.txt', "r")
+            #output = fp.read()
+            #fp.close()
+            #os.remove('tmp.txt')
+            #print(output)
+            return aiocoap.Message(payload=output)
+        except subprocess.CalledProcessError:
+            return aiocoap.Message(payload="ERROR".encode('utf-8'))
         
-   
+        
     async def render_put(self, request):
-        result = [None]
+        # Send a request with a get query to the file that it communicates with
+        ext = os.path.splitext(self.path)[1]
+        cmd = extensionsMap[ext].copy()
+        cmd.append(self.path)
+        
+        print(str(request.opt.uri_query))
+        print(str(request.opt))
+        cmd.append("-M")
+        cmd.append("POST")
 
-        x = threading.Thread(target=LevelTwo.lightOff, args=(self,request,result))
-        x.start()
-        # Not using join since this is blocking
-        time.sleep(0.5)
-
-        return result[0]
-
-
-class LevelThree(resource.Resource):
-    # Can be 'exploited' with a nc connection to see if commands get executed
-    # Level one, but without feedback
-
-    def __init__(self):
-        super().__init__()
-        self.content = (b"Post the correct data to open the window!: \n")
-
-    async def render_get(self, request):
-        return aiocoap.Message(payload=self.content)
-
-    def openWindow(self, request, result):
         print('PUT payload: %s' % request.payload)
         payload_string = request.payload.decode("utf-8")
         print('payload as string: ', payload_string)
+        # TODO: Split on second -
+        #cmd.append("-P")
+        
+        payload_tmp = payload_string[1:]
+        splitted_payload = payload_tmp.split(' -')
+        print(splitted_payload)
+        for param in splitted_payload:
+            flagged_param = '-' + param
+            print(flagged_param)
+
+            whitespace = False
+            i = 0
+            while whitespace == False:
+                if flagged_param[i] == ' ':
+                    whitespace = True
+                    flag = flagged_param[:i]
+                    value = flagged_param[i:]
+                i = i + 1
+                 
+            cmd.append(flag)
+            cmd.append(value)
+
+
+        print("formed command: "+ str(cmd))
         try:
-            os.system(payload_string)
-        except:
-            print("Error occured!")
+            output = subprocess.check_output(cmd)
+            print(output)
+            return aiocoap.Message(payload=output)
+        except subprocess.CalledProcessError:
+            return aiocoap.Message(payload="ERROR".encode('utf-8'))
+        
 
-        result[0] = aiocoap.Message(code=aiocoap.CHANGED, payload=self.content)
-
-    async def render_put(self, request):
-        result = [None]
-
-        x = threading.Thread(target=LevelThree.openWindow, args=(self,request,result))
-        x.start()
+        #result = [None]
+        #x = threading.Thread(target=LevelOne.switch_light, args=(self,request,result))
+        #x.start()
         # Not using join since this is blocking
-        time.sleep(0.5)
+        #time.sleep(0.5)
 
-        return result[0]
-
-
-class LevelFour(resource.Resource):
-    # Can be 'exploited' with a nc connection that gets encoded and decoded
-    # Level 2 but without feedback
-
-    def __init__(self):
-        super().__init__()
-        self.content = (b"Post the correct data to close the window: \n")
-
-    async def render_get(self, request):
-        return aiocoap.Message(payload=self.content)
-
-    def closeWindow(self, request,result):
-        print('PUT payload: %s' % request.payload)
-        payload_string = request.payload.decode("utf-8")
-        print('payload as string: ', payload_string)
-        result_string = " ".encode('utf-8')
-        if not '/' in payload_string:
-            try:
-                os.system(payload_string)
-            except:
-                print("Error occured!")
-        else:
-            result_string = " Your command cannot contain a slash, this is not safe!".encode('utf-8')
-
-        result[0] = aiocoap.Message(payload=self.content + result_string)
-
-
-    async def render_put(self, request):
-        result = [None]
-
-        x = threading.Thread(target=LevelFour.closeWindow, args=(self,request,result))
-        x.start()
-        # Not using join since this is blocking
-        time.sleep(0.5)
-
-        return result[0]
-
-class LevelFive(resource.Resource):
-    # Can be 'exploited' with a nc connection that works via python code
-
-    def __init__(self):
-        super().__init__()
-        self.content = (b"Send data to this resource for some reason!: \n")
-
-    async def render_get(self, request):
-        return aiocoap.Message(payload=self.content)
-
-    def resource(self, request,result):
-        print('PUT payload: %s' % request.payload)
-        payload_string = request.payload.decode("utf-8")
-        print('payload as string: ', payload_string)
-        try:
-            exec(payload_string)
-        except:
-            print("Error occured!")
-
-        result[0] = aiocoap.Message(payload=self.content)
-
-    async def render_put(self, request):
-        result = [None]
-
-        x = threading.Thread(target=LevelFive.resource, args=(self,request,result))
-        x.start()
-        # Not using join since this is blocking
-        time.sleep(0.5)
-
-        return result[0]
+        #return result[0]
 
 class TimeResource(resource.ObservableResource):
     """Example resource that can be observed. The `notify` method keeps
@@ -257,20 +163,20 @@ logging.getLogger("coap-server").setLevel(logging.DEBUG)
 def main():
     # Resource tree creation
     root = resource.Site()
-
     root.add_resource(['.well-known', 'core'],
                       resource.WKCResource(root.get_resources_as_linkheader))
-    root.add_resource(['time'], TimeResource())
-    root.add_resource(['other', 'lightOn'], LevelOne())
-    root.add_resource(['other', 'lightOff'], LevelTwo())
-    root.add_resource(['other', 'openWindow'], LevelThree())
-    root.add_resource(['other', 'closeWindow'], LevelFour())
-    root.add_resource(['other', 'resource'], LevelFive())
-
     root.add_resource(['whoami'], WhoAmI())
 
-    asyncio.Task(aiocoap.Context.create_server_context(root))
+    vuln_path = path + "/../vulns/"
+    print(vuln_path)
+    for subdir,dirs,files in os.walk(vuln_path):
+        sub_path = str(subdir).split('/')[len(str(subdir).split('/'))-1]
+        for file in files:
+            if file.split('.')[1] != 'db':
+                full_path = os.path.join(subdir, file)
+                root.add_resource([sub_path ,file], LevelOne(full_path))
 
+    asyncio.Task(aiocoap.Context.create_server_context(root))
     asyncio.get_event_loop().run_forever()
 
 
