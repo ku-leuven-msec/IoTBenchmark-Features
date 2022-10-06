@@ -2,7 +2,7 @@ from flask import Flask, app
 from flask import render_template, url_for, flash, request, redirect, Response
 import sqlite3
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
-from forms import LoginForm
+from forms import LoginForm, updateForm
 import ssl
 import os
 path = os.path.realpath(__file__)
@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 app.config.update(dict(
     SECRET_KEY="powerful secretkey",
-    WTF_CSRF_SECRET_KEY="a csrf secret key"
+#    WTF_CSRF_SECRET_KEY="a csrf secret key"
 ))
 #app.secret_key = "powerful secretkey"
 #app.config['SECRET_KEY'] = "powerful secretkey"
@@ -48,6 +48,8 @@ class User(UserMixin):
 
     def get_id(self):
         return self.id
+    def change_email(self, email):
+        self.email = email
 
 
 @login_manager.user_loader
@@ -94,23 +96,75 @@ def redirection():
     return redirect(url_for("login"))
 
 
-@app.route("/profile", methods=['GET'])
+@app.route("/profile", methods=['GET','POST'])
 @login_required
 def profile():
     #print("login successful")
     con = sqlite3.connect("priv.db")
     con.row_factory = sqlite3.Row
-
     cur=con.cursor()
     cur.execute("select * from priv")
     rows = cur.fetchall()
+    formUpdate = updateForm()
+    if formUpdate.validate_on_submit():
+        print("current id user " +str(current_user.id))
+        conn = sqlite3.connect('login.db')
+        curs = conn.cursor()
+        email = formUpdate.email.data
+        #print(" \"SELECT * FROM login where email = '%s' and password = '%s'\" " % (data, passw))
 
-    return render_template('profile.html', title='profile', rows=rows)
+        print("updating user "+current_user.email +" to " + email)
+        curs.execute("UPDATE login SET email = '%s' WHERE id = '%s'" % (email,current_user.id))
+        conn.commit()
+        print("Done")
+
+        curs.execute("SELECT * FROM login where id = '%s' " % (current_user.id))
+        data = curs.fetchone()
+        Us = load_user(data[0])
+        print("user is now " + str(Us.id) + " " + str(Us.email) + " " + str(Us.password))
+    return render_template('profile.html', title='profile', rows=rows, form=formUpdate)
+
 
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
+@app.route("/admin", methods=['POST', 'GET'])
+def admin_remarks():
+    db_file = "comments.txt"
+    file = os.path.dirname(path) + "/" + db_file
+    print(file)
+    if not os.path.isfile(file):
+        f = open("comments.txt","w")
+
+    if request.method == 'POST':
+        comment = request.form["comment"]
+        
+        with open(db_file, "a") as f:
+            f.write(comment+"\n")
+        
+    comments = ""
+    with open(db_file, "r+") as f:
+        for line in f.readlines():
+            comments+=f"<div>{line}</div>"
+        page = f"""
+        <html>
+        <head></head>
+        <body>
+            <h>Under development!</h>
+            <form action="#" method="POST">
+                <input type="text" id="comment" name="comment"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+            {comments}
+        </body>
+        </html> 
+    """
+    return page
+
+    #return render_template('admin.html', title='admin', form=comment)
+
 
 def main():
     #app.config.update(dict(
