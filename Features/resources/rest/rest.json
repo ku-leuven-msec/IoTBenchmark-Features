@@ -3,7 +3,9 @@
     "info": "Install rest service",
     "attributes":[],
     "dependencies":[
-      { "resource":"cron" }
+      { "resource":"cron" },
+      { "resource":"Python3"},
+      { "resource":"Certificates"}
   ],
   "CWEs":["CWE-295"],
   "installers": [

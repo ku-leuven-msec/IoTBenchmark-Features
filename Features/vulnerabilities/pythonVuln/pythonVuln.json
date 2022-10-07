@@ -1,10 +1,10 @@
 {
     "name": "python",
-    "info": "Adding the languague python that contains certain vulnerabilities",
+    "info": "Adding scripts the languague python that contains certain vulnerabilities",
     "attributes":[],
     "dependencies": [],        
-    "vulnerabilities":["command injection, path traversal, SQL inection, server side template injection"],
-    "CWEs":["CWE-89","CWE-77","CWE-78","CWE-22","CWE-1336"],
+    "vulnerabilities":["command injection, path traversal, SQL inection, server side template injection, Object deserialisation"],
+    "CWEs":["CWE-89","CWE-77","CWE-78","CWE-22","CWE-1336","CWE-502"],
     "installers": [
       {
         "architecture": "x86",

@@ -5,7 +5,7 @@
     "dependencies": [
       { "resource": "cron" }
     ],     
-    "vulnerabilities":["Command injection in the cronjob"],
+    "vulnerabilities":["Command injection in file executed by cron"],
     "CWEs":["CWE-78","CWE-77","CWE-269","CWE-732"],
     "installers": [
       {
