@@ -1,6 +1,6 @@
 {
     "name": "http",
-    "info": "Installing http server with a sql injection and a information leak",
+    "info": "Installing http server with multiple vulnerabilities: SQL injection, XSS, CSRF and a information leak",
     "dependencies": [
       { "resource": "Python3"},
       { "resource": "cron"}
@@ -9,8 +9,8 @@
        {"port": "80", "service": "http"},
        {"port": "443", "service":"https"}   
       ],
-       "vulnerabilities":["SQL injection and information leak"],
-       "CWEs":["CWE-89","CWE-287","CWE-312"],
+      "vulnerabilities":["SQL injection, XSS, CSRF and information leak"],
+      "CWEs":["CWE-89","CWE-287","CWE-312"],
        "installers": [
       {
         "architecture": "x86",

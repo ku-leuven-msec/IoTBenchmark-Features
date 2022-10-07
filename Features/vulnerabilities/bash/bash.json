@@ -1,6 +1,6 @@
 {
     "name": "bash",
-    "info": "Adding the languague bash that contains certain vulnerabilities",
+    "info": "Adding scripts written in in the languague bash that contains certain vulnerabilities",
     "attributes":[],
     "dependencies": [],        
     "vulnerabilities":["command injection and path traversal"],

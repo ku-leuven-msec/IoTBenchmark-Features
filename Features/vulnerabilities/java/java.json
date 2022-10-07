@@ -1,10 +1,10 @@
 {
     "name": "java",
-    "info": "Adding the languague java that contains certain vulnerabilities",
+    "info": "Adding scripts in the languague java that contains certain vulnerabilities",
     "attributes":[],
     "dependencies": [],        
-    "vulnerabilities":["Command injection , path traversal, SQL injection"],
-    "CWEs":["CWE-89","CWE-78","CWE-77","CWE-22"],
+    "vulnerabilities":["Command injection , path traversal, SQL injection, Object deserialisation"],
+    "CWEs":["CWE-89","CWE-78","CWE-77","CWE-22","CWE-502"],
     "installers": [
       {
         "architecture": "x86",
