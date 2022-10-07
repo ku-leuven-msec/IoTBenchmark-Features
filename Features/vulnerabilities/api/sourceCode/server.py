@@ -9,7 +9,6 @@ from flask import Flask, abort, request
 
 app = Flask(__name__)
 
-PATH = environ.get("VULNS_PATH", "../vulns")
 PREFIX = environ.get("REST_PREFIX", "B4IoT")
 extensionsMap = {".py": ["python3"], ".jar": ["java", "-jar"], ".bin": ["./"]}
 
@@ -118,5 +117,6 @@ def add_dir(path):
 
 
 if __name__ == '__main__':
+    PATH = "/opt/dvd/services/vulns"
     add_dir(PATH)
     app.run()

@@ -10,7 +10,7 @@
     "installers": [
       {
         "architecture": "x86",
-        "installscript": "./cron/exploitableCronjob.sh"
+        "installscript": "./vulnerableCron/exploitableCronjob.sh"
       }
     ]
   }
