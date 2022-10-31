@@ -1,0 +1,20 @@
+{
+    "name": "java",
+    "subcategories":[
+      {"javaInterfaceCommandInjection":"./javaInterface/CommandInjection/addJavaCI.sh"},
+      {"javaInterfaceDeserialization":"./javaInterface/Deserialization/addJavaD.sh"},
+      {"javaInterfacePathTraversal":"./javaInterface/PathTraversal/addJavaPT.sh"},
+      {"javaInterfaceSqlInjection":"./javaInterface/SQLInjection/addJavaSQLI.sh"}
+    ],
+    "info": "Adding scripts in the languague java that contains certain vulnerabilities and communicate with the ouside world",
+    "attributes":[],
+    "dependencies": [],        
+    "vulnerabilities":["Command injection , path traversal, SQL injection"],
+    "CWEs":["CWE-89","CWE-78","CWE-77","CWE-22"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./java/addJava.sh"
+      }
+    ]
+  }

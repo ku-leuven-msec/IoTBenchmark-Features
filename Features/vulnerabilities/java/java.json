@@ -1,5 +1,11 @@
 {
     "name": "java",
+    "subcategories":[
+      {"javaCommandInjection":"./java/CommandInjection/addJavaCI.sh"},
+      {"javaDeserialization":"./java/Deserialization/addJavaD.sh"},
+      {"javaPathTraversal":"./java/PathTraversal/addJavaPT.sh"},
+      {"javaSqlInjection":"./java/SQLInjection/addJavaSQLI.sh"}
+    ],
     "info": "Adding scripts in the languague java that contains certain vulnerabilities",
     "attributes":[],
     "dependencies": [],        
