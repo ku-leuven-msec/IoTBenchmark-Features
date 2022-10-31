@@ -1,0 +1,19 @@
+{
+    "name": "cInterface",    
+    "subcategories":[
+      {"cCommandInjection":"./c/addCCI.sh"},
+      {"cBufferOverflow":"./c/addCBOF.sh"},
+      {"cSqlInjection":"./c/addCSQLI.sh"}
+    ],
+    "info": "Adding binaries written in c that contains certain vulnerabilities that can communciate with certain protocols",
+    "attributes":[],
+    "dependencies": [],        
+    "vulnerabilities":["buffer overflow, command injection, sql injection"],
+    "CWEs":["CWE-787","CWE-89","CWE-20"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./cInterface/addCInterface.sh"
+      }
+    ]
+  }

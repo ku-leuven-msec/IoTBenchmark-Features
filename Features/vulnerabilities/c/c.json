@@ -1,5 +1,13 @@
 {
-    "name": "c",
+    "name": "c",    
+    "subcategories":[
+      {"cBufferOverflow":"./c/addCBOF.sh"},
+      {"cCommandInjection":"./c/addCCI.sh"},
+      {"cPathTraversal":"./c/addCPT.sh"},
+      {"cSqlInjection":"./c/addCSQLI.sh"},
+      {"cFormatString":"./c/addCFS.sh"},
+      {"cMultipleVulns":"./c/addCMUL.sh"}
+    ],
     "info": "Adding binaries written in c that contains certain vulnerabilities",
     "attributes":[],
     "dependencies": [],        

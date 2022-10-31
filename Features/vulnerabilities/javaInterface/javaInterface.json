@@ -1,8 +1,7 @@
 {
-    "name": "java",
+    "name": "javaInterface",
     "subcategories":[
       {"javaInterfaceCommandInjection":"./javaInterface/CommandInjection/addJavaCI.sh"},
-      {"javaInterfaceDeserialization":"./javaInterface/Deserialization/addJavaD.sh"},
       {"javaInterfacePathTraversal":"./javaInterface/PathTraversal/addJavaPT.sh"},
       {"javaInterfaceSqlInjection":"./javaInterface/SQLInjection/addJavaSQLI.sh"}
     ],

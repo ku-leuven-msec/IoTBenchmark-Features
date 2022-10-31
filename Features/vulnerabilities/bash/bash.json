@@ -1,5 +1,9 @@
 {
     "name": "bash",
+    "subcategories":[
+      {"bashCommandInjection":"./bash/CommandInjection/addBashCI.sh"},
+      {"bashPathTraversal":"./bash/PathTraversal/addBashPT.sh"}
+    ],
     "info": "Adding scripts written in in the languague bash that contains certain vulnerabilities",
     "attributes":[],
     "dependencies": [],        

@@ -1,6 +1,13 @@
 {
     "name": "python",
-    "info": "Adding scripts the languague python that contains certain vulnerabilities",
+    "subcategories":[
+      {"pythonCommandInjection":"./python/CommandInjection/addPythonCI.sh"},
+      {"pythonDeserialization":"./python/Deserialization/addPythonD.sh"},
+      {"pythonPathTraversal":"./python/PathTraversal/addPythonPT.sh"},
+      {"pythonSqlInjection":"./python/SQLInjection/addPythonSQLI.sh"},
+      {"pythonSSTI":"./python/ServerSideTemplateInjection/addPythonSSTI.sh"}
+    ],
+    "info": "Adding scripts the languague python that contains certain vulnerabilities and communicate with the ouside world",
     "attributes":[],
     "dependencies": [],        
     "vulnerabilities":["command injection, path traversal, SQL inection, server side template injection, Object deserialisation"],
