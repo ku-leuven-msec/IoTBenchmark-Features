@@ -1,6 +1,6 @@
 {
-    "name": "Customtelnet",
-    "info": "Hardcoded credentials in code for the telnet server",
+    "name": "misconfigured telnet",
+    "info": "A python telnet server that uses hardcoded credentials",
     "attributes":[{"port":"23", "service":"telnet"}],
     "dependencies":[
         { "resource":"Python3" },

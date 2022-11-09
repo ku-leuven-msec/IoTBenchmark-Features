@@ -1,5 +1,10 @@
 {
     "name": "misconfigured ssh",
+    "subcategories":[
+        {"weakSSHWC":"./ssh/addWC.sh"},
+        {"weakSSHPRL":"./ssh/addPRL.sh"},
+        {"weakSSHPEM":"./ssh/addPEM.sh"}
+      ],
     "info": "Weak cipher, permitted root login, Permitted empty passwords",
     "attributes":[],
     "dependencies":[

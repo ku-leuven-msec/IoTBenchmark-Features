@@ -1,7 +1,13 @@
 {
     "name": "misconfigured vsftp",
-    "info": "Allow anonymous FTP, write enabled, upload enabled, ...",
-    "attributes":[],
+    "subcategories":[
+        {"weakVsftpChown":"./vsftp/addWChown.sh"},
+        {"weakVsftpLogin":"./vsftp/addWLogin.sh"},
+        {"weakVsftpWrite":"./vsftp/addWrite.sh"}
+      ],
+
+      "info": "Use a bad configuration file for vsftp that: Allow anonymous FTP, write enabled, upload enabled, ...",
+      "attributes":[],
     "dependencies":[
         { "resource":"ftp" }
     ],

@@ -6,3 +6,6 @@ mv sshd_config /etc/ssh/sshd_config
 mkdir -p /usr/local/etc/
 rm -rf /usr/local/etc/*
 ln /etc/ssh/* /usr/local/etc/
+# add key that gets leaked..
+# TODO Testing...
+ssh-keygen -t rsa -N '' -f /home/id_rsa 
