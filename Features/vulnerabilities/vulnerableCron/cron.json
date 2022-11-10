@@ -1,6 +1,10 @@
 {
     "name": "vulnerable cronjob",
-    "info": "adding a cronjob to cron that will be able to be exploited",
+    "subcategories":[
+      {"  CronjobWildcardInjection":"./cron/addWCI.sh"},
+      {"CronjobWithBadPermissions":"./cron/addCWBP.sh"}
+    ],
+    "info": "adding cronjobs to cron that are vulnerable, one with a wildcard injections, and another with bad permissions",
     "attributes":[],
     "dependencies": [
       { "resource": "cron" }
