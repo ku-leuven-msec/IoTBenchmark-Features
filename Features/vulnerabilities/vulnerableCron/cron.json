@@ -1,14 +1,14 @@
 {
     "name": "vulnerable cronjob",
     "subcategories":[
-      {"  CronjobWildcardInjection":"./cron/addWCI.sh"},
+      {"CronjobWildcardInjection":"./cron/addWCI.sh"},
       {"CronjobWithBadPermissions":"./cron/addCWBP.sh"}
     ],
     "info": "adding cronjobs to cron that are vulnerable, one with a wildcard injections, and another with bad permissions",
     "attributes":[],
     "dependencies": [
       { "resource": "cron" }
-    ],     
+    ],
     "vulnerabilities":["Command injection in file executed by cron"],
     "CWEs":["CWE-78","CWE-77","CWE-269","CWE-732"],
     "installers": [

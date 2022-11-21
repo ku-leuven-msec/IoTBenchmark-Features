@@ -1,6 +1,17 @@
 {
     "name": "infoleak",
-    "info": "Leaking passes and hashes",
+    "subcategories":[
+      {"typeCsv":"./python/CommandInjection/addPythonCI.sh"},
+      {"typeXlsx":"./python/Deserialization/addPythonD.sh"},
+      {"typeDb":"./python/PathTraversal/addPythonPT.sh"},
+      {"Pattern username:passwod":"./python/SQLInjection/addPythonSQLI.sh"},
+      {"Pattern username:hash":"./python/ServerSideTemplateInjection/addPythonSSTI.sh"},
+      {"Pattern hash":"./python/SQLInjection/addPythonSQLI.sh"},
+      {"Pattern username=username&password=password":"./python/ServerSideTemplateInjection/addPythonSSTI.sh"}
+
+    ],
+
+    "info": "Leaking usernames, password and password hashes in different file types and patterns",
     "attributes":[],
     "dependencies": [
       { "resource": "add users"},

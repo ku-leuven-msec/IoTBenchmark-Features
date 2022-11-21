@@ -1,0 +1,20 @@
+{
+    "name": "vulnerable suid rights",
+    "subcategories":[
+      {"addSuidCat":"./sudo/addENV.sh"},
+      {"addSuid":"./sudo/addCat.sh"}
+    ],
+    "info": "Adding SUID rights that can be exploited. On the cat and or env binary",
+    "attributes":[],
+    "dependencies": [
+      { "resource": "sudo" }
+    ],        
+    "vulnerabilities":["Privilege escalation"],
+    "CWEs":["CWE-732"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./badSuidRights/suidRights.sh"
+      }
+    ]
+  }

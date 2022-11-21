@@ -3,12 +3,15 @@
     "subcategories":[
         {"weakSSHWC":"./ssh/addWC.sh"},
         {"weakSSHPRL":"./ssh/addPRL.sh"},
-        {"weakSSHPEM":"./ssh/addPEM.sh"}
+        {"weakSSHPEM":"./ssh/addPEM.sh"},
+        {"ManagerKey":"./ssh/addKey.sh"}
       ],
-    "info": "Weak cipher, permitted root login, Permitted empty passwords",
+    "info": "Weak cipher, permitted root login, Permitted empty passwords and a key that gets leaked in the firmware",
     "attributes":[],
     "dependencies":[
-        { "resource":"ssh" }
+        { "resource":"ssh" },
+        { "resource":"add users" }
+
     ],
     "CWEs":["CWE-276","CWE-287"],
     "installers":[
