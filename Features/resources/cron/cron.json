@@ -2,7 +2,9 @@
     "name": "cron",
     "info": "install cron",
     "attributes":[],
-    "dependencies":[],
+    "dependencies":[
+            { "resource": "openrc"}
+  ],
     "installers": [
       {
         "architecture": "x86",

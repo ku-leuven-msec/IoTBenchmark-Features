@@ -2,7 +2,9 @@
     "name": "ftp",
     "info": "install ftp service",
     "attributes": [{"port": "21", "service": "ftp"}],
-    "dependencies":[],
+    "dependencies":[      
+      { "resource": "openrc"}
+  ],
     "installers": [
       {
         "architecture": "x86",

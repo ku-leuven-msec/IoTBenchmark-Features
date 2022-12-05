@@ -2,7 +2,9 @@
     "name": "ssh",
     "info": "install ssh service",
     "attributes": [{"port": "22", "service": "ssh"}],
-    "dependencies":[],
+    "dependencies":[ 
+      { "resource": "openrc"}
+  ],
     "installers": [
       {
         "architecture": "x86",

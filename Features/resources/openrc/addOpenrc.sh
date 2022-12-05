@@ -16,3 +16,7 @@ FILE=/usr/sbin/crond
 if test -f "$FILE"; then
     rc-update add crond default
 fi 
+FILE=/usr/sbin/mosquitto
+if test -f "$FILE"; then
+    rc-update add mosquitto default
+fi 
