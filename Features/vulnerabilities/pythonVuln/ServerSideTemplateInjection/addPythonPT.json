@@ -1,0 +1,5 @@
+{
+    "vulnerabilities":["Server side template injection"],
+    "CWEs":["CWE-1336"]
+
+}

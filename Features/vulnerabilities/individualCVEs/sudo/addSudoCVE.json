@@ -1,0 +1,4 @@
+{
+    "vulnerabilities":["CVE-2019-14287"],
+    "CWEs":["CWE-288"]
+}

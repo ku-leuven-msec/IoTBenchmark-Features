@@ -1,0 +1,4 @@
+{
+    "vulnerabilities":["Object deserialisation"],
+    "CWEs":["CWE-502"]
+}

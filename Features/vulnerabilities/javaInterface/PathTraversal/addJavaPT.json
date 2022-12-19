@@ -1,0 +1,4 @@
+{
+    "vulnerabilities":["path traversal"],
+    "CWEs":["CWE-22"]
+}

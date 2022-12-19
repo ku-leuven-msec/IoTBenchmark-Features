@@ -1,0 +1,4 @@
+{
+    "vulnerabilities":["privilege escalation"],
+    "CWEs":["CWE-269"]
+}

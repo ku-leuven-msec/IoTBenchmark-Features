@@ -1,0 +1,4 @@
+{
+    "vulnerabilities":["privilege escalation using SETENV"],
+    "CWEs":["CWE-269", "CWE-250"]
+}

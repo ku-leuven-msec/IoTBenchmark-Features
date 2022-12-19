@@ -9,7 +9,7 @@
      {"port": "80", "service": "http"},
      {"port": "443", "service":"https"}   
     ],
-     "vulnerabilities":["SQL injection, XSS, CSRF and information leak"],
+     "vulnerabilities":["SQL injection", "XSS", "CSRF" , "information leak"],
      "CWEs":["CWE-89","CWE-287","CWE-312"],
      "installers": [
     {

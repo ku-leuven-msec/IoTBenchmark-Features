@@ -1,18 +1,18 @@
 {
     "name": "c",    
     "subcategories":[
-      {"cBufferOverflow":"./c/addCBOF.sh"},
-      {"cCommandInjection":"./c/addCCI.sh"},
-      {"cPathTraversal":"./c/addCPT.sh"},
-      {"cSqlInjection":"./c/addCSQLI.sh"},
-      {"cFormatString":"./c/addCFS.sh"},
-      {"cMultipleVulns":"./c/addCMUL.sh"}
+      {"cBufferOverflow":"./c/bof/addCBOF.sh"},
+      {"cCommandInjection":"./c/ci/addCCI.sh"},
+      {"cPathTraversal":"./c/pt/addCPT.sh"},
+      {"cSqlInjection":"./c/sqli/addCSQLI.sh"},
+      {"cFormatString":"./c/fs/addCFS.sh"},
+      {"cMultipleVulns":"./c/mul/addCMUL.sh"}
     ],
     "info": "Adding binaries written in c that contains certain vulnerabilities",
     "attributes":[],
     "dependencies": [],        
-    "vulnerabilities":["buffer overflow, command injection, sql injection, path traversal, connection string injection, denial of service, format string attacks, integer overflow, out of bounds, symlink, use after free"],
-    "CWEs":["CWE-787","CWE-89","CWE-20","CWE-416","CWE-22","CWE-77","CWE-125","CWE-190","CWE-400"],
+    "vulnerabilities":["buffer overflow", "command injection", "sql injection", "path traversal", "connection string injection", "denial of service", "format string", "integer overflow", "out of bounds", "symlink", "use after free"],
+    "CWEs":["CWE-121","CWE-787","CWE-89","CWE-20","CWE-416","CWE-22","CWE-77","CWE-125","CWE-134","CWE-190","CWE-400"],
     "installers": [
       {
         "architecture": "x86",

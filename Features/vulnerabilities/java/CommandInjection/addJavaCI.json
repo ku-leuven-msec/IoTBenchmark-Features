@@ -1,0 +1,4 @@
+{
+    "vulnerabilities":["Command injection"],
+    "CWEs":["CWE-77","CWE-78"]
+}

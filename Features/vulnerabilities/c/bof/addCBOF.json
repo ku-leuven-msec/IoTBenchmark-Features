@@ -1,0 +1,4 @@
+{
+    "vulnerabilities":["buffer overflow"],
+    "CWEs":["CWE-787","CWE-121"]
+}

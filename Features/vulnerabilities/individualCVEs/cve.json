@@ -1,15 +1,15 @@
 {
     "name": "individualCVEs",
     "subcategories":[
-      {"Mosquitto":"./individualCVEs/addMosquitto.sh"},
-      {"Smtpd":"./individualCVEs/addOpenSmtpd.sh"},
-      {"Sudo":"./individualCVEs/addZlibCVE.sh"},
-      {"Zlib":"./individualCVEs/addSudoCVE.sh"}
+      {"Mosquitto":"./individualCVEs/mosquitto/addMosquitto.sh"},
+      {"Smtpd":"./individualCVEs/opensmtpd/addOpenSmtpd.sh"},
+      {"Sudo":"./individualCVEs/sudo/addSudoCVE.sh"},
+      {"Zlib":"./individualCVEs/zlib/addZlibCVE.sh"}
     ],
     "info": "adding CVE's that are exploitable \n Sudo version 1.8319_p1_r0, this version in vulnerable to CVE-2019-14287. \n Zlib 1.2.15 containing CVE-2021-43521. \n Opensmtpd version 6.0.3p1-r3 which is vulnerable to CVE-2020-8794. \n Mosquitto version 1.6.3-r0, that has the CVE-2021-34431. \n other CVE's are also possible, but are not tested and are unsure.",
     "attributes":[],
     "dependencies": [],
-    "vulnerabilities":["CVE-2019-14287, CVE-2021-43521, CVE-2020-8794, CVE-2021-34431"],
+    "vulnerabilities":["CVE-2019-14287", "CVE-2021-43521", "CVE-2020-8794", "CVE-2021-34431"],
     "CWEs":["CWE-288"],
     "installers": [
       {

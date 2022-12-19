@@ -1,13 +1,13 @@
 {
     "name": "infoleak",
     "subcategories":[
-      {"typeCsv":"./python/CommandInjection/addPythonCI.sh"},
-      {"typeXlsx":"./python/Deserialization/addPythonD.sh"},
-      {"typeDb":"./python/PathTraversal/addPythonPT.sh"},
-      {"Pattern username:passwod":"./python/SQLInjection/addPythonSQLI.sh"},
-      {"Pattern username:hash":"./python/ServerSideTemplateInjection/addPythonSSTI.sh"},
-      {"Pattern hash":"./python/SQLInjection/addPythonSQLI.sh"},
-      {"Pattern username=username&password=password":"./python/ServerSideTemplateInjection/addPythonSSTI.sh"}
+      {"typeCsv":"./infoleak/csv/addCsv.sh"},
+      {"typeXlsx":"./infoleak/xlsx/addXlsx.sh"},
+      {"typeDb":"./infoleak/db/addDb.sh"},
+      {"Pattern username:passwod":"./infoleak/patterns/addP1.sh"},
+      {"Pattern username:hash":"./infoleak/patterns/addP2.sh"},
+      {"Pattern hash":"./infoleak/patterns/addP3.sh"},
+      {"Pattern username=username&password=password":"./infoleak/patterns/addP4.sh"}
 
     ],
 
@@ -17,7 +17,7 @@
       { "resource": "add users"},
       { "resource": "hardcoded passwords"}
     ],
-    "vulnerabilities":["Leaking user password and root hash"],
+    "vulnerabilities":["Leaking user password","Leaking root hash"],
     "CWEs":["CWE-522","CWE-200"],
     "installers": [
       {

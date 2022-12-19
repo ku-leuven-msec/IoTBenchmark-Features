@@ -1,0 +1,5 @@
+{
+    "vulnerabilities":["SQL inection"],
+    "CWEs":["CWE-89"]
+
+}

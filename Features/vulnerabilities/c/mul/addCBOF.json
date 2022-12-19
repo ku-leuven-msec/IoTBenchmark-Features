@@ -1,0 +1,4 @@
+{
+    "vulnerabilities":["buffer overflow" , "connection string injection", "denial of service",  "integer overflow", "out of bounds", "symlink", "use after free"],
+    "CWEs":["CWE-787","CWE-416","CWE-125","CWE-190","CWE-400"]
+}
