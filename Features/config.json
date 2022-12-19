@@ -1,414 +1,651 @@
+{ 
+"resources":[ 
 {
-  "resources": [
-    {
-      "name": "ssh",
-      "info": "install ssh service",
-      "attributes": [{"port": "22", "service": "ssh"}],
-      "dependencies":[],
-      "installers": [
-        {
-          "architecture": "x86",
-          "installscript": "./ssh/addSSH.sh"
-        }
-      ]
-    },
-    {
-      "name": "Certificates",
-      "info": "install certificates on device needed for some services",
-      "attributes":[],
-      "dependencies":[],
-      "installers": [
-        {
-          "architecture": "x86",
-          "installscript": "./certificates/addCertificates.sh"
-        }
-      ]
-    },
-    {
-      "name": "cron",
-      "info": "install cron",
-      "attributes":[],
-      "dependencies":[],
-      "installers": [
-        {
-          "architecture": "x86",
-          "installscript": "./cron/addCron.sh"
-        }
-      ]
-    },
-    {
-      "name": "ftp",
-      "info": "install ftp service",
-      "attributes": [{"port": "21", "service": "ftp"}],
-      "dependencies":[],
-      "installers": [
-        {
-          "architecture": "x86",
-          "installscript": "./ftp/addFtp.sh"
-        }
-      ]
-    },
-    {
-      "name": "openrc",
-      "info": "install & initialise openrc service",
-      "attributes":[],
-      "dependencies":[],
-      "installers": [
-        {
-          "architecture": "x86",
-          "installscript": "./openrc/addOpenrc.sh"
-        }
-      ]
-    },
-    {
-      "name": "Python3",
-      "info": "install pyhton3 and pip3",
-      "attributes":[],
-      "dependencies":[],
-      "installers": [
-        {
-          "architecture": "x86",
-          "installscript": "./python/addPython.sh"
-        }
-      ]
-    },
-    {
-      "name": "rest",
-      "info": "Install rest service, small problem with certificates",
-      "attributes":[],
-      "dependencies":[
-        { "resource":"cron" },
-        { "resource":"Python3"},
-        { "resource":"Certificates"}
-    ],
-    "CWEs":["CWE-295"],
-      "installers": [
-        {
-          "architecture": "x86",
-          "installscript": "./rest/addRest.sh"
-        }
-      ]
-    },
-    {
-      "name": "ssh keys",
-      "info": "Add ssh keys & authorised keys",
-      "attributes":[],
-      "dependencies":[
-        { "resource":"ssh" }
-    ],
-      "installers": [
-        {
-          "architecture": "x86",
-          "installscript": "./sshKeys/setupSSH.sh"
-        }
-      ]
-    },
-    {
-      "name": "sudo",
-      "info": "install sudo",
-      "attributes":[],
-      "dependencies":[],
-      "installers": [
-        {
-          "architecture": "x86",
-          "installscript": "./sudo/addSudo.sh"
-        }
-      ]
-    },
-    {
-      "name": "telnet",
-      "info": "install telnet service",
-      "attributes": [{"port": "23", "service": "telnet"}],
-      "dependencies":[
-        { "resource":"openrc" }
-    ],
-      "installers": [
-        {
-          "architecture": "x86",
-          "installscript": "./telnet/addTelnet.sh"
-        }
-      ]
-    },
-    {
-      "name": "add users",
-      "info": "add basic users (without password)",
-      "attributes":[],
-      "dependencies":[],
-      "installers": [
-        {
-          "architecture": "x86",
-          "installscript": "./users/addUsers.sh"
-        }
-      ]
-    }
-  ],
-    "misconfigurations":[
-        {
-            "name": "misconfigured ssh",
-            "info": "Use a bad configuration file that includes: Weak encryption cipher, permitted root login, Permitted empty passwords",
-            "attributes":[],
-            "dependencies":[
-                { "resource":"ssh" }
-            ],
-            "CWEs":["CWE-276","CWE-287"],
-            "installers":[
-                {
-                    "architecture": "x86",
-                    "installscript":"./ssh/addBadSSHConfig.sh"
-                }
-            ]
-        },
-        {
-          "name": "misconfigured vsftp",
-          "info": "Use a bad configuration file for vsftp that: Allow anonymous FTP, write enabled, upload enabled, ...",
-          "attributes":[],
-          "dependencies":[
-              { "resource":"ftp" }
-          ],
-          "CWEs":["CWE-434","CWE-287","CWE-276"],
-          "installers":[
-              {
-                  "architecture": "x86",
-                  "installscript":"./vsftp/addBadFTPConfig.sh"
-              }
-          ]
-      },
+    "name": "Certificates",
+    "info": "install certificates on device needed for some other services",
+    "attributes":[],
+    "dependencies":[],
+    "installers": [
       {
-        "name": "misconfigured telnet",
-        "info": "A python telnet server that uses hardcoded credentials",
-        "attributes":[{"port":"23", "service":"telnet"}],
-        "dependencies":[
-            { "resource":"Python3" },
-            { "resource": "cron" }
-        ],
-        "CWEs":["CWE-798","CWE-287","CWE-276","CWE-522","CWE-312"],
-        "installers":[
-            {
-                "architecture": "x86",
-                "installscript":"./customTelnet/addCustomTelnet.sh"
-            }
-        ]
-    }
-    ],
-    "vulnerabilities":[
-      {
-        "name": "vulnerable sudo rights",
-        "info": "Adding a sudo permissions on the less command, this can be exploited",
-        "attributes":[],
-        "dependencies": [
-          { "resource": "add users"},
-          { "resource": "sudo" }
-        ],        
-        "vulnerabilities":["sudo permissions on the less command"],
-        "CWEs":["CWE-269","CWE-427","CWE-22","CWE-668"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./badSudoRights/sudoRights.sh"
-          }
-        ]
-      },
-      {
-        "name": "vulnerable coap server",
-        "info": "modular coap server, with possible vulnerabilities behind it",
-        "dependencies": [
-          { "resource": "Python3"},
-          { "resource": "cron" }
-        ],     
-        "attributes": [{"port": "5683", "service": "coap"}],   
-        "vulnerabilities":["Possible Command injection, SQL injection, Path traversal and object deserialisation"],
-        "CWEs":["CWE-78","CWE-77","CWE-20","CWE-22","CWE-89"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "attributes": {},
-            "buildscript": "./coap/build_coap.sh",
-            "installscript": "./coap/addCoap.sh"
-          }
-        ]
-      },
-      {
-        "name": "api",
-        "info": "Installing a api server that contains a command injection",
-        "dependencies": [
-          { "resource": "Python3"},
-          { "resource": "cron" }
-        ],     
-        "attributes": [{"port": "5000", "service": "rest"}],   
-        "vulnerabilities":["modular rest server, with possible vulnerabilities behind it"],
-        "CWEs":["CWE-78","CWE-77","CWE-20","CWE-22","CWE-89"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "attributes": {},
-            "installscript": "./api/addApip.sh"
-          }
-        ]
-      },
-      {
-        "name": "vulnerable cronjob",
-        "info": "adding a cronjob to cron that will be able to be exploited",
-        "attributes":[],
-        "dependencies": [
-          { "resource": "cron" }
-        ],     
-        "vulnerabilities":["Command injection in file executed by cron"],
-        "CWEs":["CWE-78","CWE-77","CWE-269","CWE-732"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./cron/exploitableCronjob.sh"
-          }
-        ]
-      },
-      {
-        "name": "hardcoded passwords",
-        "info": "Adding hardcoded passwords to alll the users",
-        "attributes":[],
-        "dependencies": [
-          { "resource": "add users"}
-        ],        
-        "vulnerabilities":["Hardcoded passwords"],
-        "CWEs":["CWE-798","CWE-522"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./hardcodedPassword/hardcodedPasswords.sh"
-          }
-        ]
-      },
-      {
-        "name": "vulnerable http server",
-        "info": "Installing http server with multiple vulnerabilities: SQL injection, XSS, CSRF and a information leak",
-        "dependencies": [
-          { "resource": "Python3"},
-          { "resource": "cron"}
-        ],        
-        "attributes":[
-           {"port": "80", "service": "http"},
-           {"port": "443", "service":"https"}   
-          ],
-           "vulnerabilities":["SQL injection, XSS, CSRF and information leak"],
-           "CWEs":["CWE-89","CWE-287","CWE-312"],
-           "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./http/addHttp.sh"
-          }
-        ]
-      },
-      {
-        "name": "vulnerable apache server",
-        "info": "Installing apache server with a sql injection, XXS, CSRF a information leak, directory traversal, LFI, RCE and a Command injection",
-        "dependencies": [
-          { "resource": "Python3"},
-          { "resource": "openrc"}
-        ],
-        "attributes":[
-           {"port": "80", "service": "http"},
-           {"port": "443", "service":"https"}
-          ],
-           "vulnerabilities":["SQL injection, XSS, CSRF information leak, directory traversal, LFI, RCE and a command injection"],
-           "CWEs":["CWE-89","CWE-20","CWE-78","CWE-22","CWE-77","CWE-306","CWE-312","CWE-862"],
-           "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./apache2/addApache.sh"
-          }
-        ]
-      },
-      {
-        "name": "infoleak",
-        "info": "Leaking passes and hashes",
-        "attributes":[],
-        "dependencies": [
-          { "resource": "add users"},
-          { "resource": "hardcoded passwords"}
-        ],
-        "vulnerabilities":["Leaking user password and root hash"],
-        "CWEs":["CWE-522","CWE-200"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./infoleak/addInfoLeak.sh"
-          }
-        ]
-      },
-      {
-        "name": "vulnerable ssh",
-        "info": "SSH service with backdoor",
-        "attributes": [{"port": "22", "service": "ssh"}],
-        "dependencies":[],
-        "CWEs":["CWE-287","CWE-798","CWE-276","CWE-912"],
-        "vulnerabilities":["backdoor with login: totalrootcontrol"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "buildscript": "./ssh-vuln/build_ssh-vuln.sh",
-            "installscript": "./vulnerabeSSHD/addVulnerableSSH.sh"
-          },
-          {
-            "architecture": "arm32v7",
-            "buildscript": "./vulnerableSSHD/build_ssh-vuln.sh",
-            "installscript": "./vulnerabeSSHD/addVulnerableSSH_armv7.sh"
-          }
-        ]
-      },
-      {
-        "name": "bash",
-        "info": "Adding scripts written in in the languague bash that contains certain vulnerabilities",
-        "attributes":[],
-        "dependencies": [],        
-        "vulnerabilities":["command injection and path traversal"],
-        "CWEs":["CWE-78","CWE-22","CWE-77"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./bash/addBash.sh"
-          }
-        ]
-      },
-      {
-        "name": "c",
-        "info": "Adding binaries written in c that contains certain vulnerabilities",
-        "attributes":[],
-        "dependencies": [],        
-        "vulnerabilities":["buffer overflow, command injection, connection string injection, denial of service, format string attacks, integer overflow, out of bounds, symlink, use after free"],
-        "CWEs":["CWE-787","CWE-89","CWE-20","CWE-416","CWE-22","CWE-77","CWE-125","CWE-190","CWE-400"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./c/addC.sh"
-          }
-        ]
-      },
-      {
-        "name": "java",
-        "info": "Adding scripts in the languague java that contains certain vulnerabilities",
-        "attributes":[],
-        "dependencies": [],        
-        "vulnerabilities":["Command injection , path traversal, SQL injection, Path deserialisation"],
-        "CWEs":["CWE-89","CWE-78","CWE-77","CWE-22","CWE-502"],
-        "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./java/addJava.sh"
-          }
-        ]
-      },
-      {
-        "name": "python",
-        "info": "Adding scripts in the languague python that contains certain vulnerabilities",
-        "attributes":[],
-        "dependencies": [],        
-        "vulnerabilities":["command injection, path traversal, SQL inection, server side template injection, Object deserialisation"],
-        "CWEs":["CWE-89","CWE-77","CWE-78","CWE-22","CWE-1336","CWE-502"],
-            "installers": [
-          {
-            "architecture": "x86",
-            "installscript": "./pythonVuln/addPythonWithVuln.sh"
-          }
-        ]
+        "architecture": "x86",
+        "installscript": "./certificates/addCertificates.sh"
       }
     ]
+  },
+{
+    "name": "cron",
+    "info": "install cron",
+    "attributes":[],
+    "dependencies":[
+            { "resource": "openrc"}
+  ],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./cron/addCron.sh"
+      }
+    ]
+  },
+{
+    "name": "ftp",
+    "info": "install ftp service",
+    "attributes": [{"port": "21", "service": "ftp"}],
+    "dependencies":[      
+      { "resource": "openrc"}
+  ],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./ftp/addFtp.sh"
+      }
+    ]
+  },
+{
+    "name": "openrc",
+    "info": "install & initialise openrc service",
+    "attributes":[],
+    "dependencies":[],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./openrc/addOpenrc.sh"
+      }
+    ]
+  },
+{
+    "name": "Python3",
+    "info": "install pyhton3 and pip3",
+    "attributes":[],
+    "dependencies":[],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./python/addPython.sh"
+      }
+    ]
+  },
+{
+    "name": "rest",
+    "info": "Install rest service",
+    "attributes":[],
+    "dependencies":[
+      { "resource":"cron" },
+      { "resource":"Python3"},
+      { "resource":"Certificates"}
+  ],
+  "CWEs":["CWE-295"],
+  "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./rest/addRest.sh"
+      }
+    ]
+  },
+{
+    "name": "ssh",
+    "info": "install ssh service",
+    "attributes": [{"port": "22", "service": "ssh"}],
+    "dependencies":[ 
+      { "resource": "openrc"}
+  ],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./ssh/addSSH.sh"
+      }
+    ]
+  },
+{
+    "name": "ssh keys",
+    "info": "Add ssh keys & authorised keys",
+    "attributes":[],
+    "dependencies":[
+      { "resource":"ssh" }
+  ],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./sshKeys/setupSSH.sh"
+      }
+    ]
+  },
+{
+    "name": "sudo",
+    "info": "install sudo",
+    "attributes":[],
+    "dependencies":[],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./sudo/addSudo.sh"
+      }
+    ]
+  },
+{
+    "name": "telnet",
+    "info": "install telnet service",
+    "attributes": [{"port": "23", "service": "telnet"}],
+    "dependencies":[
+      { "resource":"openrc" }
+  ],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./telnet/addTelnet.sh"
+      }
+    ]
+  },
+{
+    "name": "add users",
+    "info": "add basic users (without password)",
+    "attributes":[],
+    "dependencies":[],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./users/addUsers.sh"
+      }
+    ]
+  }],
+ "misconfigurations":[{
+    "name": "misconfigured telnet",
+    "info": "A python telnet server that uses hardcoded credentials",
+    "attributes":[{"port":"23", "service":"telnet"}],
+    "dependencies":[
+        { "resource":"Python3" },
+        { "resource": "cron" }
+    ],
+    "vulnerabilities":["hardcoded credentials","outdated protocol","unencrypted traffic"],
+    "CWEs":["CWE-798","CWE-287","CWE-276","CWE-522","CWE-312"],
+    "location":"/opt/dvd/services/telnet/server.py",
+    "installers":[
+        {
+            "architecture": "x86",
+            "installscript":"./customTelnet/addCustomTelnet.sh"
+        }
+    ]
+},
+{
+    "name": "misconfigured ssh",
+    "subcategories":[
+        {"weakSSHWC":"./ssh/wc/addWC.sh"},
+        {"weakSSHPRL":"./ssh/prl/addPRL.sh"},
+        {"weakSSHPEM":"./ssh/pem/addPEM.sh"},
+        {"ManagerKey":"./ssh/key/addKey.sh"}
+      ],
+    "info": "Weak cipher, permitted root login, Permitted empty passwords and a key that gets leaked in the firmware",
+    "attributes":[],
+    "dependencies":[
+        { "resource":"ssh" },
+        { "resource":"add users" }
+
+    ],
+    "vulnerabilities":["Weak cipher", "permitted root login", "Permitted empty passwords" , "key leaked in the firmware"],
+    "CWEs":["CWE-276","CWE-287"],
+    "location":"/etc/ssh/sshd_config",
+    "installers":[
+        {
+            "architecture": "x86",
+            "installscript":"./ssh/addBadSSHConfig.sh"
+        }
+    ]
+},
+{
+    "name": "misconfigured vsftp",
+    "subcategories":[
+        {"weakVsftpChown":"./vsftp/addWChown.sh"},
+        {"weakVsftpLogin":"./vsftp/addWLogin.sh"},
+        {"weakVsftpWrite":"./vsftp/addWrite.sh"}
+      ],
+
+      "info": "Use a bad configuration file for vsftp that: Allow anonymous FTP, write enabled, upload enabled, ...",
+      "attributes":[],
+    "dependencies":[
+        { "resource":"ftp" }
+    ],
+    "vulnerabilities":["Allow anonymous FTP", "write enabled", "upload enabled"],
+    "CWEs":["CWE-434","CWE-287","CWE-276"],
+    "location":"/etc/vsftpd/vsftp.conf",
+    "installers":[
+        {
+            "architecture": "x86",
+            "installscript":"./vsftp/addBadFTPConfig.sh"
+        }
+    ]
+}],
+ "vulnerabilities":[{
+  "name": "vulnerable apache server",
+  "info": "Installing apache server with a sql injection, XXS, CSRF a information leak, directory traversal, LFI, RCE and a Command injection",
+  "dependencies": [
+    { "resource": "Python3"},
+    { "resource": "openrc"}
+  ],
+  "attributes":[
+     {"port": "80", "service": "http"},
+     {"port": "443", "service":"https"}
+    ],
+    "vulnerabilities":["SQL injection", "XSS", "CSRF", "information leak", "directory traversal", "LFI", "RCE", "Command injection"],
+    "CWEs":["CWE-89","CWE-20","CWE-78","CWE-22","CWE-77","CWE-306","CWE-312","CWE-862"],
+    "location":"/opt/dvd/services/http/",
+    "installers": [
+    {
+      "architecture": "x86",
+      "installscript": "./apache2/addApache.sh"
+    }
+  ]
+},
+{
+    "name": "api",
+    "info": "Installing a api server that contains a multiple possible vulnerabilities",
+    "dependencies": [
+      { "resource": "Python3"},
+      { "resource": "cron" }
+    ],     
+    "attributes": [{"port": "5000", "service": "rest"}],   
+    "vulnerabilities":["modular rest server with possible vulnerabilities behind it"],
+    "CWEs":["CWE-78","CWE-77","CWE-20","CWE-22","CWE-89"],
+    "location":"/opt/dvd/services/api/server.py",
+    "installers": [
+      {
+        "architecture": "x86",
+        "attributes": {},
+        "installscript": "./api/addApi.sh"
+      }
+    ]
+  },
+{
+    "name": "vulnerable sudo rights",
+    "subcategories":[
+      {"sudoEnviromentRights":"./sudo/env/addENV.sh"},
+      {"sudoLD_PRELOADRights":"./sudo/ldp/addLDP.sh"},
+      {"sudoPathTraversalRights":"./sudo/pt/addPT.sh"},
+      {"sudoViRights":"./sudo/vi/addVi.sh"}
+    ],
+    "info": "Adding a sudo rights that can be exploited. These rights allow $PATH abuse, a path traversal, code injection with LD_PRELOAD, and a privilege escalation using the vi binary ",
+    "attributes":[],
+    "dependencies": [
+      { "resource": "add users"},
+      { "resource": "sudo" },
+      { "resource": "cron" }
+    ],        
+    "vulnerabilities":["Path traversal", "$Path abuse" , "NOPASSWD", "SETENV"],
+    "CWEs":["CWE-269","CWE-427","CWE-22","CWE-668, CWE-250"],
+    "location":"/etc/sudoers",
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./badSudoRights/sudoRights.sh"
+      }
+    ]
+  },
+{
+    "name": "vulnerable suid rights",
+    "subcategories":[
+      {"addSuidCat":"./sudo/env/addENV.sh"},
+      {"addSuid":"./sudo/cat/addCat.sh"}
+    ],
+    "info": "Adding SUID rights that can be exploited. On the cat and or env binary",
+    "attributes":[],
+    "dependencies": [
+      { "resource": "sudo" }
+    ],        
+    "vulnerabilities":["Privilege escalation"],
+    "CWEs":["CWE-732"],
+    "location":"/bin/cat & /usr/bin/env",
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./badSuidRights/suidRights.sh"
+      }
+    ]
+  },
+{
+    "name": "bash",
+    "subcategories":[
+      {"bashCommandInjection":"./bash/CommandInjection/addBashCI.sh"},
+      {"bashPathTraversal":"./bash/PathTraversal/addBashPT.sh"}
+    ],
+    "info": "Adding scripts written in in the languague bash that contains certain vulnerabilities",
+    "attributes":[],
+    "dependencies": [],        
+    "vulnerabilities":["Command injection","Path traversal"],
+    "CWEs":["CWE-78","CWE-22","CWE-77"],
+    "location":"/opt/dvd/code/bash/",
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./bash/addBash.sh"
+      }
+    ]
+  },
+{
+    "name": "c",    
+    "subcategories":[
+      {"cBufferOverflow":"./c/bof/addCBOF.sh"},
+      {"cCommandInjection":"./c/ci/addCCI.sh"},
+      {"cPathTraversal":"./c/pt/addCPT.sh"},
+      {"cSqlInjection":"./c/sqli/addCSQLI.sh"},
+      {"cFormatString":"./c/fs/addCFS.sh"},
+      {"cMultipleVulns":"./c/mul/addCMUL.sh"}
+    ],
+    "info": "Adding binaries written in c that contains certain vulnerabilities",
+    "attributes":[],
+    "dependencies": [],        
+    "vulnerabilities":["buffer overflow", "command injection", "sql injection", "path traversal", "connection string injection", "denial of service", "format string", "integer overflow", "out of bounds", "symlink", "use after free"],
+    "CWEs":["CWE-121","CWE-787","CWE-89","CWE-20","CWE-416","CWE-22","CWE-77","CWE-125","CWE-134","CWE-190","CWE-400"],
+    "location":"/opt/dvd/code/c/",
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./c/addC.sh"
+      }
+    ]
+  },
+{
+    "name": "cInterface",    
+    "subcategories":[
+      {"cCommandInjection":"./c/addCCI.sh"},
+      {"cBufferOverflow":"./c/addCBOF.sh"},
+      {"cSqlInjection":"./c/addCSQLI.sh"}
+    ],
+    "info": "Adding binaries written in c that contains certain vulnerabilities that can communciate with certain protocols",
+    "attributes":[],
+    "dependencies": [],        
+    "vulnerabilities":["buffer overflow", "command injection", "sql injection"],
+    "CWEs":["CWE-121","CWE-787","CWE-89","CWE-20"],
+    "location":"/opt/dvd/services/vulns/c/",
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./cInterface/addCInterface.sh"
+      }
+    ]
+  },
+{
+    "name": "coap",
+    "info": "modular coap server, with possible vulnerabilities behind it",
+    "dependencies": [
+      { "resource": "Python3"},
+      { "resource": "cron" }
+    ],     
+    "attributes": [{"port": "5683", "service": "coap"}],   
+    "vulnerabilities":["modular coap server, with possible vulnerabilities behind it: Command injection, SQL injection, Path traversal and object deserialisation"],
+    "CWEs":["CWE-78","CWE-77","CWE-20","CWE-22","CWE-89"],
+    "location":"/opt/dvd/services/coap/server.py",
+    "installers": [
+      {
+        "architecture": "x86",
+        "attributes": {},
+        "buildscript": "./coap/build_coap.sh",
+        "installscript": "./coap/addCoap.sh"
+      }
+    ]
+  },
+{
+    "name": "hardcoded passwords",
+    "info": "Adding hardcoded passwords to alll the users",
+    "attributes":[],
+    "dependencies": [
+      { "resource": "add users"}
+    ],        
+    "vulnerabilities":["Hardcoded passwords"],
+    "CWEs":["CWE-798","CWE-522"],
+    "location":"/etc/shadow/",
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./hardcodedPassword/hardcodedPasswords.sh"
+      }
+    ]
+  },
+{
+  "name": "vulnerable http server",
+  "info": "Installing http server with multiple vulnerabilities: SQL injection, XSS, CSRF and a information leak",
+  "dependencies": [
+    { "resource": "Python3"},
+    { "resource": "cron"}
+  ],        
+  "attributes":[
+     {"port": "80", "service": "http"},
+     {"port": "443", "service":"https"}   
+    ],
+     "vulnerabilities":["SQL injection", "XSS", "CSRF" , "information leak"],
+     "CWEs":["CWE-89","CWE-287","CWE-312"],
+     "location":"/opt/dvd/services/http/",
+     "installers": [
+    {
+      "architecture": "x86",
+      "installscript": "./http/addHttp.sh"
+    }
+  ]
+},
+{
+    "name": "individualCVEs",
+    "subcategories":[
+      {"Mosquitto":"./individualCVEs/mosquitto/addMosquitto.sh"},
+      {"Smtpd":"./individualCVEs/opensmtpd/addOpenSmtpd.sh"},
+      {"Sudo":"./individualCVEs/sudo/addSudoCVE.sh"},
+      {"Zlib":"./individualCVEs/zlib/addZlibCVE.sh"}
+    ],
+    "info": "adding CVE's that are exploitable \n Sudo version 1.8319_p1_r0, this version in vulnerable to CVE-2019-14287. \n Zlib 1.2.15 containing CVE-2021-43521. \n Opensmtpd version 6.0.3p1-r3 which is vulnerable to CVE-2020-8794. \n Mosquitto version 1.6.3-r0, that has the CVE-2021-34431. \n other CVE's are also possible, but are not tested and are unsure.",
+    "attributes":[],
+    "dependencies": [],
+    "vulnerabilities":["CVE-2019-14287", "CVE-2021-43521", "CVE-2020-8794", "CVE-2021-34431"],
+    "CWEs":["CWE-288"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./cve/addSudoCVE.sh"
+      }
+    ]
+  },
+{
+    "name": "infoleak",
+    "subcategories":[
+      {"typeCsv":"./infoleak/csv/addCsv.sh"},
+      {"typeXlsx":"./infoleak/xlsx/addXlsx.sh"},
+      {"typeDb":"./infoleak/db/addDb.sh"},
+      {"Pattern username:passwod":"./infoleak/patterns/addP1.sh"},
+      {"Pattern username:hash":"./infoleak/patterns/addP2.sh"},
+      {"Pattern hash":"./infoleak/patterns/addP3.sh"},
+      {"Pattern username=username&password=password":"./infoleak/patterns/addP4.sh"}
+
+    ],
+
+    "info": "Leaking usernames, password and password hashes in different file types and patterns",
+    "attributes":[],
+    "dependencies": [
+      { "resource": "add users"},
+      { "resource": "hardcoded passwords"}
+    ],
+    "vulnerabilities":["Leaking user password","Leaking root hash"],
+    "CWEs":["CWE-522","CWE-200"],
+    "location":"/home/manager/.info",
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./infoleak/addInfoLeak.sh"
+      }
+    ]
+  },
+{
+    "name": "java",
+    "subcategories":[
+      {"javaCommandInjection":"./java/CommandInjection/addJavaCI.sh"},
+      {"javaDeserialization":"./java/Deserialization/addJavaD.sh"},
+      {"javaPathTraversal":"./java/PathTraversal/addJavaPT.sh"},
+      {"javaSqlInjection":"./java/SQLInjection/addJavaSQLI.sh"}
+    ],
+    "info": "Adding scripts in the languague java that contains certain vulnerabilities",
+    "attributes":[],
+    "dependencies": [],        
+    "vulnerabilities":["Command injection , path traversal, SQL injection, Object deserialisation"],
+    "CWEs":["CWE-89","CWE-78","CWE-77","CWE-22","CWE-502"],
+    "location":"/opt/dvd/code/java/",
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./java/addJava.sh"
+      }
+    ]
+  },
+{
+    "name": "javaInterface",
+    "subcategories":[
+      {"javaInterfaceCommandInjection":"./javaInterface/CommandInjection/addJavaCI.sh"},
+      {"javaInterfacePathTraversal":"./javaInterface/PathTraversal/addJavaPT.sh"},
+      {"javaInterfaceSqlInjection":"./javaInterface/SQLInjection/addJavaSQLI.sh"}
+    ],
+    "info": "Adding scripts in the languague java that contains certain vulnerabilities and communicate with the ouside world",
+    "attributes":[],
+    "dependencies": [],        
+    "vulnerabilities":["Command injection" , "path traversal", "SQL injection"],
+    "CWEs":["CWE-89","CWE-78","CWE-77","CWE-22"],
+    "location":"/opt/dvd/services/vulns/java/",
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./java/addJava.sh"
+      }
+    ]
+  },
+{
+    "name": "mqtt",
+    "info": "install a modular mqtt server and a broker, with possible vulnerabilities behind it",
+    "dependencies": [
+      { "resource": "Python3"},
+      { "resource": "cron" },
+      { "resource": "openrc"}
+    ],     
+    "attributes": [{"port": "1883", "service": "mqtt"}],   
+    "vulnerabilities":["Possible Command injection, SQL injection, Path traversal and object deserialisation"],
+    "CWEs":["CWE-78","CWE-77","CWE-20","CWE-22","CWE-89"],
+    "location":"/opt/dvd/services/mqtt/server.py/",
+    "installers": [
+      {
+        "architecture": "x86",
+        "attributes": {},
+        "buildscript": "./mqtt/build_mqtt.sh",
+        "installscript": "./mqtt/addMqtt.sh"
+      }
+    ]
+  },
+{
+    "name": "multipleCVEs",
+    "info": "adding all unresolved CVEs that are present in Alpine linux. Note that the vulnerabilities are possibly present, so there may be false positives. \n Warming, this script will remove and download mutiple binaries, it will take very long and may interfere with services running on the benchmark.",
+    "attributes":[],
+    "dependencies": [],
+    "vulnerabilities":["CVE-2013-4214","CVE-2013-7108","CVE-2013-7205","CVE-2013-7381","CVE-2014-1878","CVE-2014-3618","CVE-2014-8123","CVE-2015-4047","CVE-2015-8100","CVE-2016-20015","CVE-2016-3709","CVE-2017-20147","CVE-2017-20148","CVE-2018-10540","CVE-2018-10756","CVE-2018-13441","CVE-2018-16062","CVE-2018-18310","CVE-2018-18520","CVE-2018-19432","CVE-2018-20750","CVE-2018-21232","CVE-2018-21247","CVE-2019-1010180","CVE-2019-13504","CVE-2019-17594","CVE-2019-17595","CVE-2019-19012","CVE-2019-19203","CVE-2019-19204","CVE-2019-19317","CVE-2019-19492","CVE-2019-19603","CVE-2019-19645","CVE-2019-19646","CVE-2019-19725","CVE-2019-19880","CVE-2019-19923","CVE-2019-19924","CVE-2019-19925","CVE-2019-19926","CVE-2019-19959","CVE-2019-20218","CVE-2019-20788","CVE-2019-20839","CVE-2019-20840","CVE-2019-25031","CVE-2019-25032","CVE-2019-25033","CVE-2019-25034","CVE-2019-25035","CVE-2019-25036","CVE-2019-25037","CVE-2019-25038","CVE-2019-25039","CVE-2019-25040","CVE-2019-25041","CVE-2019-25042","CVE-2019-3881","CVE-2019-6461","CVE-2019-6462","CVE-2020-10701","CVE-2020-10702","CVE-2020-10703","CVE-2020-10761","CVE-2020-11656","CVE-2020-11741","CVE-2020-11869","CVE-2020-12268","CVE-2020-12278","CVE-2020-12279","CVE-2020-12403","CVE-2020-12825","CVE-2020-12829","CVE-2020-13253","CVE-2020-13434","CVE-2020-13435","CVE-2020-13630","CVE-2020-13631","CVE-2020-13632","CVE-2020-13754","CVE-2020-13791","CVE-2020-14145","CVE-2020-14147","CVE-2020-14150","CVE-2020-14301","CVE-2020-14318","CVE-2020-14364","CVE-2020-14383","CVE-2020-14396","CVE-2020-14397","CVE-2020-14398","CVE-2020-14399","CVE-2020-14400","CVE-2020-14401","CVE-2020-14402","CVE-2020-14403","CVE-2020-14404","CVE-2020-14405","CVE-2020-14415","CVE-2020-15358","CVE-2020-15469","CVE-2020-15778","CVE-2020-15863","CVE-2020-16092","CVE-2020-16287","CVE-2020-16288","CVE-2020-16289","CVE-2020-16290","CVE-2020-16291","CVE-2020-16292","CVE-2020-16293","CVE-2020-16294","CVE-2020-16295","CVE-2020-16296","CVE-2020-16297","CVE-2020-16298","CVE-2020-16299","CVE-2020-16300","CVE-2020-16301","CVE-2020-16302","CVE-2020-16303","CVE-2020-16304","CVE-2020-16305","CVE-2020-16306","CVE-2020-16307","CVE-2020-16308","CVE-2020-16309","CVE-2020-16310","CVE-2020-16590","CVE-2020-16591","CVE-2020-16592","CVE-2020-16593","CVE-2020-16599","CVE-2020-16600","CVE-2020-1711","CVE-2020-17380","CVE-2020-17538","CVE-2020-18032","CVE-2020-19609","CVE-2020-19860","CVE-2020-19861","CVE-2020-20178","CVE-2020-21594","CVE-2020-21595","CVE-2020-21596","CVE-2020-21597","CVE-2020-21598","CVE-2020-21599","CVE-2020-21600","CVE-2020-21601","CVE-2020-21602","CVE-2020-21603","CVE-2020-21604","CVE-2020-21605","CVE-2020-21606","CVE-2020-24352","CVE-2020-24361","CVE-2020-25219","CVE-2020-25637","CVE-2020-25663","CVE-2020-25664","CVE-2020-25665","CVE-2020-25666","CVE-2020-25667","CVE-2020-25674","CVE-2020-25675","CVE-2020-25676","CVE-2020-25691","CVE-2020-25708","CVE-2020-25717","CVE-2020-25718","CVE-2020-25719","CVE-2020-25722","CVE-2020-25723","CVE-2020-25742","CVE-2020-25743","CVE-2020-26154","CVE-2020-26519","CVE-2020-26682","CVE-2020-27673","CVE-2020-27748","CVE-2020-27750","CVE-2020-27751","CVE-2020-27752","CVE-2020-27753","CVE-2020-27754","CVE-2020-27755","CVE-2020-27756","CVE-2020-27757","CVE-2020-27758","CVE-2020-27759","CVE-2020-27760","CVE-2020-27761","CVE-2020-27762","CVE-2020-27763","CVE-2020-27765","CVE-2020-27766","CVE-2020-27767","CVE-2020-27768","CVE-2020-27769","CVE-2020-27771","CVE-2020-27772","CVE-2020-27773","CVE-2020-27774","CVE-2020-27775","CVE-2020-27776","CVE-2020-27778","CVE-2020-27821","CVE-2020-27827","CVE-2020-27828","CVE-2020-27829","CVE-2020-27840","CVE-2020-28361","CVE-2020-28935","CVE-2020-29385","CVE-2020-29479","CVE-2020-29480","CVE-2020-29481","CVE-2020-29482","CVE-2020-29483","CVE-2020-29484","CVE-2020-29485","CVE-2020-29486","CVE-2020-29566","CVE-2020-29567","CVE-2020-29568","CVE-2020-29569","CVE-2020-29570","CVE-2020-29571","CVE-2020-29599","CVE-2020-35457","CVE-2020-35493","CVE-2020-35494","CVE-2020-35495","CVE-2020-35496","CVE-2020-35498","CVE-2020-35502","CVE-2020-35504","CVE-2020-35507","CVE-2020-35538","CVE-2020-35652","CVE-2020-35679","CVE-2020-35680","CVE-2020-35776","CVE-2020-36221","CVE-2020-36222","CVE-2020-36223","CVE-2020-36224","CVE-2020-36225","CVE-2020-36226","CVE-2020-36227","CVE-2020-36228","CVE-2020-36229","CVE-2020-36230","CVE-2020-36242","CVE-2020-36254","CVE-2020-36327","CVE-2020-4044","CVE-2020-5291","CVE-2020-6070","CVE-2020-6104","CVE-2020-6105","CVE-2020-6106","CVE-2020-6107","CVE-2020-6108","CVE-2020-6750","CVE-2020-7105","CVE-2020-8002","CVE-2020-8003","CVE-2020-8284","CVE-2020-8793","CVE-2020-8794","CVE-2021-1386","CVE-2021-1405","CVE-2021-20176","CVE-2021-20178","CVE-2021-20197","CVE-2021-20203","CVE-2021-20209","CVE-2021-20210","CVE-2021-20211","CVE-2021-20212","CVE-2021-20213","CVE-2021-20214","CVE-2021-20215","CVE-2021-20216","CVE-2021-20217","CVE-2021-20227","CVE-2021-20240","CVE-2021-20243","CVE-2021-20244","CVE-2021-20245","CVE-2021-20246","CVE-2021-20254","CVE-2021-20255","CVE-2021-20272","CVE-2021-20273","CVE-2021-20274","CVE-2021-20275","CVE-2021-20276","CVE-2021-20277","CVE-2021-20294","CVE-2021-20305","CVE-2021-20309","CVE-2021-20310","CVE-2021-20311","CVE-2021-20312","CVE-2021-20313","CVE-2021-20316","CVE-2021-21240","CVE-2021-22570","CVE-2021-23192","CVE-2021-25217","CVE-2021-25219","CVE-2021-26712","CVE-2021-26713","CVE-2021-26717","CVE-2021-26906","CVE-2021-26926","CVE-2021-26927","CVE-2021-26933","CVE-2021-27212","CVE-2021-27218","CVE-2021-27219","CVE-2021-28041","CVE-2021-28153","CVE-2021-28544","CVE-2021-28687","CVE-2021-28709","CVE-2021-29376","CVE-2021-29457","CVE-2021-29458","CVE-2021-29463","CVE-2021-29464","CVE-2021-29470","CVE-2021-29473","CVE-2021-29623","CVE-2021-31879","CVE-2021-32272","CVE-2021-32273","CVE-2021-32274","CVE-2021-32276","CVE-2021-32277","CVE-2021-32278","CVE-2021-32617","CVE-2021-32749","CVE-2021-32765","CVE-2021-32803","CVE-2021-32804","CVE-2021-32815","CVE-2021-3308","CVE-2021-33285","CVE-2021-33286","CVE-2021-33287","CVE-2021-33289","CVE-2021-33454","CVE-2021-33455","CVE-2021-33456","CVE-2021-33457","CVE-2021-33458","CVE-2021-33459","CVE-2021-33460","CVE-2021-33461","CVE-2021-33462","CVE-2021-33463","CVE-2021-33464","CVE-2021-33465","CVE-2021-33466","CVE-2021-33467","CVE-2021-33468","CVE-2021-33560","CVE-2021-33912","CVE-2021-33913","CVE-2021-3392","CVE-2021-3405","CVE-2021-3409","CVE-2021-3416","CVE-2021-34334","CVE-2021-34335","CVE-2021-3443","CVE-2021-34431","CVE-2021-34434","CVE-2021-3466","CVE-2021-3467","CVE-2021-3468","CVE-2021-3482","CVE-2021-3487","CVE-2021-3497","CVE-2021-3498","CVE-2021-3507","CVE-2021-3522","CVE-2021-35266","CVE-2021-35267","CVE-2021-35268","CVE-2021-35269","CVE-2021-3527","CVE-2021-3545","CVE-2021-3546","CVE-2021-3560","CVE-2021-3575","CVE-2021-3580","CVE-2021-3588","CVE-2021-3618","CVE-2021-3631","CVE-2021-3634","CVE-2021-36368","CVE-2021-36386","CVE-2021-36409","CVE-2021-36513","CVE-2021-3658","CVE-2021-3667","CVE-2021-3670","CVE-2021-3671","CVE-2021-3697","CVE-2021-36976","CVE-2021-3700","CVE-2021-37220","CVE-2021-37322","CVE-2021-3738","CVE-2021-37600","CVE-2021-37615","CVE-2021-37616","CVE-2021-37618","CVE-2021-37619","CVE-2021-37620","CVE-2021-37621","CVE-2021-37622","CVE-2021-37623","CVE-2021-37624","CVE-2021-37701","CVE-2021-3781","CVE-2021-3782","CVE-2021-38165","CVE-2021-3872","CVE-2021-3875","CVE-2021-3903","CVE-2021-39251","CVE-2021-39252","CVE-2021-39253","CVE-2021-39254","CVE-2021-39255","CVE-2021-39256","CVE-2021-39257","CVE-2021-39258","CVE-2021-39259","CVE-2021-39260","CVE-2021-39261","CVE-2021-39262","CVE-2021-39263","CVE-2021-3927","CVE-2021-39272","CVE-2021-3928","CVE-2021-39537","CVE-2021-3968","CVE-2021-3973","CVE-2021-3974","CVE-2021-3984","CVE-2021-4019","CVE-2021-40330","CVE-2021-4034","CVE-2021-40529","CVE-2021-41039","CVE-2021-41072","CVE-2021-41105","CVE-2021-41145","CVE-2021-41157","CVE-2021-41158","CVE-2021-41229","CVE-2021-41581","CVE-2021-41990","CVE-2021-41991","CVE-2021-4209","CVE-2021-4217","CVE-2021-42260","CVE-2021-42533","CVE-2021-42719","CVE-2021-42720","CVE-2021-42722","CVE-2021-42725","CVE-2021-43566","CVE-2021-43616","CVE-2021-43618","CVE-2021-43809","CVE-2021-44038","CVE-2021-44141","CVE-2021-44142","CVE-2021-45078","CVE-2021-45079","CVE-2021-45944","CVE-2021-45949","CVE-2021-46141","CVE-2021-46142","CVE-2021-46662","CVE-2021-46669","CVE-2021-46790","CVE-2021-46837","CVE-2021-46848","CVE-2022-0204","CVE-2022-0529","CVE-2022-0530","CVE-2022-0711","CVE-2022-1122","CVE-2022-1253","CVE-2022-1304","CVE-2022-1341","CVE-2022-1615","CVE-2022-1616","CVE-2022-1619","CVE-2022-1620","CVE-2022-1621","CVE-2022-1629","CVE-2022-1674","CVE-2022-1720","CVE-2022-1725","CVE-2022-1733","CVE-2022-1735","CVE-2022-1769","CVE-2022-1771","CVE-2022-1785","CVE-2022-1796","CVE-2022-1851","CVE-2022-1886","CVE-2022-1898","CVE-2022-1920","CVE-2022-1921","CVE-2022-1922","CVE-2022-1923","CVE-2022-1924","CVE-2022-1925","CVE-2022-1927","CVE-2022-1942","CVE-2022-1968","CVE-2022-2000","CVE-2022-20001","CVE-2022-2031","CVE-2022-2042","CVE-2022-2085","CVE-2022-21127","CVE-2022-2122","CVE-2022-2124","CVE-2022-2125","CVE-2022-2126","CVE-2022-2129","CVE-2022-2175","CVE-2022-2182","CVE-2022-2183","CVE-2022-2206","CVE-2022-2207","CVE-2022-2208","CVE-2022-2210","CVE-2022-2231","CVE-2022-2257","CVE-2022-2264","CVE-2022-22707","CVE-2022-2284","CVE-2022-2285","CVE-2022-2286","CVE-2022-2287","CVE-2022-2288","CVE-2022-2289","CVE-2022-2304","CVE-2022-23303","CVE-2022-23304","CVE-2022-2343","CVE-2022-2344","CVE-2022-2345","CVE-2022-2347","CVE-2022-24735","CVE-2022-24736","CVE-2022-24975","CVE-2022-2522","CVE-2022-25308","CVE-2022-25309","CVE-2022-25310","CVE-2022-25345","CVE-2022-2571","CVE-2022-2580","CVE-2022-2581","CVE-2022-2598","CVE-2022-26498","CVE-2022-26499","CVE-2022-26635","CVE-2022-26651","CVE-2022-27239","CVE-2022-27385","CVE-2022-27778","CVE-2022-2816","CVE-2022-2817","CVE-2022-2819","CVE-2022-2845","CVE-2022-2849","CVE-2022-28506","CVE-2022-2862","CVE-2022-2874","CVE-2022-2889","CVE-2022-29155","CVE-2022-2923","CVE-2022-29244","CVE-2022-2946","CVE-2022-2980","CVE-2022-2982","CVE-2022-29824","CVE-2022-29869","CVE-2022-3016","CVE-2022-3037","CVE-2022-30550","CVE-2022-30698","CVE-2022-30699","CVE-2022-30767","CVE-2022-30783","CVE-2022-30784","CVE-2022-30785","CVE-2022-30786","CVE-2022-30787","CVE-2022-30788","CVE-2022-30789","CVE-2022-3099","CVE-2022-31001","CVE-2022-31002","CVE-2022-31003","CVE-2022-31012","CVE-2022-31144","CVE-2022-3134","CVE-2022-3153","CVE-2022-31621","CVE-2022-31622","CVE-2022-31623","CVE-2022-31624","CVE-2022-3204","CVE-2022-32221","CVE-2022-3234","CVE-2022-3235","CVE-2022-3256","CVE-2022-32742","CVE-2022-32743","CVE-2022-32744","CVE-2022-32745","CVE-2022-32746","CVE-2022-3278","CVE-2022-3296","CVE-2022-3297","CVE-2022-33068","CVE-2022-33070","CVE-2022-33103","CVE-2022-3324","CVE-2022-3352","CVE-2022-33745","CVE-2022-33746","CVE-2022-33747","CVE-2022-33748","CVE-2022-33967","CVE-2022-3491","CVE-2022-3520","CVE-2022-35260","CVE-2022-3555","CVE-2022-35737","CVE-2022-3591","CVE-2022-3638","CVE-2022-3647","CVE-2022-3705","CVE-2022-37325","CVE-2022-38127","CVE-2022-38128","CVE-2022-38533","CVE-2022-38784","CVE-2022-39176","CVE-2022-39177","CVE-2022-40284","CVE-2022-40468","CVE-2022-4141","CVE-2022-41556","CVE-2022-41741","CVE-2022-41742","CVE-2022-41916","CVE-2022-41973","CVE-2022-41974","CVE-2022-42319","CVE-2022-42324","CVE-2022-42325","CVE-2022-42326","CVE-2022-42705","CVE-2022-42706","CVE-2022-42915","CVE-2022-42916","CVE-2022-4292","CVE-2022-4293","CVE-2022-43235","CVE-2022-43236","CVE-2022-43237","CVE-2022-43238","CVE-2022-43239","CVE-2022-43240","CVE-2022-43241","CVE-2022-43242","CVE-2022-43243","CVE-2022-43244","CVE-2022-43245","CVE-2022-43248","CVE-2022-43249","CVE-2022-43250","CVE-2022-43252","CVE-2022-43253","CVE-2022-43548","CVE-2022-43705","CVE-2022-43995","CVE-2022-44792","CVE-2022-44793","CVE-2022-46391","CVE-2022-46908"],
+    "CWEs":[""],
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./cve/addCVEs.sh"
+      }
+    ]
+  },
+{
+    "name": "pythonInterfact",
+    "subcategories":[
+      {"pythonInterfaceCommandInjection":"./pythonInterface/CommandInjection/addPythonCI.sh"},
+      {"pythonInterfaceDeserialization":"./pythonInterface/Deserialization/addPythonD.sh"},
+      {"pythonInterfacePathTraversal":"./pythonInterface/PathTraversal/addPythonPT.sh"},
+      {"pythonInterfaceSqlInjection":"./pythonInterface/SQLInjection/addPythonSQLI.sh"}
+    ],
+    "info": "Adding scripts the languague python that contains certain vulnerabilities and communicate with the ouside world",
+    "attributes":[],
+    "dependencies": [],        
+    "vulnerabilities":["command injection", "path traversal", "SQL inection", "Object deserialisation"],
+    "CWEs":["CWE-89","CWE-77","CWE-78","CWE-22","CWE-502"],
+    "location":"/opt/dvd/services/vulns/python/",
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./pythonInterface/addPythonInterface.sh"
+      }
+    ]
+  },
+{
+    "name": "python",
+    "subcategories":[
+      {"pythonCommandInjection":"./python/CommandInjection/addPythonCI.sh"},
+      {"pythonDeserialization":"./python/Deserialization/addPythonD.sh"},
+      {"pythonPathTraversal":"./python/PathTraversal/addPythonPT.sh"},
+      {"pythonSqlInjection":"./python/SQLInjection/addPythonSQLI.sh"},
+      {"pythonSSTI":"./python/ServerSideTemplateInjection/addPythonSSTI.sh"}
+    ],
+    "info": "Adding scripts the languague python that contains certain vulnerabilities and communicate with the ouside world",
+    "attributes":[],
+    "dependencies": [],        
+    "vulnerabilities":["command injection", "path traversal", "SQL inection", "server side template injection", "Object deserialisation"],
+    "CWEs":["CWE-89","CWE-77","CWE-78","CWE-22","CWE-1336","CWE-502"],
+    "location":"/opt/dvd/code/python/",
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./pythonVuln/addPythonWithVuln.sh"
+      }
+    ]
+  },
+{
+    "name": "template",
+    "info": "A template of a vulnerability",
+    "dependencies": [
+      { "resource": "resource needed to run"},
+      { "resource": "resource needed to run" }
+    ],     
+    "attributes": [{"port": "XXXX", "service": "service"}],   
+    "vulnerabilities":["All vulnerabilities introduced"],
+    "CWEs":["CWE-xxx","CWE-xxx"],
+    "installers": [
+      {
+        "architecture": "x86",
+        "attributes": {},
+        "buildscript": "path to build file",
+        "installscript": "./template/addTemplate.sh"
+      }
+    ]
+  },
+{
+    "name": "vulnerable cronjob",
+    "subcategories":[
+      {"CronjobWildcardInjection":"./vulnerableCron/wci/addWCI.sh"},
+      {"CronjobWithBadPermissions":"./vulnerableCron/cwbp/addCWBP.sh"}
+    ],
+    "info": "adding cronjobs to cron that are vulnerable, one with a wildcard injections, and another with bad permissions",
+    "attributes":[],
+    "dependencies": [
+      { "resource": "cron" }
+    ],
+    "vulnerabilities":["Command injection in file executed as root by cron","Wildcard injection"],
+    "CWEs":["CWE-78","CWE-77","CWE-269","CWE-732"],
+    "location":"/etc/crontab/",
+    "installers": [
+      {
+        "architecture": "x86",
+        "installscript": "./vulnerableCron/exploitableCronjob.sh"
+      }
+    ]
+  },
+{
+    "name": "vulnerable ssh",
+    "info": "SSH service with backdoor",
+    "attributes": [{"port": "22", "service": "ssh"}],
+    "dependencies":[],
+    "vulnerabilities":["backdoor with login: totalrootcontrol"],
+    "CWEs":["CWE-287","CWE-798","CWE-276","CWE-912"],
+    "location":"/usr/sbin/sshd",
+    "installers": [
+      {
+        "architecture": "x86",
+        "buildscript": "./vulnerabeSSHD/build_ssh-vuln.sh",
+        "installscript": "./vulnerabeSSHD/addVulnerableSSH.sh"
+      },
+      {
+        "architecture": "arm32v7",
+        "buildscript": "./vulnerableSSHD/build_ssh-vuln.sh",
+        "installscript": "./vulnerabeSSHD/addVulnerableSSH_armv7.sh"
+      }
+    ]
+  }] 
 }
