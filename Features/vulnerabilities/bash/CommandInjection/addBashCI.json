@@ -1,5 +1,6 @@
 {
     "vulnerabilities":["command injection"],
+    "location":"/opt/dvd/code/bash/CommandInjection.sh",
     "CWEs":["CWE-78","CWE-77"]
 
 }

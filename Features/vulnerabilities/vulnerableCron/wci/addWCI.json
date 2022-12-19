@@ -1,4 +1,5 @@
 {
     "vulnerabilities":["wildcard injection"],
+    "location":"/etc/crontab/",
     "CWEs":["CWE-269","CWE-732"]
 }

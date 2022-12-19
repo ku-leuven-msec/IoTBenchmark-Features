@@ -6,7 +6,9 @@
         { "resource":"Python3" },
         { "resource": "cron" }
     ],
+    "vulnerabilities":["hardcoded credentials","outdated protocol","unencrypted traffic"],
     "CWEs":["CWE-798","CWE-287","CWE-276","CWE-522","CWE-312"],
+    "location":"/opt/dvd/services/telnet/server.py",
     "installers":[
         {
             "architecture": "x86",

@@ -1,4 +1,5 @@
 {
     "vulnerabilities":["path traversal"],
+    "location":"/opt/dvd/code/java/PathTraversal.jar",
     "CWEs":["CWE-22"]
 }

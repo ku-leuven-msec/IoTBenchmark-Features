@@ -11,6 +11,7 @@
     ],
      "vulnerabilities":["SQL injection", "XSS", "CSRF" , "information leak"],
      "CWEs":["CWE-89","CWE-287","CWE-312"],
+     "location":"/opt/dvd/services/http/",
      "installers": [
     {
       "architecture": "x86",

@@ -19,6 +19,7 @@
     ],
     "vulnerabilities":["Leaking user password","Leaking root hash"],
     "CWEs":["CWE-522","CWE-200"],
+    "location":"/home/manager/.info",
     "installers": [
       {
         "architecture": "x86",

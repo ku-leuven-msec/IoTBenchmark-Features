@@ -1,0 +1,6 @@
+{
+    "vulnerabilities":["key leaked in the firmware"],
+    "CWEs":["CWE-276","CWE-287"],
+    "location":"/etc/ssh/sshd_config"
+
+}

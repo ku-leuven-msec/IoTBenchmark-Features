@@ -1,0 +1,6 @@
+{
+    "vulnerabilities":["Weak cipher"],
+    "location":"/etc/ssh/sshd_config",
+    "CWEs":["CWE-276","CWE-287"]
+
+}

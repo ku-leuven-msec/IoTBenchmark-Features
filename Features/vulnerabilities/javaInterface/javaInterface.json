@@ -10,6 +10,7 @@
     "dependencies": [],        
     "vulnerabilities":["Command injection" , "path traversal", "SQL injection"],
     "CWEs":["CWE-89","CWE-78","CWE-77","CWE-22"],
+    "location":"/opt/dvd/services/vulns/java/",
     "installers": [
       {
         "architecture": "x86",

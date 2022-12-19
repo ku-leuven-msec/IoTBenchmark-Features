@@ -1,5 +1,6 @@
 {
     "vulnerabilities":["command injection"],
+    "location":"/opt/dvd/services/vulns/python/CommandInjection.py",
     "CWEs":["CWE-77","CWE-78"]
 
 }

@@ -11,6 +11,7 @@
     "dependencies": [],        
     "vulnerabilities":["command injection", "path traversal", "SQL inection", "Object deserialisation"],
     "CWEs":["CWE-89","CWE-77","CWE-78","CWE-22","CWE-502"],
+    "location":"/opt/dvd/services/vulns/python/",
     "installers": [
       {
         "architecture": "x86",

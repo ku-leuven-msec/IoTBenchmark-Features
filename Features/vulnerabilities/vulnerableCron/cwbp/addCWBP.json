@@ -1,4 +1,5 @@
 {
     "vulnerabilities":["Command injection in file executed as root by cron"],
+    "location":"/etc/crontab/",
     "CWEs":["CWE-78","CWE-77","CWE-269","CWE-732"]
 }

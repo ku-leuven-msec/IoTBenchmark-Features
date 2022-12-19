@@ -1,4 +1,5 @@
 {
     "vulnerabilities":["buffer overflow"],
+    "location":"/opt/dvd/services/vulns/c/BufferOverflow",
     "CWEs":["CWE-787","CWE-121"]
 }

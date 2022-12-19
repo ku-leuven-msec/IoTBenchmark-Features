@@ -1,4 +1,5 @@
 {
+    "location":"/bin/cat",
     "vulnerabilities":["Privilege escalation"],
     "CWEs":["CWE-732"]
 }

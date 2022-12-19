@@ -1,5 +1,6 @@
 {
     "vulnerabilities":["Object deserialisation"],
-            "CWEs":["CWE-502"]
+    "location":"/opt/dvd/services/vulns/python/Deserialization.py",
+    "CWEs":["CWE-502"]
 
 }

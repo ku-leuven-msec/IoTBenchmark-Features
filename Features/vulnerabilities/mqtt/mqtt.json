@@ -9,6 +9,7 @@
     "attributes": [{"port": "1883", "service": "mqtt"}],   
     "vulnerabilities":["Possible Command injection, SQL injection, Path traversal and object deserialisation"],
     "CWEs":["CWE-78","CWE-77","CWE-20","CWE-22","CWE-89"],
+    "location":"/opt/dvd/services/mqtt/server.py/",
     "installers": [
       {
         "architecture": "x86",

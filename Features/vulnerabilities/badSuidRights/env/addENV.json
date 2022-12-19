@@ -1,4 +1,5 @@
 {
     "vulnerabilities":["Privilege escalation"],
+    "location":"/usr/bin/env",
     "CWEs":["CWE-732"]
 }

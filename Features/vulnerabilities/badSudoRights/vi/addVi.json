@@ -1,4 +1,5 @@
 {
     "vulnerabilities":["privilege escalation"],
+    "location":"/etc/sudoers",
     "CWEs":["CWE-269"]
 }

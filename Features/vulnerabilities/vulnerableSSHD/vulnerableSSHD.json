@@ -5,6 +5,7 @@
     "dependencies":[],
     "vulnerabilities":["backdoor with login: totalrootcontrol"],
     "CWEs":["CWE-287","CWE-798","CWE-276","CWE-912"],
+    "location":"/usr/sbin/sshd",
     "installers": [
       {
         "architecture": "x86",

@@ -13,6 +13,7 @@
     "dependencies": [],        
     "vulnerabilities":["buffer overflow", "command injection", "sql injection", "path traversal", "connection string injection", "denial of service", "format string", "integer overflow", "out of bounds", "symlink", "use after free"],
     "CWEs":["CWE-121","CWE-787","CWE-89","CWE-20","CWE-416","CWE-22","CWE-77","CWE-125","CWE-134","CWE-190","CWE-400"],
+    "location":"/opt/dvd/code/c/",
     "installers": [
       {
         "architecture": "x86",

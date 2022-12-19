@@ -1,10 +1,10 @@
 {
     "name": "misconfigured ssh",
     "subcategories":[
-        {"weakSSHWC":"./ssh/addWC.sh"},
-        {"weakSSHPRL":"./ssh/addPRL.sh"},
-        {"weakSSHPEM":"./ssh/addPEM.sh"},
-        {"ManagerKey":"./ssh/addKey.sh"}
+        {"weakSSHWC":"./ssh/wc/addWC.sh"},
+        {"weakSSHPRL":"./ssh/prl/addPRL.sh"},
+        {"weakSSHPEM":"./ssh/pem/addPEM.sh"},
+        {"ManagerKey":"./ssh/key/addKey.sh"}
       ],
     "info": "Weak cipher, permitted root login, Permitted empty passwords and a key that gets leaked in the firmware",
     "attributes":[],
@@ -13,7 +13,9 @@
         { "resource":"add users" }
 
     ],
+    "vulnerabilities":["Weak cipher", "permitted root login", "Permitted empty passwords" , "key leaked in the firmware"],
     "CWEs":["CWE-276","CWE-287"],
+    "location":"/etc/ssh/sshd_config",
     "installers":[
         {
             "architecture": "x86",

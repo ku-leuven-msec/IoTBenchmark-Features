@@ -1,4 +1,5 @@
 {
     "vulnerabilities":["SQL injection"],
+    "location":"/opt/dvd/services/vulns/java/SQLInjection.jar",
     "CWEs":["CWE-89"]
 }

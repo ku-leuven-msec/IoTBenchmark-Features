@@ -1,5 +1,6 @@
 {
     "vulnerabilities":["SQL inection"],
+    "location":"/opt/dvd/code/python/SQLInjection.py",
     "CWEs":["CWE-89"]
 
 }

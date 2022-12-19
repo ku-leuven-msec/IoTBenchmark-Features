@@ -1,0 +1,5 @@
+{
+    "vulnerabilities":["Allow anonymous FTP"],
+    "location":"/etc/vsftpd/vsftp.conf",
+    "CWEs":["CWE-287","CWE-276"]
+}

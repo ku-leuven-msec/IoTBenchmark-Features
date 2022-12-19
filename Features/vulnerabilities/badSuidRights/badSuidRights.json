@@ -11,6 +11,7 @@
     ],        
     "vulnerabilities":["Privilege escalation"],
     "CWEs":["CWE-732"],
+    "location":"/bin/cat & /usr/bin/env",
     "installers": [
       {
         "architecture": "x86",

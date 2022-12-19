@@ -1,5 +1,6 @@
 {
     "vulnerabilities":["Server side template injection"],
+    "location":"/opt/dvd/code/python/SSTI.py",
     "CWEs":["CWE-1336"]
 
 }

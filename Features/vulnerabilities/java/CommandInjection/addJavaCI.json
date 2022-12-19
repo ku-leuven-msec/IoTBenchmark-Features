@@ -1,4 +1,5 @@
 {
     "vulnerabilities":["Command injection"],
+    "location":"/opt/dvd/code/java/CommandInjection.jar",
     "CWEs":["CWE-77","CWE-78"]
 }

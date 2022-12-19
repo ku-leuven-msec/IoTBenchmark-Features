@@ -1,0 +1,6 @@
+{
+    "vulnerabilities":["permitted root login"],
+    "location":"/etc/ssh/sshd_config",
+    "CWEs":["CWE-276"]
+
+}

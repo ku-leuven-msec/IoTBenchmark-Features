@@ -1,4 +1,5 @@
 {
     "vulnerabilities":["path traversal"],
+    "location":"/opt/dvd/code/c/PathTraversal",
     "CWEs":["CWE-20"]
 }

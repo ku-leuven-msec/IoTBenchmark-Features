@@ -1,4 +1,5 @@
 {
     "vulnerabilities":["sql injection"],
+    "location":"/opt/dvd/code/c/SQLInjection",
     "CWEs":["CWE-89"]
 }

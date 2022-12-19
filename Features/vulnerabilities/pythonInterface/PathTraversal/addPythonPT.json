@@ -1,5 +1,6 @@
 {
     "vulnerabilities":["path traversal"],
+    "location":"/opt/dvd/services/vulns/python/PathTraversal.py",
     "CWEs":["CWE-22"]
 
 }

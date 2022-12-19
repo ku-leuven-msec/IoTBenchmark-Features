@@ -1,4 +1,5 @@
 {
     "vulnerabilities":["format string "],
+    "location":"/opt/dvd/code/c/FormatString",
     "CWEs":["CWE-134"]
 }

@@ -1,0 +1,5 @@
+{
+    "vulnerabilities":["write enabled", "upload enabled"],
+    "location":"/etc/vsftpd/vsftp.conf",
+    "CWEs":["CWE-434","CWE-287","CWE-276"]
+}

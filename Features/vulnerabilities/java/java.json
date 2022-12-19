@@ -11,6 +11,7 @@
     "dependencies": [],        
     "vulnerabilities":["Command injection , path traversal, SQL injection, Object deserialisation"],
     "CWEs":["CWE-89","CWE-78","CWE-77","CWE-22","CWE-502"],
+    "location":"/opt/dvd/code/java/",
     "installers": [
       {
         "architecture": "x86",

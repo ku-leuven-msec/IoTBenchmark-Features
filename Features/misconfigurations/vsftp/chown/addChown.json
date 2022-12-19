@@ -1,0 +1,5 @@
+{
+    "vulnerabilities":["bad chown permissions"],
+    "location":"/etc/vsftpd/vsftp.conf",
+    "CWEs":["CWE-276"]
+}

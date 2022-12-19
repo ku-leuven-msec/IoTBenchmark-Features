@@ -11,7 +11,9 @@
     "dependencies":[
         { "resource":"ftp" }
     ],
+    "vulnerabilities":["Allow anonymous FTP", "write enabled", "upload enabled"],
     "CWEs":["CWE-434","CWE-287","CWE-276"],
+    "location":"/etc/vsftpd/vsftp.conf",
     "installers":[
         {
             "architecture": "x86",

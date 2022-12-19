@@ -1,5 +1,6 @@
 {
     "vulnerabilities":["Path traversal"],
+    "location":"/opt/dvd/code/bash/PathTraversal.sh",
     "CWEs":["CWE-22"]
 
 }

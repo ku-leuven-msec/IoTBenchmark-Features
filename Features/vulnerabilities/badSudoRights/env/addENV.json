@@ -1,4 +1,5 @@
 {
     "vulnerabilities":["privilege escalation using SETENV"],
+    "location":"/etc/sudoers",
     "CWEs":["CWE-269", "CWE-250"]
 }

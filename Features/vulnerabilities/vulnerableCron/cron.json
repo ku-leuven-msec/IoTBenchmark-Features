@@ -11,6 +11,7 @@
     ],
     "vulnerabilities":["Command injection in file executed as root by cron","Wildcard injection"],
     "CWEs":["CWE-78","CWE-77","CWE-269","CWE-732"],
+    "location":"/etc/crontab/",
     "installers": [
       {
         "architecture": "x86",
