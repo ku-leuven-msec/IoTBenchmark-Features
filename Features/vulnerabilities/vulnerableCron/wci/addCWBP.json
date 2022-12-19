@@ -1,0 +1,4 @@
+{
+    "vulnerabilities":["wildcard injection"],
+    "CWEs":["CWE-269","CWE-732"]
+}
