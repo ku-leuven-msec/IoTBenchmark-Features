@@ -10,6 +10,7 @@
     "dependencies": [],        
     "vulnerabilities":["buffer overflow", "command injection", "sql injection"],
     "CWEs":["CWE-121","CWE-787","CWE-89","CWE-20"],
+    "location":"/opt/dvd/services/vulns/c/",
     "installers": [
       {
         "architecture": "x86",
