@@ -14,7 +14,7 @@
     "installers": [
       {
         "architecture": "x86",
-        "installscript": "./java/addJava.sh"
+        "installscript": "./javaInterface/addJavaInterface.sh"
       }
     ]
   }

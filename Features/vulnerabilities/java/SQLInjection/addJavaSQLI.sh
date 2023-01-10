@@ -1,6 +1,6 @@
 #!/bin/bash
 apk add openjdk11
-javaURL="${VulnerabilitiesURL}java/"
+javaURL="https://github.com/DairodR/Benchmark-Repo-Features/blob/develop/Features/vulnerabilities/java/"
 wget "${javaURL}SQLInjection/sqlInjection.jar" -O SQLInjection.jar 
 wget "${javaURL}SQLInjection/login.db" -O login.db 
 mkdir -p /opt/dvd/code/java/

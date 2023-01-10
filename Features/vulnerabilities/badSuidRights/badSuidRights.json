@@ -1,8 +1,8 @@
 {
     "name": "vulnerable suid rights",
     "subcategories":[
-      {"addSuidCat":"./sudo/env/addENV.sh"},
-      {"addSuid":"./sudo/cat/addCat.sh"}
+      {"addSuidCat":"./badSuidRights/env/addENV.sh"},
+      {"addSuid":"./badSuidRights/cat/addCat.sh"}
     ],
     "info": "Adding SUID rights that can be exploited. On the cat and or env binary",
     "attributes":[],

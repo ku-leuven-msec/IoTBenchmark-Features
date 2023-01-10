@@ -1,9 +1,9 @@
 {
     "name": "cInterface",    
     "subcategories":[
-      {"cCommandInjection":"./c/addCCI.sh"},
-      {"cBufferOverflow":"./c/addCBOF.sh"},
-      {"cSqlInjection":"./c/addCSQLI.sh"}
+      {"cCommandInjection":"./cInterface/CI:addCCI.sh"},
+      {"cBufferOverflow":"./cInterface/bof/addCBOF.sh"},
+      {"cSqlInjection":"./cInterface/sqli/addCSQLI.sh"}
     ],
     "info": "Adding binaries written in c that contains certain vulnerabilities that can communciate with certain protocols",
     "attributes":[],

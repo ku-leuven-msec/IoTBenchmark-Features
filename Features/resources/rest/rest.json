@@ -8,6 +8,7 @@
       { "resource":"Certificates"}
   ],
   "CWEs":["CWE-295"],
+  "location":"/opt/dvd/services/rest/server.py",
   "installers": [
       {
         "architecture": "x86",

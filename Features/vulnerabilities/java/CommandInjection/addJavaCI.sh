@@ -1,6 +1,6 @@
 #!/bin/bash
 apk add openjdk11
-javaURL="${VulnerabilitiesURL}java/"
+javaURL="https://github.com/DairodR/Benchmark-Repo-Features/blob/develop/Features/vulnerabilities/java/"
 wget "${javaURL}CommandInjection/CommandInjection.jar" -O CommandInjection.jar 
 mkdir -p /opt/dvd/code/java/
 mv ./CommandInjection.jar  /opt/dvd/code/java/CommandInjection.jar 

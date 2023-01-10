@@ -1,10 +1,10 @@
 {
     "name": "vulnerable sudo rights",
     "subcategories":[
-      {"sudoEnviromentRights":"./sudo/env/addENV.sh"},
-      {"sudoLD_PRELOADRights":"./sudo/ldp/addLDP.sh"},
-      {"sudoPathTraversalRights":"./sudo/pt/addPT.sh"},
-      {"sudoViRights":"./sudo/vi/addVi.sh"}
+      {"sudoEnviromentRights":"./badSudoRights/env/addENV.sh"},
+      {"sudoLD_PRELOADRights":"./badSudoRights/ldp/addLDP.sh"},
+      {"sudoPathTraversalRights":"./badSudoRights/pt/addPT.sh"},
+      {"sudoViRights":"./badSudoRights/vi/addVi.sh"}
     ],
     "info": "Adding a sudo rights that can be exploited. These rights allow $PATH abuse, a path traversal, code injection with LD_PRELOAD, and a privilege escalation using the vi binary ",
     "attributes":[],
