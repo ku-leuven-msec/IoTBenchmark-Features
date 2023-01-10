@@ -257,7 +257,7 @@
     "name": "vulnerable sudo rights",
     "subcategories":[
       {"sudoEnviromentRights":"./sudo/env/addENV.sh"},
-      {"sudoLD_PRELOADRights":"./sudo/ldp/addLDP.sh"},
+      {"sudoLDPRELOADRights":"./sudo/ldp/addLDP.sh"},
       {"sudoPathTraversalRights":"./sudo/pt/addPT.sh"},
       {"sudoViRights":"./sudo/vi/addVi.sh"}
     ],
