@@ -11,4 +11,4 @@ wget "https://github.com/DairodR/Benchmark-Repo-Features/blob/develop/Features/v
 mv /tmp/pythonVuln/* /opt/dvd/services/vulns/python/
 chmod -R +x /opt/dvd/services/vulns/python/
 chmod -R +s /opt/dvd/services/vulns/python/
-rm /opt/dvd/vulns/python/addPythonInterface.sh
+rm /opt/dvd/services/vulns/python/addPythonInterface.sh
