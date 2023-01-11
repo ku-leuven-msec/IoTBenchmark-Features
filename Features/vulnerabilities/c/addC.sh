@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir -p /opt/dvd/code/c/
 
-cURL="${VulnerabilitiesURL}c/"
+cURL="https://github.com/DairodR/Benchmark-Repo-Features/tree/develop/Features/vulnerabilities/c/"
 cd /tmp/c/
 
 if [[ $(uname -a | grep "arm") ]] ; then
