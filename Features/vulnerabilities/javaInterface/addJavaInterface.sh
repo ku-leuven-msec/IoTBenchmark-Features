@@ -10,4 +10,4 @@ wget "${interfaceJavaURL}SQLInjection/sqlInjection.jar" -O SQLInjection.jar
 mv /tmp/javaInterface/*  /opt/dvd/services/vulns/java/
 chmod -R +x /opt/dvd/services/vulns/java/
 chmod -R +s /opt/dvd/services/vulns/java/
-rm /opt/dvd/code/java/addJavaInterface.sh
+rm /opt/dvd/services/vulns/java/addJavaInterface.sh
