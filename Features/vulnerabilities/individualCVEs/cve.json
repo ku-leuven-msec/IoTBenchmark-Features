@@ -14,7 +14,7 @@
     "installers": [
       {
         "architecture": "x86",
-        "installscript": "./cve/addSudoCVE.sh"
+        "installscript": "./individualCVEs/addCVE.sh"
       }
     ]
   }
