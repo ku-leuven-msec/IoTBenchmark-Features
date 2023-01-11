@@ -5,6 +5,9 @@
 # WARNING: this script uninstalls and installs certain binairies
 # it will possibly affect other services running on the benchmark 
 # and will take a very long time
+apk add curl
+apk add --repository https://dl-cdn.alpinelinux.org/alpine/v3.15/community pup
+
 
 # Iterating from version 3.17 to 3.10
 version=18
