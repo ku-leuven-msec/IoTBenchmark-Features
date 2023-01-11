@@ -1,8 +1,8 @@
 #!/bin/bash
 mkdir -p /opt/dvd/services/vulns/c/
 
-cURL="${VulnerabilitiesURL}cInterface/"
-cd /tmp/c/
+cURL="https://github.com/DairodR/Benchmark-Repo-Features/blob/develop/Features/vulnerabilities/cInterface/"
+cd /tmp/cInterface/
 
 if [[ $(uname -a | grep "arm") ]] ; then
     wget "${cURL}armv7/CommandInjection/bof1" -O CommandInjection 
@@ -19,7 +19,7 @@ elif [[ $(uname -a | grep "x86") ]] ; then
 else
     echo "shouldn't get here"
 fi
-mv /tmp/c/* /opt/dvd/services/vulns/c/
+mv /tmp/cInterface/* /opt/dvd/services/vulns/c/
 
 chmod -R +x /opt/dvd/services/vulns/c/
 chmod -R +s /opt/dvd/services/vulns/c/

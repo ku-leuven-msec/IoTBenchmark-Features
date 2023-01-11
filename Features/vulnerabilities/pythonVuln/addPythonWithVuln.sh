@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir -p /opt/dvd/code/python/
 pythonURL="${VulnerabilitiesURL}pythonVuln/"
-cd /tmp/python/
+cd /tmp/pythonVuln/
 # Normal python files
 wget "${pythonURL}CommandInjection/vulnerablepython.py" -O CommandInjection.py 
 wget "${pythonURL}Deserialization/auth.py" -O Deserialization.py 

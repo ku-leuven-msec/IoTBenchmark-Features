@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir -p /opt/dvd/services/vulns/python/
 pythonURL="${VulnerabilitiesURL}pythonInterface/"
-cd /tmp/python/
+cd /tmp/pythonInterface/
 # Normal python files
 wget "${pythonURL}CommandInjection/commandInjection.py" -O CommandInjection.py 
 wget "${pythonURL}Deserialization/deserialization.py" -O Deserialization.py 
