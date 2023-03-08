@@ -2,7 +2,9 @@
 mkdir -p /opt/dvd/code/c/
 
 cURL="${VulnerabilitiesURL}c/"
+mkdir -p /tmp/c
 cd /tmp/c/
+
 if [[ $(uname -a | grep "arm") ]] ; then
     wget "${cURL}armv7/BufferOverflow/bof1" -O BufferOverflow 
 elif [[ $(uname -a | grep "x86") ]] ; then

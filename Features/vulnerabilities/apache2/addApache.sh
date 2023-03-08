@@ -2,6 +2,10 @@
 apk add apache2 apache2-mod-wsgi
 
 mkdir -p /opt/dvd/services/http
+# Getting sourceCode
+mkdir -p  /tmp/apache2/
+mv /tmp/backend/Features/vulnerabilities/apache2/sourceCode/* /tmp/apache2/ 
+
 mv /tmp/apache2/* /opt/dvd/services/http/
 mv /opt/dvd/services/http/http.conf /etc/apache2/conf.d/http.conf
 
