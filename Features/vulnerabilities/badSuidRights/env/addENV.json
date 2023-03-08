@@ -1,5 +1,22 @@
 {
+    "feature":"config",
+    "name": "badSuidRightsENV",
+    "display_name":"Vulnerable SUID rights on the env binary",
+    "description": "Adding SUID rights that can be exploited. On the env binary",
+    "attributes":[],
+    "dependencies": [
+
+      { "name": "sudo" }
+    ],        
     "vulnerabilities":["Privilege escalation"],
-    "location":"/usr/bin/env",
-    "CWEs":["CWE-732"]
-}
+    "CWEs":["CWE-732"],
+    "type":"misconfiguration",
+    "family":"SUID",
+    "location":"/bin/env",
+    "scripts": [
+      {
+        
+        "install": "vulnerabilities/badSuidRights/env/addENV.sh"
+      }
+    ]
+  }

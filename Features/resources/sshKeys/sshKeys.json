@@ -1,14 +1,15 @@
 {
-    "name": "ssh keys",
-    "info": "Add ssh keys & authorised keys",
-    "attributes":[],
-    "dependencies":[
-      { "resource":"ssh" }
-  ],
-    "installers": [
-      {
-        "architecture": "x86",
-        "installscript": "./sshKeys/setupSSH.sh"
-      }
-    ]
+  "feature": "resource",
+      "name": "ssh keys",
+      "display_name": "SSH Keys",
+      "description": "Add ssh keys & authorised keys",
+      "type": "keys",
+      "family": "SSH",
+      "dependencies": [
+          { "name":"openssh" }
+      ],
+      "scripts": {
+
+      "install":"resources/sshKeys/setupSSH.sh"
   }
+}

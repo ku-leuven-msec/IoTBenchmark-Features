@@ -1,12 +1,13 @@
 {
-    "name": "openrc",
-    "info": "install & initialise openrc service",
-    "attributes":[],
-    "dependencies":[],
-    "installers": [
-      {
-        "architecture": "x86",
-        "installscript": "./openrc/addOpenrc.sh"
-      }
-    ]
+  "feature": "resource",
+      "name": "openrc",
+      "display_name": "openrc init system",
+      "description": "installs and initializes the openrc init system",
+      "type": "init-system",
+      "family": "init-system",
+      "dependencies": [],
+      "scripts": {
+
+      "install":"resources/openrc/addOpenrc.sh"
   }
+}

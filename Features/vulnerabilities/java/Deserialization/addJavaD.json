@@ -1,5 +1,17 @@
 {
+    "feature":"vulnerability",
+    "name": "javaD",
+    "type":"language",
+    "family":"Java",
+    "language":"Java",
+    "display_name": "Java object deserialisation",
+    "description": "Adding java object deserialisation",
+    "dependencies": [],        
     "vulnerabilities":["Object deserialisation"],
     "location":"/opt/dvd/code/java/Deserialization.jar",
-    "CWEs":["CWE-502"]
+    "CWEs":["CWE-502"],
+    "scripts": 
+      {
+        "install": "vulnerabilities/java/Deserialization/addJavaD.sh"
+      }
 }

@@ -1,19 +1,21 @@
 {
-    "name": "api",
-    "info": "Installing a api server that contains a multiple possible vulnerabilities",
-    "dependencies": [
-      { "resource": "Python3"},
-      { "resource": "cron" }
-    ],     
-    "attributes": [{"port": "5000", "service": "rest"}],   
-    "vulnerabilities":["modular rest server with possible vulnerabilities behind it"],
-    "CWEs":["CWE-78","CWE-77","CWE-20","CWE-22","CWE-89"],
-    "location":"/opt/dvd/services/api/server.py",
-    "installers": [
-      {
-        "architecture": "x86",
-        "attributes": {},
-        "installscript": "./api/addApi.sh"
-      }
-    ]
-  }
+  "feature":"server",
+  "name": "api",
+  "display_name":"Modular API server",
+  "description": "Installing a api server that contains a multiple possible vulnerabilities",
+  "dependencies": [
+    { "name": "Python3"},
+    { "name": "cron" }
+  ],
+  "port":"5000",
+  "type":"interface",
+  "language":"python",
+  "family":"rest",     
+  "vulnerabilities":["modular rest server with possible vulnerabilities behind it"],
+  "CWEs":["CWE-78","CWE-77","CWE-20","CWE-22","CWE-89"],
+  "location":"/opt/dvd/services/api/server.py",
+  "scripts": 
+    {
+      "install": "vulnerabilities/api/addApi.sh"
+    }
+}

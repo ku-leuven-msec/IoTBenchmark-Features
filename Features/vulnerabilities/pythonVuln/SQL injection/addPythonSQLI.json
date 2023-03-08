@@ -1,6 +1,19 @@
 {
+    "feature":"vulnerability",
+    "name": "pythonSQLI",
+    "type": "language",
+    "language":"python",
+    "family": "python",
+    "display_name": "python sql injection",
+    "description": "Adding python sql injection",
+    "dependencies": [],        
     "vulnerabilities":["SQL inection"],
     "location":"/opt/dvd/code/python/SQLInjection.py",
-    "CWEs":["CWE-89"]
+    "CWEs":["CWE-89"],
+    "scripts":  {
+        "install": "vulnerabilities/pythonVuln/SQLInjection/addpythonSQLI.sh"
+      }
 
-}
+  }
+  
+

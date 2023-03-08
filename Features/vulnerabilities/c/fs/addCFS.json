@@ -1,5 +1,17 @@
 {
+    "feature": "vulnerability",
+    "name": "cFS",    
+    "display_name": "c format string",    
+    "type": "language",
+    "language":"c",
+    "family": "c",
+    "description": "Adding binaries written in c that contains a format string",
+    "dependencies": [],        
     "vulnerabilities":["format string "],
     "location":"/opt/dvd/code/c/FormatString",
-    "CWEs":["CWE-134"]
+    "CWEs":["CWE-134"],
+    "scripts": 
+      {
+        "install": "vulnerabilities/c/fs/addCFS.sh"
+      }
 }

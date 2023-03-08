@@ -1,5 +1,21 @@
 {
+    "feature": "config",
+    "name": "badSudoRightsVI",
+    "display_name":"Misconfugured sudo in the vi binary",
+    "description": "Adding a sudo rights that can be exploited. These rights allow path traversal using the vi binary ",
+    "dependencies": [
+      { "name": "add users"},
+      { "name": "sudo" },
+      { "name": "cron" }
+    ],        
     "vulnerabilities":["privilege escalation"],
+    "CWEs":["CWE-269"],
+    "family":"SUDO",
+    "type":"misconfiguration",
     "location":"/etc/sudoers",
-    "CWEs":["CWE-269"]
-}
+    "scripts": 
+      {
+        "install": "vulnerabilities/badSudoRights/vi/addVi.sh"
+      }
+    
+  }

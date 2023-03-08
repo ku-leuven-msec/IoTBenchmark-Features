@@ -1,21 +1,19 @@
 {
+  "feature":"server",
   "name": "vulnerable http server",
-  "info": "Installing http server with multiple vulnerabilities: SQL injection, XSS, CSRF and a information leak",
+  "type":"web vulnerabilities",
+  "family":"HTTP",
+  "description": "Installing http server with multiple vulnerabilities: SQL injection, XSS, CSRF and a information leak",
   "dependencies": [
-    { "resource": "Python3"},
-    { "resource": "cron"}
+    { "name": "Python3"},
+    { "name": "cron"}
   ],        
-  "attributes":[
-     {"port": "80", "service": "http"},
-     {"port": "443", "service":"https"}   
-    ],
-     "vulnerabilities":["SQL injection", "XSS", "CSRF" , "information leak"],
-     "CWEs":["CWE-89","CWE-287","CWE-312"],
-     "location":"/opt/dvd/services/http/",
-     "installers": [
+    "port": ["80", "443"], 
+    "vulnerabilities":["SQL injection", "XSS", "CSRF" , "information leak"],
+    "CWEs":["CWE-89","CWE-287","CWE-312"],
+    "location":"/opt/dvd/services/http/",
+    "scripts": 
     {
-      "architecture": "x86",
-      "installscript": "./http/addHttp.sh"
+      "install": "vulnerabilities/http/addHttp.sh"
     }
-  ]
 }

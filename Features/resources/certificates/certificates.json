@@ -1,12 +1,11 @@
 {
-    "name": "Certificates",
-    "info": "install certificates on device needed for some other services",
-    "attributes":[],
-    "dependencies":[],
-    "installers": [
+  "feature":  "resource",
+      "name": "Certificates",
+      "description": "install certificates on device needed for some other services",
+      "dependencies":[],
+      "scripts": [
       {
-        "architecture": "x86",
-        "installscript": "./certificates/addCertificates.sh"
+          "install": "resources/certificates/addCertificates.sh"
       }
-    ]
-  }
+      ]
+}

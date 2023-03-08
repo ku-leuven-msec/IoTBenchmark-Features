@@ -1,6 +1,17 @@
 {
-    "vulnerabilities":["SQL inection"],
+    "feature": "vulnerability",
+    "name": "pythonInterfaceSQLI",
+    "language":"python",
+    "type":"servlet",
+    "family":"python",
+    "display_name": "python SQL injection, interface",
+    "description": "Adding python SQL injection that communicates with the ouside world over services",
+    "dependencies": [],        
+    "vulnerabilities":["SQL injection"],
     "location":"//opt/dvd/services/vulns/python/SQLIjection.py",
-    "CWEs":["CWE-89"]
-
-}
+    "CWEs":["CWE-89"],
+    "scripts":  {
+        "install": "vulnerabilities/pythonInterface/SQLInjection/addPythonSQLI.sh"
+      }
+  }
+  

@@ -1,4 +1,14 @@
 {
+    "feature":"vulnerability",
+    "name": "CVE-2019-14287",
+    "type":"CVE",
+    "family":"CVE",
+    "description": "adding Sudo version 1.8319_p1_r0, this version in vulnerable to CVE-2019-14287. \n other CVE's are also possible, but are not tested and are unsure.",
+    "attributes":[],
+    "dependencies": [],
     "vulnerabilities":["CVE-2019-14287"],
-    "CWEs":["CWE-288"]
+    "CWEs":["CWE-288"],
+    "scripts": {
+        "install": "vulnerabilities/individualCVEs/sudo/addSudoCVE.sh"
+    }
 }

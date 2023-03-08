@@ -1,5 +1,18 @@
 {
+    "feature": "vulnerability",
+    "name": "cPT",    
+    "display_name": "c path traversal",    
+    "type": "language",
+    "family": "c",
+    "language":"c",
+    "description": "Adding binaries written in c that contains a path traversal",
+    "dependencies": [],        
     "vulnerabilities":["path traversal"],
     "location":"/opt/dvd/code/c/PathTraversal",
-    "CWEs":["CWE-20"]
+    "CWEs":["CWE-20"],   
+    "scripts":
+      {
+        "install": "vulnerabilities/c/pt/addCPT.sh"
+      }
 }
+

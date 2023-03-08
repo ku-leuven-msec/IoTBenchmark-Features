@@ -1,18 +1,20 @@
 {
-    "name": "rest",
-    "info": "Install rest service",
-    "attributes":[],
-    "dependencies":[
-      { "resource":"cron" },
-      { "resource":"Python3"},
-      { "resource":"Certificates"}
-  ],
+  "feature": "server",
+      "name": "rest",
+      "display_name": "REST service",
+      "description": "installs a REST service ",
+      "family": "rest",
+      "language":"python",
+      "port":"80",
+      "dependencies": [
+          { "name":"cron" },
+          { "name":"Python3"},
+          { "name":"Certificates"}
+      ],
+      "scripts": {
+
+      "install":"resources/rest/addRest.sh"
+  },
   "CWEs":["CWE-295"],
-  "location":"/opt/dvd/services/rest/server.py",
-  "installers": [
-      {
-        "architecture": "x86",
-        "installscript": "./rest/addRest.sh"
-      }
-    ]
-  }
+  "location":"/opt/dvd/services/rest/server.py"
+}

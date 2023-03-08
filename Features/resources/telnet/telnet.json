@@ -1,14 +1,15 @@
 {
-    "name": "telnet",
-    "info": "install telnet service",
-    "attributes": [{"port": "23", "service": "telnet"}],
-    "dependencies":[
-      { "resource":"openrc" }
-  ],
-    "installers": [
-      {
-        "architecture": "x86",
-        "installscript": "./telnet/addTelnet.sh"
-      }
-    ]
+  "feature": "service",
+      "name": "telnet",
+      "display_name": "Telnet",
+      "description": "installs the telnet service",
+      "port": "23",
+      "family":"telnet",
+      "dependencies":[
+      {"name":"openrc"}
+      ],
+      "scripts": {
+
+      "install":"resources/telnet/addTelnet.sh"
   }
+}

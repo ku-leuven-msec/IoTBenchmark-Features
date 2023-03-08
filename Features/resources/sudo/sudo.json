@@ -1,12 +1,12 @@
 {
-    "name": "sudo",
-    "info": "install sudo",
-    "attributes":[],
-    "dependencies":[],
-    "installers": [
-      {
-        "architecture": "x86",
-        "installscript": "./sudo/addSudo.sh"
-      }
-    ]
+  "feature": "resource",
+      "name": "sudo",
+      "display_name": "Sudo",
+      "description": "installs the sudo binaries",
+      "type": "authorization",
+      "family":"SUDO",
+      "scripts": {
+
+      "install":"resources/sudo/addSudo.sh"
   }
+}

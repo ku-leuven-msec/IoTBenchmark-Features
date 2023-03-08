@@ -1,14 +1,15 @@
 {
-    "name": "cron",
-    "info": "install cron",
-    "attributes":[],
-    "dependencies":[
-            { "resource": "openrc"}
-  ],
-    "installers": [
-      {
-        "architecture": "x86",
-        "installscript": "./cron/addCron.sh"
-      }
-    ]
+  "feature": "app",
+      "name": "cron",
+      "display_name": "Cron Service",
+      "description": "installs the cron service whitout any jobs",
+      "type": "scheduler",
+      "family": "cron",
+      "dependencies": [
+          {"name":"openrc"}
+      ],
+      "scripts": {
+
+      "install":"resources/cron/addCron.sh"
   }
+}

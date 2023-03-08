@@ -1,19 +1,17 @@
 {
-    "name": "template",
-    "info": "A template of a vulnerability",
-    "dependencies": [
-      { "resource": "resource needed to run"},
-      { "resource": "resource needed to run" }
-    ],     
-    "attributes": [{"port": "XXXX", "service": "service"}],   
-    "vulnerabilities":["All vulnerabilities introduced"],
-    "CWEs":["CWE-xxx","CWE-xxx"],
-    "installers": [
-      {
-        "architecture": "x86",
-        "attributes": {},
-        "buildscript": "path to build file",
-        "installscript": "./template/addTemplate.sh"
-      }
-    ]
-  }
+  "feature":"TEMPLATE",
+  "name": "templateId",
+  "type":"templateType",
+  "display_name":"templateName",
+  "family":"templateFamily",
+  "description": "A template of a vulnerability",
+  "dependencies": [
+    { "name": "resource needed to run"},
+    { "name": "resource needed to run" }
+  ],     
+  "vulnerabilities":["All vulnerabilities introduced"],
+  "CWEs":["CWE-xxx","CWE-xxx"],
+  "scripts":  {
+      "install": "xxx/template/addTemplate.sh"
+    }
+}

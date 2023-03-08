@@ -1,5 +1,18 @@
 {
+    "feature":"vulnerability",
+    "name": "javaCI",
+    "type":"language",
+    "language":"Java",
+    "family":"Java",
+    "display_name": "Java command injection",
+    "description": "Adding java command injection",
+    "dependencies": [],        
     "vulnerabilities":["Command injection"],
     "location":"/opt/dvd/code/java/CommandInjection.jar",
-    "CWEs":["CWE-77","CWE-78"]
+    "CWEs":["CWE-77","CWE-78"],
+    "scripts": 
+      {
+        "install": "vulnerabilities/java/CommandInjection/addJavaCI.sh"
+      }
 }
+

@@ -1,20 +1,20 @@
 {
-    "name": "coap",
-    "info": "modular coap server, with possible vulnerabilities behind it",
-    "dependencies": [
-      { "resource": "Python3"},
-      { "resource": "cron" }
-    ],     
-    "attributes": [{"port": "5683", "service": "coap"}],   
-    "vulnerabilities":["modular coap server, with possible vulnerabilities behind it: Command injection, SQL injection, Path traversal and object deserialisation"],
-    "CWEs":["CWE-78","CWE-77","CWE-20","CWE-22","CWE-89"],
-    "location":"/opt/dvd/services/coap/server.py",
-    "installers": [
-      {
-        "architecture": "x86",
-        "attributes": {},
-        "buildscript": "./coap/build_coap.sh",
-        "installscript": "./coap/addCoap.sh"
-      }
-    ]
-  }
+  "feature":"server",
+  "name": "coap",
+  "type":"interface",
+  "language":"python",
+  "family":"coap",
+  "description": "modular coap server, with possible vulnerabilities behind it",
+  "dependencies": [
+    { "name": "Python3"},
+    { "name": "cron" }
+  ],     
+  "port": "5683",   
+  "vulnerabilities":["modular coap server, with possible vulnerabilities behind it: Command injection, SQL injection, Path traversal and object deserialisation"],
+  "CWEs":["CWE-78","CWE-77","CWE-20","CWE-22","CWE-89"],
+  "location":"/opt/dvd/services/coap/server.py",
+  "scripts":
+    {
+      "install": "vulnerabilities/coap/addCoap.sh"
+    }
+}

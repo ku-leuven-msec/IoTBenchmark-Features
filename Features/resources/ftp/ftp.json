@@ -1,14 +1,15 @@
 {
-    "name": "ftp",
-    "info": "install ftp service",
-    "attributes": [{"port": "21", "service": "ftp"}],
-    "dependencies":[      
-      { "resource": "openrc"}
-  ],
-    "installers": [
-      {
-        "architecture": "x86",
-        "installscript": "./ftp/addFtp.sh"
-      }
-    ]
+  "feature": "service",
+      "name": "vsftp",
+      "display_name": "FTP Service",
+      "description": "installs the ftp service",
+      "port":"21",
+      "family": "FTP",
+      "dependencies": [
+          {"name":"openrc"}
+      ],
+      "scripts": {
+
+      "install":"resources/ftp/addFtp.sh"
   }
+}

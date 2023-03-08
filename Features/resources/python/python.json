@@ -1,12 +1,13 @@
 {
-    "name": "Python3",
-    "info": "install pyhton3 and pip3",
-    "attributes":[],
-    "dependencies":[],
-    "installers": [
-      {
-        "architecture": "x86",
-        "installscript": "./python/addPython.sh"
-      }
-    ]
+  "feature": "resource",
+      "name": "Python3",
+      "display_name": "Python3",
+      "description": "installs python3 and pip3 ",
+      "type": "language",
+      "family": "python",
+      "dependencies": [],
+      "scripts": {
+
+      "install":"resources/python/addPython.sh"
   }
+}

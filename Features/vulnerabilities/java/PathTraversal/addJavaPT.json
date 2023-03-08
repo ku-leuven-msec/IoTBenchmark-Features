@@ -1,5 +1,18 @@
 {
+    "feature":"vulnerability",
+    "name": "javaPT",
+    "type":"language",
+    "family":"Java",
+    "language":"Java",
+    "display_name": "Java path traversal",
+    "description": "Adding java path traversal",
+    "dependencies": [],        
     "vulnerabilities":["path traversal"],
     "location":"/opt/dvd/code/java/PathTraversal.jar",
-    "CWEs":["CWE-22"]
+    "CWEs":["CWE-22"],
+    "scripts": 
+      {
+        "install": "vulnerabilities/java/PathTraversal/addJavaPT.sh"
+      }
 }
+

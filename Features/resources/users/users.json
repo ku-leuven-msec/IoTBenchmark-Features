@@ -1,12 +1,10 @@
 {
-    "name": "add users",
-    "info": "add basic users (without password)",
-    "attributes":[],
-    "dependencies":[],
-    "installers": [
-      {
-        "architecture": "x86",
-        "installscript": "./users/addUsers.sh"
-      }
-    ]
+  "feature": "resource",
+      "name": "add users",
+      "display_name": "Add Other Users",
+      "description": "Adds basic users to the firmware (without password)",
+      "scripts": {
+
+      "install":"resources/users/addUsers.sh"
   }
+}

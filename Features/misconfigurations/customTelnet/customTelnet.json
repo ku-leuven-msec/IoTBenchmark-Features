@@ -1,18 +1,24 @@
 {
-    "name": "misconfigured telnet",
-    "info": "A python telnet server that uses hardcoded credentials",
-    "attributes":[{"port":"23", "service":"telnet"}],
-    "dependencies":[
-        { "resource":"Python3" },
-        { "resource": "cron" }
-    ],
-    "vulnerabilities":["hardcoded credentials","outdated protocol","unencrypted traffic"],
-    "CWEs":["CWE-798","CWE-287","CWE-276","CWE-522","CWE-312"],
-    "location":"/opt/dvd/services/telnet/server.py",
-    "installers":[
-        {
-            "architecture": "x86",
-            "installscript":"./customTelnet/addCustomTelnet.sh"
-        }
-    ]
+    "feature": "config",
+           "name": "customTelnet",
+           "display_name": "Misconfigured Telnet",
+           "description": "A python telnet server that uses hardcoded credentials",
+           "dependencies": [
+               {
+                   "name": "Python3"
+               },
+               {
+                   "name": "cron"
+               }
+           ],
+           "scripts": {
+               "install": "misconfigurations/customTelnet/addCustomTelnet.sh"
+           },
+           "type":"infoleak",
+           "language":"python",
+           "family":"telnet",
+           "port": "23",
+           "vulnerabilities":["hardcoded credentials","outdated protocol","unencrypted traffic"],
+           "CWEs":["CWE-798","CWE-287","CWE-276","CWE-522","CWE-312"],
+           "location":"/opt/dvd/services/telnet/server.py"         
 }

@@ -1,5 +1,21 @@
 {
+    "feature": "vulnerability",
+    "name": "javaInterfacePT",
+    "type":"servlet",
+    "language":"Java",
+    "family":"Java",
+    "display_name": "java path traversal, interface",
+    "description": "Adding java path traversal, that communicates with the ouside world over services",
+    "dependencies": [],        
     "vulnerabilities":["path traversal"],
     "location":"/opt/dvd/services/vulns/java/PathTraversal",
-    "CWEs":["CWE-22"]
-}
+    "CWEs":["CWE-22"],    
+    "scripts": 
+      {
+        "install": "vulnerabilities/javaInterface/PathTraversal/addJavaPT.sh"
+      }
+    
+  }
+
+
+

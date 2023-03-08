@@ -1,5 +1,17 @@
 {
+    "feature": "vulnerability", 
+    "name": "cSQLI",    
+    "display_name": "c sql injection",    
+    "type": "language",
+    "family": "c",
+    "description": "Adding binaries written in c that contains a sql injection",
+    "dependencies": [],        
+    "language":"c",
     "vulnerabilities":["sql injection"],
     "location":"/opt/dvd/code/c/SQLInjection",
-    "CWEs":["CWE-89"]
+    "CWEs":["CWE-89"],  
+    "scripts":
+      {
+        "install": "vulnerabilities/c/sqli/addCSQLI.sh"
+      }
 }

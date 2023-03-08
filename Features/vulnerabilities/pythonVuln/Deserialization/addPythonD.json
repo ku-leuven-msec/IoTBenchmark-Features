@@ -1,6 +1,20 @@
 {
-    "vulnerabilities":["Object deserialisation"],
+    "feature":"vulnerability",
+    "name": "pythonD",
+    "type": "language",
+    "language":"python",
+    "family": "python",
+    "display_name": "python object deserialization ",
+    "description": "Adding python object deserialization",
+    "dependencies": [],        
+    "vulnerabilities":["Object deserialization"],
     "location":"/opt/dvd/code/python/Deserialization.py",
-    "CWEs":["CWE-502"]
+    "CWEs":["CWE-502"],
+    "scripts":  {
+        "install": "vulnerabilities/pythonVuln/Deserialization/addPythonD.sh"
+      }
 
-}
+  }
+
+
+
