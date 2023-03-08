@@ -1,6 +1,6 @@
 #!/bin/bash
 apk add openjdk11
-interfaceJavaURL="${VulnerabilitiesURL}interface/"
+interfaceJavaURL="${VulnerabilitiesURL}javaInterface/"
 wget "${interfaceJavaURL}SQLInjection/sqlInjection.jar" -O SQLInjection.jar 
 wget "${interfaceJavaURL}SQLInjection/login.db" -O login.db 
 mkdir -p /opt/dvd/services/vulns/java/

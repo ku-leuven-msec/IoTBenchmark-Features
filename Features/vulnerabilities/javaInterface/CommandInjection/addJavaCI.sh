@@ -1,6 +1,6 @@
 #!/bin/bash
 apk add openjdk11
-interfaceJavaURL="${VulnerabilitiesURL}interface/"
+interfaceJavaURL="${VulnerabilitiesURL}javaInterface/"
 wget "${interfaceJavaURL}CommandInjection/commandInjection.jar" -O CommandInjection.jar 
 mkdir -p /opt/dvd/services/vulns/java/
 mv ./CommandInjection.jar  /opt/dvd/services/vulns/java/CommandInjection.jar 
