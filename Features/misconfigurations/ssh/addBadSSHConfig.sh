@@ -3,9 +3,14 @@ wget "${MisconfigurationsURL}ssh/sshd_config" -O sshd_config
 # If the vulnerable sshd is also on the device
 rm /etc/ssh/sshd_config
 mv sshd_config /etc/ssh/sshd_config
-mkdir -p /usr/local/etc/
-rm -rf /usr/local/etc/*
-ln /etc/ssh/* /usr/local/etc/
+
+FILE=/usr/sbin/sshd
+if test -f "$FILE"; then
+    mkdir -p /usr/local/etc/
+    rm -rf /usr/local/etc/*
+    ln /etc/ssh/* /usr/local/etc/
+fi 
+
 
 # add key that gets leaked..
 # Needs to be tested
