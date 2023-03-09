@@ -3,5 +3,5 @@ apk update
 apk add dcron
 FILE=/sbin/openrc
 if test -f "$FILE"; then
-    rc-update add crond default
+    rc-update add /usr/sbin/crond default
 fi 
