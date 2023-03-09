@@ -6,7 +6,13 @@
     "family": "c",
     "language":"c",
     "description": "Adding binaries written in c that contains command injection that can communciate with certain protocols",
-    "dependencies": [],        
+    "dependencies": [
+        {
+            "feature":"platform",
+            "name":"armv7|x86"
+        }
+
+    ],        
     "vulnerabilities":["command injection"],
     "location":"/opt/dvd/services/vulns/c/CommandInjection",
     "CWEs":["CWE-77","CWE-78"],

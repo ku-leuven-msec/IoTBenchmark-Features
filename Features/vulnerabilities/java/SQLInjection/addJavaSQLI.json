@@ -6,7 +6,12 @@
     "language":"Java",
     "display_name": "Java SQL injection",
     "description": "Adding java SQL injection",
-    "dependencies": [],        
+    "dependencies": [
+        {
+            "feature":"platform",
+            "name":"x86|ppc64le|s390x"
+        }
+    ],        
     "vulnerabilities":["SQL injection"],
     "location":"/opt/dvd/code/java/SQLInjection.jar",
     "CWEs":["CWE-89"],

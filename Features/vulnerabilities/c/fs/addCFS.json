@@ -6,7 +6,13 @@
     "language":"c",
     "family": "c",
     "description": "Adding binaries written in c that contains a format string",
-    "dependencies": [],        
+    "dependencies": [
+        {
+            "feature":"platform",
+            "name":"armv7|x86"
+        }
+
+    ],        
     "vulnerabilities":["format string "],
     "location":"/opt/dvd/code/c/FormatString",
     "CWEs":["CWE-134"],

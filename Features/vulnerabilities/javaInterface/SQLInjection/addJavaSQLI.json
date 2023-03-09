@@ -6,7 +6,12 @@
     "family":"Java",
     "display_name": "java SQL injection, interface",
     "description": "Adding java SQL injection, that communicates with the ouside world over services",
-    "dependencies": [],        
+    "dependencies": [
+        {
+            "feature":"platform",
+            "name":"x86|ppc64le|s390x"
+        }
+    ],        
     "vulnerabilities":["SQL injection"],
     "location":"/opt/dvd/services/vulns/java/SQLInjection.jar",
     "CWEs":["CWE-89"],    

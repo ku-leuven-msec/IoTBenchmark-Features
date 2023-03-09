@@ -6,7 +6,12 @@
     "family":"Java",
     "display_name": "Java command injection",
     "description": "Adding java command injection",
-    "dependencies": [],        
+    "dependencies": [
+        {
+            "feature":"platform",
+            "name":"x86|ppc64le|s390x"
+        }
+    ],        
     "vulnerabilities":["Command injection"],
     "location":"/opt/dvd/code/java/CommandInjection.jar",
     "CWEs":["CWE-77","CWE-78"],

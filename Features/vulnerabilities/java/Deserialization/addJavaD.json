@@ -6,7 +6,12 @@
     "language":"Java",
     "display_name": "Java object deserialisation",
     "description": "Adding java object deserialisation",
-    "dependencies": [],        
+    "dependencies": [
+        {
+            "feature":"platform",
+            "name":"x86|ppc64le|s390x"
+        }
+    ],        
     "vulnerabilities":["Object deserialisation"],
     "location":"/opt/dvd/code/java/Deserialization.jar",
     "CWEs":["CWE-502"],
