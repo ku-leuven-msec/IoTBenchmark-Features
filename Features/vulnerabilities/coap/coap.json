@@ -1,20 +1,21 @@
 {
-  "feature":"server",
+  "feature":"interface",
   "name": "coap",
+  "display_name": "CoAP server",
   "type":"interface",
   "language":"python",
   "family":"coap",
-  "description": "modular coap server, with possible vulnerabilities behind it",
+  "description": "Installs a modular coap server running as root. Possible packet amplification. Does not inherently have vulnerabilities, but serves any vulnerability with the <interface> property",
   "dependencies": [
     { "name": "Python3"},
     { "name": "cron" }
   ],     
   "port": "5683",   
-  "vulnerabilities":["modular coap server, with possible vulnerabilities behind it: Command injection, SQL injection, Path traversal and object deserialisation"],
-  "CWEs":["CWE-78","CWE-77","CWE-20","CWE-22","CWE-89"],
+  "vulnerabilities":["Possible packet amplification","Execution with unnecessary privileges"],
+  "CWEs":["CWE-406","CWE-250"],
   "location":"/opt/dvd/services/coap/server.py",
   "scripts":
     {
       "install": "vulnerabilities/coap/addCoap.sh"
     }
-}
+},

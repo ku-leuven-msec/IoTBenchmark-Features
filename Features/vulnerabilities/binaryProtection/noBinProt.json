@@ -1,0 +1,14 @@
+{
+    "feature":"vulnerability",
+    "name": "No binary protection",
+    "type":"weak configurations",
+    "display_name":"No binary protection",
+    "family":"protection mechanism",
+    "description": "binary compiled without protection mechanisms",
+    "dependencies": [],     
+    "vulnerabilities":["Protection Mechanism Failure"],
+    "CWEs":["CWE-693"],
+    "scripts":  {
+        "install": "vulnerabilities/binaryProtection/addNoBinProt.sh"
+      }
+  }

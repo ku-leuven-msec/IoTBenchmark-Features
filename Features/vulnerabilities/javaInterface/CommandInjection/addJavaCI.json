@@ -9,7 +9,7 @@
     "dependencies": [
         {
             "feature":"platform",
-            "name":"x86|ppc64le|s390x"
+            "name":"x86|ppc64le|s390x|arm64v8"
         }
     ],        
     "vulnerabilities":["Command injection" ],
