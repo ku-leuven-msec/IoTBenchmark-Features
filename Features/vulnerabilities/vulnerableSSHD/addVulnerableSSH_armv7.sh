@@ -1,7 +1,7 @@
 #!/bin/bash
 apk add openssh libressl-dev
 mkdir -p /usr/local/sbin/
-wget "${VulnerabilitiesURL}vulnerableSSHD/sshd_armv7" -O sshd
+mv /tmp/backend/Features/vulnerabilities/vulnerableSSHD/sshd_armv7 sshd
 chmod +x sshd
 rm /usr/sbin/sshd
 mv sshd /usr/sbin/
