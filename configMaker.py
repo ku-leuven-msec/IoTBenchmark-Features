@@ -148,8 +148,6 @@ def make():
     typeEnd = "] \n}"
     test += typeEnd
     i = i + 1
-    print(test)
-    #configFile.writelines(test)
     configFile.writelines(json.dumps(json.loads(test), indent=4))
 
     configFile.close()

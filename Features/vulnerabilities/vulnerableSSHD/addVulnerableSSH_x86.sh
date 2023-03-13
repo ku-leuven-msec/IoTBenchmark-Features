@@ -13,4 +13,4 @@ mkdir -p /usr/local/etc/
 ln /etc/ssh/* /usr/local/etc/
 sed -i '18 a HostKey /etc/ssh/ssh_host_rsa_key' /usr/local/etc/sshd_config
 
-rc-update add /usr/sbin/sshd default
+rc-update add sshd default
