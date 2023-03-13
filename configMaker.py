@@ -70,6 +70,7 @@ def make():
             \"name\": \"Alpine armv7\",
             \"description\":\"latest Alpine Linux for ARM32 v7\",
             \"os\":\"Alpine\",
+            \"architecture\":\"armv7\",
             \"baseImage\":\"arm32v7/alpine\",
             \"version\":\"latest\"
         },
@@ -78,6 +79,7 @@ def make():
             \"name\": \"Alpine armv6\",
             \"description\":\"latest Alpine Linux for ARM32 v6\",
             \"os\":\"Alpine\",
+            \"architecture\":\"armv6\",
             \"baseImage\":\"arm32v6/alpine\",
             \"version\":\"latest\"
         },
@@ -85,6 +87,7 @@ def make():
             \"feature\": \"platform\",
             \"name\": \"Alpine armv8\",
             \"description\":\"latest Alpine Linux for ARM64 v8\",
+            \"architecture\":\"armv8\",
             \"os\":\"Alpine\",
             \"baseImage\":\"arm64v8/alpine\",
             \"version\":\"latest\"
@@ -92,6 +95,7 @@ def make():
         {
             \"feature\": \"platform\",
             \"name\": \"Alpine i386\",
+            \"architecture\":\"i386\",
             \"description\":\"latest Alpine Linux for i386\",
             \"os\":\"Alpine\",
             \"baseImage\":\"i386/alpine\",
@@ -100,6 +104,7 @@ def make():
         {
             \"feature\": \"platform\",
             \"name\": \"Alpine ppc64le\",
+            \"architecture\":\"ppc64le\",
             \"description\":\"latest Alpine Linux for ppc64le\",
             \"os\":\"Alpine\",
             \"baseImage\":\"ppc64le/alpine\",
@@ -108,6 +113,7 @@ def make():
         {
             \"feature\": \"platform\",
             \"name\": \"Alpine riscv64\",
+            \"architecture\":\"riscv64\",
             \"description\":\"Alpine Linux for riscv64 edge\",
             \"os\":\"Alpine\",
             \"baseImage\":\"riscv64/alpine\",
@@ -116,6 +122,7 @@ def make():
         {
             \"feature\": \"platform\",
             \"name\": \"Alpine s390x\",
+            \"architecture\":\"s390x\",
             \"description\":\"latest Alpine Linux for s390x\",
             \"os\":\"Alpine\",
             \"baseImage\":\"s390x/alpine\",

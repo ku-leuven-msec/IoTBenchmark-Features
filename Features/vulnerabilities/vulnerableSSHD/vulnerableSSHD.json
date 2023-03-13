@@ -26,6 +26,6 @@
   ],
   "location": "/usr/sbin/sshd",
   "scripts": {
-      "install": "vulnerabilities/vulnerableSSHD/addVulnerableSSH_{platform:name}.sh"
+      "install": "vulnerabilities/vulnerableSSHD/addVulnerableSSH_{platform:architecture}.sh"
   }
 }
