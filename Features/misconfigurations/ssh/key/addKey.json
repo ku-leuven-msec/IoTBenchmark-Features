@@ -1,20 +1,25 @@
 {
-    "feature":"config",    
-        "name": "SSHKey",
-        "display_name": "SSH with leaked Key",
-        "description": "SSH with key that gets leaked in the firmware",
-        "dependencies":[
-            { "name":"openssh" },
-            { "name":"add users" }
-
-        ],
-        "type":"infoleak",
-        "port": "22",
-        "vulnerabilities":["key leaked in the firmware"],
-        "CWEs":["CWE-276","CWE-287"],
-        "location":"/etc/ssh/sshd_config",
-        "scripts":{
-            "install": "misconfigurations/ssh/key/addKey.sh"
+    "feature": "config",
+    "name": "SSHKey",
+    "display_name": "SSH with leaked Key",
+    "description": "SSH with key that gets leaked in the firmware",
+    "dependencies": [
+        {
+            "name": "add users"
+            
         },
-        "family":"SSH"
+        { "service":"ssh" }
+
+    ],
+    "vulnerabilityType": "infoleak",
+    "vulnerabilities": ["key leaked in the firmware"],
+    "CWEs": [
+        "CWE-276",
+        "CWE-287"
+    ],
+    "location": "/etc/ssh/sshd_config",
+    "scripts": {
+        "install": "misconfigurations/ssh/key/addKey.sh"
+    },
+    "family": "SSH"
 }
