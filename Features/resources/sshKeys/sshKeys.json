@@ -6,8 +6,9 @@
       "type": "keys",
       "family": "SSH",
       "dependencies": [
+          { "name":"openssh" },
           { "name":"openssh" }
-      ],
+        ],
       "scripts": {
 
       "install":"resources/sshKeys/setupSSH.sh"

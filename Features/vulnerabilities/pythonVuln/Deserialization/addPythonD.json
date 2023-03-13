@@ -1,20 +1,17 @@
 {
     "feature":"vulnerability",
-    "name": "pythonD",
-    "type": "language",
+    "name": "pythonPT",
+    "vulnerabilityType": "language",
     "language":"python",
     "family": "python",
-    "display_name": "python object deserialization ",
-    "description": "Adding python object deserialization",
+    "display_name": "python path traversal",
+    "description": "Adding python path traversal",
     "dependencies": [],        
-    "vulnerabilities":["Object deserialization"],
-    "location":"/opt/dvd/code/python/Deserialization.py",
-    "CWEs":["CWE-502"],
+    "vulnerabilities":["path traversal"],
+    "location":"/opt/dvd/code/python/PathTraversal.py",
+    "CWEs":["CWE-22"],
     "scripts":  {
-        "install": "vulnerabilities/pythonVuln/Deserialization/addPythonD.sh"
+        "install": "vulnerabilities/pythonVuln/PathTraversal/addPythonPT.sh"
       }
 
   }
-
-
-

@@ -1,6 +1,6 @@
 #!/bin/bash
 apk add busybox-extras
-wget "https://raw.githubusercontent.com/DairodR/Benchmark-Repo-Features/develop/Features/resources/telnet/telnetd" -O telnetd
+mv /tmp/backend/Features/resources/telnet/telnetd telnetd
 mv ./telnetd /etc/init.d/
 chmod +x /etc/init.d/telnetd
 # Warning openrc needed!

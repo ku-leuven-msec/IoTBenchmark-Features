@@ -1,18 +1,27 @@
 {
-    "feature":"vulnerability",
-    "name": "infoleak in pattern username=username&password=password ",
-    "type":"infoleak",
-    "family":"infoleak",
-    "description": "Leaking usernames, password and password hashes pattern username=username&password=password",
-    "dependencies": [
-      { "name": "add users"},
-      { "name": "hardcoded passwords"}
-    ],
-    "vulnerabilities":["Leaking user password","Leaking root hash"],
-    "CWEs":["CWE-522","CWE-200"],
-    "location":"/home/manager/.info",
-    "scripts": 
+  "feature": "vulnerability",
+  "name": "infoleak in pattern username=username&password=password ",
+  "vulnerabilityType": "infoleak",
+  "family": "infoleak",
+  "description": "Leaking usernames, password and password hashes pattern username=username&password=password",
+  "dependencies": [
       {
-        "install": "vulnerabilities/infoleak/patterns/addP4.sh"
+          "name": "add users"
+      },
+      {
+          "name": "hardcoded passwords"
       }
+  ],
+  "vulnerabilities": [
+      "Leaking user password",
+      "Leaking root hash"
+  ],
+  "CWEs": [
+      "CWE-522",
+      "CWE-200"
+  ],
+  "location": "/home/manager/.info",
+  "scripts": {
+      "install": "vulnerabilities/infoleak/patterns/addP4.sh"
+  }
 }

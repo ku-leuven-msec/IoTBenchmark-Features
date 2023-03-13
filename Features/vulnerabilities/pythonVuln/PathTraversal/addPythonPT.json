@@ -1,7 +1,7 @@
 {
     "feature":"vulnerability",
     "name": "pythonPT",
-    "type": "language",
+    "vulnerabilityType": "language",
     "language":"python",
     "family": "python",
     "display_name": "python path traversal",
@@ -15,5 +15,3 @@
       }
 
   }
-  
-

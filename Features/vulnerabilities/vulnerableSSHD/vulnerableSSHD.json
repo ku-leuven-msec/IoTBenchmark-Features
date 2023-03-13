@@ -1,15 +1,31 @@
 {
   "feature": "vulnerability",
   "name": "vulnerable ssh",
-  "type": "backdoor",
+  "service":"openSSH",
+  "vulnerabilityType": "backdoor",
+  "family":"SSH",
   "description": "SSH service with backdoor",
   "port": "22",
-  "family":"SSH",
-  "dependencies":[],
-  "vulnerabilities":["backdoor with login: totalrootcontrol"],
-  "CWEs":["CWE-287","CWE-798","CWE-276","CWE-912"],
-  "location":"/usr/sbin/sshd",
+  "dependencies": [
+      {
+          "feature":"platform",
+          "name":"armv7|x86"
+      },
+      {
+        "name":"openSSL"
+      }
+  ],
+  "vulnerabilities": [
+      "backdoor with login: totalrootcontrol"
+  ],
+  "CWEs": [
+      "CWE-287",
+      "CWE-798",
+      "CWE-276",
+      "CWE-912"
+  ],
+  "location": "/usr/sbin/sshd",
   "scripts": {
-      "install": "vulnerabilities/vulnerabeSSHD/addVulnerableSSH_{platform:name}.sh"
-    }
+      "install": "vulnerabilities/vulnerableSSHD/addVulnerableSSH_{platform:name}.sh"
+  }
 }

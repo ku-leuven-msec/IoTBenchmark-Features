@@ -13,7 +13,7 @@
            },
            "vulnerabilities":["Allow anonymous FTP"],
            "CWEs":["CWE-276"],
-           "type":"misconfiguration",
+           "vulnerabilityType":"misconfiguration",
            "location":"/etc/vsftpd/vsftp.conf",
            "family":"FTP"
 }

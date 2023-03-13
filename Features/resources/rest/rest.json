@@ -1,11 +1,11 @@
 {
   "feature": "server",
       "name": "rest",
-      "display_name": "REST service",
+      "display_name": "REST server with mutual authentication",
       "description": "installs a REST service ",
       "family": "rest",
       "language":"python",
-      "port":"80",
+      "port":"8443",
       "dependencies": [
           { "name":"cron" },
           { "name":"Python3"},

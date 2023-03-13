@@ -2,7 +2,7 @@
   "feature":"interface",
   "name": "coap",
   "display_name": "CoAP server",
-  "type":"interface",
+  "vulnerabilityType":"interface",
   "language":"python",
   "family":"coap",
   "description": "Installs a modular coap server running as root. Possible packet amplification. Does not inherently have vulnerabilities, but serves any vulnerability with the <interface> property",
@@ -18,4 +18,4 @@
     {
       "install": "vulnerabilities/coap/addCoap.sh"
     }
-},
+}

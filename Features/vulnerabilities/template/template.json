@@ -1,7 +1,7 @@
 {
   "feature":"TEMPLATE",
   "name": "templateId",
-  "type":"templateType",
+  "vulnerabilityType":"templateType",
   "display_name":"templateName",
   "family":"templateFamily",
   "description": "A template of a vulnerability",

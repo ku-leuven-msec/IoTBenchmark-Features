@@ -1,7 +1,7 @@
 {
   "feature":"server",
   "name": "vulnerable http server",
-  "type":"web vulnerabilities",
+  "vulnerabilityType":"web vulnerabilities",
   "family":"HTTP",
   "description": "Installing http server with multiple vulnerabilities: SQL injection, XSS, CSRF and a information leak",
   "dependencies": [

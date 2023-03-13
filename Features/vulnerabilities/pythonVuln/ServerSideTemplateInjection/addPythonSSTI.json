@@ -1,7 +1,7 @@
 {
     "feature":"vulnerability",
     "name": "pythonSSTI",
-    "type": "language",
+    "vulnerabilityType": "language",
     "language":"python",
     "family": "python",
     "display_name": "python server side template injection",
@@ -15,5 +15,3 @@
       }
 
   }
-  
-

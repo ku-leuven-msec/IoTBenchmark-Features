@@ -1,7 +1,7 @@
 {
     "feature": "vulnerability",
     "name": "javaInterfacePT",
-    "type":"servlet",
+    "vulnerabilityType":"servlet",
     "language":"Java",
     "family":"Java",
     "display_name": "java path traversal, interface",

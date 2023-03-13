@@ -1,7 +1,7 @@
 {
     "feature":"vulnerability",
     "name": "javaPT",
-    "type":"language",
+    "vulnerabilityType":"language",
     "family":"Java",
     "language":"Java",
     "display_name": "Java path traversal",

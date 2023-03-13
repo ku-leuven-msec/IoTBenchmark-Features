@@ -8,7 +8,8 @@
             "name": "add users"
             
         },
-        { "service":"ssh" }
+        { "service":"openSSH" },
+        {"name": "openSSL"}
 
     ],
     "vulnerabilityType": "infoleak",

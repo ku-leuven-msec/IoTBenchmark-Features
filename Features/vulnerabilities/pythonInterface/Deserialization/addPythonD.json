@@ -1,7 +1,7 @@
 {
     "feature": "vulnerability",
     "name": "pythonInterfaceD",
-    "type":"servlet",
+    "vulnerabilityType":"servlet",
     "language":"python",
     "family":"python",
     "display_name": "python object deserialization, interface",

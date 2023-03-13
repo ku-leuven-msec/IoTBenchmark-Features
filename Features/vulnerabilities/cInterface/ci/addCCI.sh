@@ -1,14 +1,14 @@
 #!/bin/bash
 mkdir -p /opt/dvd/services/vulns/c/
 
-cURL="${VulnerabilitiesURL}cInterface/"
+
 mkdir -p /tmp/cInterface
 cd /tmp/cInterface
 if [[ $(uname -a | grep "arm") ]] ; then
-    wget "${cURL}armv7/CommandInjection/vulnerable" -O CommandInjection2
+    mv /tmp/backend/Features/vulnerabilities/cInterface/armv7/CommandInjection/vulnerable CommandInjection2
 elif [[ $(uname -a | grep "x86") ]] ; then
-    wget "${cURL}x86/CommandInjection/vulnerable" -O CommandInjection2
-    wget "${cURL}x86/CommandInjection/vulnerableC" -O CommandInjection3
+    mv /tmp/backend/Features/vulnerabilities/cInterface/x86/CommandInjection/vulnerable CommandInjection2
+    mv /tmp/backend/Features/vulnerabilities/cInterface/x86/CommandInjection/vulnerableC CommandInjection3
 else
     echo "shouldn't get here"
 fi

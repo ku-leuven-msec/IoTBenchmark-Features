@@ -1,7 +1,7 @@
 {
     "feature": "vulnerability",
     "name": "pythonInterfaceCI",
-    "type":"servlet",
+    "vulnerabilityType":"servlet",
     "language":"python",
     "family":"python",
     "display_name": "python command injection, interface",

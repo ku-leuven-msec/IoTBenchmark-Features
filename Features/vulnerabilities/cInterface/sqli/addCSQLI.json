@@ -1,24 +1,22 @@
 {
-    "feature":"vulnerability",
-    "name": "cInterfaceSQLI",  
-    "display_name": "c SQL injection, interface",  
-    "type": "servlet",
-    "family": "c",
-    "language":"c",
-    "description": "Adding binaries written in c that contains sql injection that can communciate with certain protocols",
-    "dependencies": [
-        {
-            "feature":"platform",
-            "name":"armv7|x86"
-        }
-
-    ],        
-    "vulnerabilities":["sql injection"],
-    "location":"/opt/dvd/services/vulns/c/SQLInjection",
-    "CWEs":["CWE-89"],
-    "scripts": 
+  "feature":"vulnerability",
+  "name": "cInterfaceSQLI",  
+  "display_name": "c SQL injection, interface",  
+  "vulnerabilityType": "servlet",
+  "family": "c",
+  "language":"c",
+  "description": "Adding binaries written in c that contains sql injection that can communciate with certain protocols",
+  "dependencies": [
       {
-        "install": "vulnerabilities/cInterface/sqli/addCSQLI.sh"
+          "feature":"platform",
+          "name":"armv7|x86"
       }
-}
-
+  ],        
+  "vulnerabilities":["sql injection"],
+  "location":"/opt/dvd/services/vulns/c/SQLInjection",
+  "CWEs":["CWE-89"],
+  "scripts": 
+  {
+      "install": "vulnerabilities/cInterface/sqli/addCSQLI.sh"
+  }
+  }

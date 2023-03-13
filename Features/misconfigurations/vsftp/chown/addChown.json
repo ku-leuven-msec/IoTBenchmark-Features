@@ -11,7 +11,7 @@
            "scripts": {
                "install": "misconfigurations/vsftp/chown/addChown.sh"
            },
-           "type":"misconfiguration",
+           "vulnerabilityType":"misconfiguration",
            "vulnerabilities":["bad chown permissions"],
            "CWEs":["CWE-276"],
            "location":"/etc/vsftpd/vsftp.conf",

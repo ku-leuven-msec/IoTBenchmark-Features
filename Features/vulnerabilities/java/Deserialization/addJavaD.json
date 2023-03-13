@@ -1,7 +1,7 @@
 {
     "feature":"vulnerability",
     "name": "javaD",
-    "type":"language",
+    "vulnerabilityType":"language",
     "family":"Java",
     "language":"Java",
     "display_name": "Java object deserialisation",

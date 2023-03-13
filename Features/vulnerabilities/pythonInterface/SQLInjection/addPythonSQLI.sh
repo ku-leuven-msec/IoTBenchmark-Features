@@ -1,7 +1,6 @@
 #!/bin/bash
-pythonURL="${VulnerabilitiesURL}pythonInterface/"
-wget "${pythonURL}SQLInjection/sqlInjection.py" -O SQLInjection.py 
-wget "${pythonURL}SQLInjection/login.db" -O login.db
+mv /tmp/backend/Features/vulnerabilities/pythonInterface/SQLInjection/sqlInjection.py SQLInjection.py 
+mv /tmp/backend/Features/vulnerabilities/pythonInterface/SQLInjection/login.db login.db
 mkdir -p /opt/dvd/services/vulns/python/
 mv ./SQLInjection.py /opt/dvd/services/vulns/python/
 mv ./login.db /opt/dvd/services/vulns/python/

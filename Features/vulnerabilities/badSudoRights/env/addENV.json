@@ -1,21 +1,21 @@
 {
-    "feature": "config",
-    "name": "badSudoRightsENV",
-    "display_name":"Misconfugured sudo rights regarding the SETENV variable",
-    "description": "Adding a sudo rights that can be exploited. These rights allow $PATH abuse using the vi binary ",
-    "dependencies": [
-      { "name": "add users"},
-      { "name": "sudo" },
-      { "name": "cron" }
-    ],        
-    "vulnerabilities":["SETENV"],
-    "CWEs":["CWE-269","CWE-250"],
-    "family":"SUDO",
-    "type":"misconfiguration",
-    "location":"/etc/sudoers",
-    "scripts": 
-      {
-        "install": "vulnerabilities/badSudoRights/env/addENV.sh"
-      }
-    
-  }
+  "feature": "config",
+  "name": "badSudoRightsENV",
+  "display_name":"Misconfugured sudo rights regarding the SETENV variable",
+  "description": "Adding a sudo rights that can be exploited. These rights allow changes to the ENV variables for a specific sudo commando",
+  "dependencies": [
+    { "name": "add users"},
+    { "name": "sudo" },
+    { "name": "cron" }
+  ],        
+  "vulnerabilities":["SETENV"],
+  "CWEs":["CWE-269","CWE-250"],
+  "family":"SUDO",
+  "vulnerabilityType":"misconfiguration",
+  "location":"/etc/sudoers",
+  "scripts": 
+    {
+      "install": "vulnerabilities/badSudoRights/env/addENV.sh"
+    }
+  
+}

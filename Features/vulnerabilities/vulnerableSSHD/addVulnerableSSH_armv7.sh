@@ -1,5 +1,5 @@
 #!/bin/bash
-apk add openssl openssh libressl-dev
+apk add openssh libressl-dev
 mkdir -p /usr/local/sbin/
 wget "${VulnerabilitiesURL}vulnerableSSHD/sshd_armv7" -O sshd
 chmod +x sshd

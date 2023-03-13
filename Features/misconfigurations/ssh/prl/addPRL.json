@@ -4,16 +4,15 @@
         "display_name": "SSH with root login",
         "description": "SSH that permits root login",
         "dependencies":[
-            { "name":"openssh" },
-            { "name":"add users" }
-
+            { "name":"add users" },
+            { "service":"openSSH" }
         ],
-        "type":"misconfiguration",
+        "vulnerabilityType":"misconfiguration",
         "vulnerabilities":["Permitted root login"],
         "CWEs":["CWE-276"],
         "location":"/etc/ssh/sshd_config",
         "scripts":{
-            "install": "./misconfigurations/ssh/prl/addPRL.sh"
+            "install": "misconfigurations/ssh/prl/addPRL.sh"
         },
         "family":"SSH"
 }

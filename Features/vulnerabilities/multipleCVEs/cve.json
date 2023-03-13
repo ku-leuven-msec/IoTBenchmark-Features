@@ -1,7 +1,7 @@
 {
   "feature":"vulnerability",
   "name": "multipleCVEs",
-  "type":"CVE",
+  "vulnerabilityType":"CVE",
   "family":"CVE",
   "display_name":"All Alpine CVEs",
   "description": "adding all unresolved CVEs that are present in Alpine linux. Note that the vulnerabilities are possibly present, so there may be false positives. \n Warming, this script will remove and download mutiple binaries, it will take very long and may interfere with services running on the benchmark.",

@@ -1,7 +1,7 @@
 {
     "feature": "vulnerability",
     "name": "pythonInterfacePT",
-    "type":"servlet",
+    "vulnerabilityType":"servlet",
     "family":"python",
     "language":"python",
     "display_name": "python path traversal, interface",

@@ -1,7 +1,7 @@
 {
     "feature":"vulnerability",
     "name": "pythonCI",
-    "type": "language",
+    "vulnerabilityType": "language",
     "family": "python",
     "language":"python",
     "display_name": "python command injection",
@@ -15,5 +15,3 @@
       }
 
   }
-
-

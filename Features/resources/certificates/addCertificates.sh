@@ -1,10 +1,10 @@
 #!/bin/bash
-wget "${ResourcesURL}certificates/client.cnf" -O client.cnf
-wget "${ResourcesURL}certificates/root.cnf" -O root.cnf
-wget "${ResourcesURL}certificates/server.cnf" -O server.cnf
+mv /tmp/backend/Features/resources/certificates/client.cnf client.cnf
+mv /tmp/backend/Features/resources/certificates/root.cnf root.cnf
+mv /tmp/backend/Features/resources/certificates/server.cnf server.cnf
 
-mkdir /tmp/cert
-mkdir /tmp/tmp
+mkdir -p /tmp/cert
+mkdir -p /tmp/tmp
 
 #Create selfisgned CA Certificate
 openssl req -x509 -new -keyout /tmp/cert/root.key -out /tmp/cert/root.cer -config root.cnf -passout pass:test

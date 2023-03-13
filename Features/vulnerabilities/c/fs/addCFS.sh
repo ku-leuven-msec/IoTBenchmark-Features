@@ -1,13 +1,12 @@
 #!/bin/bash
 mkdir -p /opt/dvd/code/c/
 
-cURL="${VulnerabilitiesURL}c/"
 mkdir -p /tmp/c
 cd /tmp/c/
 if [[ $(uname -a | grep "arm") ]] ; then
-    wget "${cURL}armv7/FormatString/vuln" -O FormatString 
+    mv /tmp/backend/Features/vulnerabilities/c/armv7/FormatString/vuln FormatString 
 elif [[ $(uname -a | grep "x86") ]] ; then
-    wget "${cURL}x86/FormatString/vuln" -O FormatString 
+    mv /tmp/backend/Features/vulnerabilities/c/x86/FormatString/vuln FormatString 
 else
     echo "shouldn't get here"
 fi

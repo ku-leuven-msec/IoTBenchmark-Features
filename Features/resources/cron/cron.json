@@ -1,5 +1,5 @@
 {
-  "feature": "app",
+  "feature": "resource",
       "name": "cron",
       "display_name": "Cron Service",
       "description": "installs the cron service whitout any jobs",

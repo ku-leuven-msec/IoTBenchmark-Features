@@ -1,8 +1,8 @@
 {
   "feature": "service",
       "name": "vsftp",
-      "display_name": "FTP Service",
-      "description": "installs the ftp service",
+      "display_name": "VSFTP Service",
+      "description": "installs the vsftp service",
       "port":"21",
       "family": "FTP",
       "dependencies": [

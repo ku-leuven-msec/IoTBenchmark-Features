@@ -1,7 +1,7 @@
 {
     "feature": "vulnerability",
     "name": "javaInterfaceSQLI",
-    "type":"servlet",
+    "vulnerabilityType":"servlet",
     "language":"Java",
     "family":"Java",
     "display_name": "java SQL injection, interface",

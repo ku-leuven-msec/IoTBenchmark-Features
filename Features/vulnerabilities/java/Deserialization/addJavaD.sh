@@ -1,7 +1,6 @@
 #!/bin/bash
 apk add openjdk11
-javaURL="https://github.com/DairodR/Benchmark-Repo-Features/raw/redesign/Features/vulnerabilities/java/"
-wget "${javaURL}Deserialization/deserialization.jar" -O Deserialization.jar 
+mv /tmp/backend/Features/vulnerabilities/java/Deserialization/deserialization.jar Deserialization.jar 
 mkdir -p /opt/dvd/code/java/
 mv ./Deserialization.jar  /opt/dvd/code/java/Deserialization.jar  
 chmod -R +x /opt/dvd/code/java/

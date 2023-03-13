@@ -10,7 +10,5 @@ pip install -r /opt/dvd/services/mqtt/requirements.txt
 chmod +x /opt/dvd/services/mqtt/check_daemon.sh
 echo "*/1 * * * * /opt/dvd/services/mqtt/check_daemon.sh" >> /etc/crontabs/root
 
-FILE=/sbin/openrc
-if test -f "$FILE"; then
-    rc-update add mosquitto default
-fi 
+rc-update add mosquitto default
+ 

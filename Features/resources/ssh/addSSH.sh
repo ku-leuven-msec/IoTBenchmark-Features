@@ -1,7 +1,4 @@
 #!/bin/bash
-apk add openssl openssh
+apk add openssh
 ln /etc/ssh/* /usr/local/
-FILE=/sbin/openrc
-if test -f "$FILE"; then
-    rc-update add sshd default
-fi 
+rc-update add sshd default

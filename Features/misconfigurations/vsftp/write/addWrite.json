@@ -15,5 +15,5 @@
            "CWEs":["CWE-434","CWE-287","CWE-276"],
            "location":"/etc/vsftpd/vsftp.conf",
            "family":"FTP",
-           "type":"misconfiguration"
+           "vulnerabilityType":"misconfiguration"
 }

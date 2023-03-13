@@ -1,13 +1,13 @@
 #!/bin/bash
 mkdir -p /opt/dvd/services/vulns/c/
 
-cURL="${VulnerabilitiesURL}cInterface/"
+
 mkdir -p /tmp/cInterface
 cd /tmp/cInterface
 if [[ $(uname -a | grep "arm") ]] ; then
-    wget "${cURL}armv7/BufferOverflow/bof1" -O BufferOverflow 
+    mv /tmp/backend/Features/vulnerabilities/cInterface/armv7/BufferOverflow/bof1 BufferOverflow 
 elif [[ $(uname -a | grep "x86") ]] ; then
-    wget "${cURL}x86/BufferOverflow/bof1" -O BufferOverflow 
+    mv /tmp/backend/Features/vulnerabilities/cInterface/x86/BufferOverflow/bof1 BufferOverflow 
 else
     echo "shouldn't get here"
 fi

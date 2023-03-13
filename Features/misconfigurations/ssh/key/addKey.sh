@@ -1,5 +1,4 @@
 #!/bin/bash
-apk add openssl openssh
 su manager
 mkdir -p /home/manager/.ssh/
 cd /home/manager/.ssh/

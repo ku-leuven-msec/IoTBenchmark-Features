@@ -1,11 +1,11 @@
 #!/bin/bash
 mkdir -p /opt/dvd/code/c/
 
-URL="${VulnerabilitiesURL}binaryProtection/"
+
 mkdir -p /tmp/c
 cd /tmp/c/
 
-wget "${URL}noBinProt" -O BufferOverflowWithoutProtection 
+wget /tmp/backend/Features/vulnerabilities/binaryProtection/noBinProt BufferOverflowWithoutProtection 
 
 mv /tmp/c/* /opt/dvd/code/c/
 chmod -R +x /opt/dvd/code/c/

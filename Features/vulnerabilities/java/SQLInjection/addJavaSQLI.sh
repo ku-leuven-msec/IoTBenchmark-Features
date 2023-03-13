@@ -1,8 +1,7 @@
 #!/bin/bash
 apk add openjdk11
-javaURL="https://github.com/DairodR/Benchmark-Repo-Features/raw/redesign/Features/vulnerabilities/java/"
-wget "${javaURL}SQLInjection/sqlInjection.jar" -O SQLInjection.jar 
-wget "${javaURL}SQLInjection/login.db" -O login.db 
+mv /tmp/backend/Features/vulnerabilities/java/SQLInjection/sqlInjection.jar SQLInjection.jar 
+mv /tmp/backend/Features/vulnerabilities/java/SQLInjection/login.db login.db 
 mkdir -p /opt/dvd/code/java/
 mv ./SQLInjection.jar  /opt/dvd/code/java/SQLInjection.jar  
 mv ./login.db  /opt/dvd/code/java/login.db  
