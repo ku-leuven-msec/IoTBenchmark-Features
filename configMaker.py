@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """
 This file should be search for Json files in the backend and make one big file of them, automating the development of the big config file
 """

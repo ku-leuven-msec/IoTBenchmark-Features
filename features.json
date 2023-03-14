@@ -178,11 +178,9 @@
                     "name": "openSSL"
                 }
             ],
-            "scripts": [
-                {
-                    "install": "resources/certificates/addCertificates.sh"
-                }
-            ]
+            "scripts": {
+                "install": "resources/certificates/addCertificates.sh"
+            }
         },
         {
             "feature": "resource",
