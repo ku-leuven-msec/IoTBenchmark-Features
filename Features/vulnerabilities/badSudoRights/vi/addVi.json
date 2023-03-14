@@ -1,7 +1,7 @@
 {
   "feature": "config",
   "name": "badSudoRightsVI",
-  "display_name":"Misconfugured sudo in the vi binary",
+  "display_name":"Misconfigured sudo in the vi binary",
   "description": "Adding a sudo rights that can be exploited. These rights allow path traversal using the vi binary ",
   "dependencies": [
     { "name": "add users"},

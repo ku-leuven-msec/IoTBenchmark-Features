@@ -1,7 +1,7 @@
 {
   "feature": "config",
   "name": "badSudoRightsPT",
-  "display_name":"Misconfugured sudo rights leading to path traversal",
+  "display_name":"Misconfigured sudo rights leading to path traversal",
   "description": "Adding a sudo rights that can be exploited. These rights allow path traversal using the vi binary ",
   "dependencies": [
     { "name": "add users"},
