@@ -2628,7 +2628,7 @@
             "family": "SSH"
         },
         {
-            "feature": "configTest",
+            "feature": "config -- REMOVE THIS TEST BIT",
             "name": "customTelnet",
             "display_name": "Misconfigured Telnet",
             "description": "A python telnet server that uses hardcoded credentials",
