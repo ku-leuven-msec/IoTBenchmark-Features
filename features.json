@@ -266,7 +266,7 @@
             "feature": "interface",
             "name": "mqtt",
             "type": "interface",
-            "display_name": "MQTT server",
+            "display_name": "MQTT interface",
             "language": "python",
             "family": "mqtt",
             "description": "install a modular mqtt server and a broker running as root. Does not inherently have vulnerabilities, but serves any vulnerability with the <interface> property",
@@ -1810,7 +1810,7 @@
         {
             "feature": "interface",
             "name": "coap",
-            "display_name": "CoAP server",
+            "display_name": "CoAP interface",
             "vulnerabilityType": "interface",
             "language": "python",
             "family": "coap",

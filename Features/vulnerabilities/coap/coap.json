@@ -1,7 +1,7 @@
 {
   "feature":"interface",
   "name": "coap",
-  "display_name": "CoAP server",
+  "display_name": "CoAP interface",
   "vulnerabilityType":"interface",
   "language":"python",
   "family":"coap",

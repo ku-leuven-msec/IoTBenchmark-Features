@@ -47,7 +47,7 @@ def make():
     {
     \"location\": \"https://github.com/DairodR/Benchmark-Repo-Features.git\",
     \"branch\": \"redesign\",
-    \"featuresPath\": \"features\",
+    \"featuresPath\": \"Features\",
     \"features\": [
         {
             \"feature\": \"platform\",
