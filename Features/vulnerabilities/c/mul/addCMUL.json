@@ -9,7 +9,7 @@
   "dependencies": [
       {
           "feature":"platform",
-          "name":"armv7|x86"
+          "architecture":"armv7|x86"
       }
   ],        
   "vulnerabilities":["buffer overflow" , "connection string injection", "denial of service",  "integer overflow", "out of bounds", "symlink", "use after free"],

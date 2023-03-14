@@ -193,7 +193,7 @@
         },
         {
             "feature": "server",
-            "name": "rest",
+            "name": "REST service",
             "display_name": "REST server with mutual authentication",
             "description": "installs a REST service ",
             "family": "rest",
@@ -265,8 +265,7 @@
         {
             "feature": "interface",
             "name": "mqtt",
-            "type": "interface",
-            "display_name": "MQTT server",
+            "display_name": "MQTT interface",
             "language": "python",
             "family": "mqtt",
             "description": "install a modular mqtt server and a broker running as root. Does not inherently have vulnerabilities, but serves any vulnerability with the <interface> property",
@@ -484,8 +483,8 @@
         },
         {
             "feature": "interface",
-            "name": "api",
-            "display_name": "Modular API server",
+            "name": "REST interface",
+            "display_name": "REST interface",
             "language": "python",
             "description": "Installs a api server running as root. Does not inherently have vulnerabilities, but serves any vulnerability with the <interface> property",
             "dependencies": [
@@ -820,7 +819,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|armv8"
                 }
             ],
             "vulnerabilities": [
@@ -1810,7 +1809,7 @@
         {
             "feature": "interface",
             "name": "coap",
-            "display_name": "CoAP server",
+            "display_name": "CoAP interface",
             "vulnerabilityType": "interface",
             "language": "python",
             "family": "coap",
@@ -2163,7 +2162,7 @@
         },
         {
             "feature": "vulnerability",
-            "name": "pythonPT",
+            "name": "pythonD",
             "vulnerabilityType": "language",
             "language": "python",
             "family": "python",
@@ -2178,7 +2177,7 @@
                 "CWE-22"
             ],
             "scripts": {
-                "install": "vulnerabilities/pythonVuln/PathTraversal/addPythonPT.sh"
+                "install": "vulnerabilities/pythonVuln/Deserialization/addPythonD.sh"
             }
         },
         {
@@ -2426,7 +2425,7 @@
         {
             "feature": "config",
             "name": "badSudoRightsPT",
-            "display_name": "Misconfugured sudo rights leading to path traversal",
+            "display_name": "Misconfigured sudo rights leading to path traversal",
             "description": "Adding a sudo rights that can be exploited. These rights allow path traversal using the vi binary ",
             "dependencies": [
                 {

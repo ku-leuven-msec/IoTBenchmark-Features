@@ -61,7 +61,7 @@ def make():
         {
             \"feature\": \"platform\",
             \"name\": \"Alpine x86 v3.14\",
-            \"description\":\"Alpine Linux x86 v3.14, contains known vulnerabilities that are available for selection\",
+            \"description\":\"Alpine Linux x86 v3.14\",
             \"os\":\"Alpine\",
             \"architecture\":\"x86\",
             \"baseImage\":\"alpine\",

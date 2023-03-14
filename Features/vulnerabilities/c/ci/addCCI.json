@@ -8,7 +8,7 @@
   "dependencies": [
       {
           "feature":"platform",
-          "name":"armv7|x86"
+          "architecture":"armv7|x86"
       }
   ],        
   "language":"c",
