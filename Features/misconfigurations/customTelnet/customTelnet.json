@@ -1,5 +1,5 @@
 {
-    "feature": "config",
+    "feature": "configTest",
     "name": "customTelnet",
     "display_name": "Misconfigured Telnet",
     "description": "A python telnet server that uses hardcoded credentials",
