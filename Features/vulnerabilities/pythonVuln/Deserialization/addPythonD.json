@@ -1,6 +1,6 @@
 {
     "feature":"vulnerability",
-    "name": "pythonPT",
+    "name": "pythonD",
     "vulnerabilityType": "language",
     "language":"python",
     "family": "python",
@@ -11,7 +11,7 @@
     "location":"/opt/dvd/code/python/PathTraversal.py",
     "CWEs":["CWE-22"],
     "scripts":  {
-        "install": "vulnerabilities/pythonVuln/PathTraversal/addPythonPT.sh"
+        "install": "vulnerabilities/pythonVuln/Deserialization/addPythonD.sh"
       }
 
   }
