@@ -1,5 +1,5 @@
 {
-    "feature": "config -- REMOVE THIS TEST BIT",
+    "feature": "config",
     "name": "customTelnet",
     "display_name": "Misconfigured Telnet",
     "description": "A python telnet server that uses hardcoded credentials",
