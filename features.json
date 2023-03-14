@@ -15,7 +15,7 @@
         {
             "feature": "platform",
             "name": "Alpine x86 v3.14",
-            "description": "Alpine Linux x86 v3.14, contains known vulnerabilities that are available for selection",
+            "description": "Alpine Linux x86 v3.14",
             "os": "Alpine",
             "architecture": "x86",
             "baseImage": "alpine",
@@ -519,7 +519,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "language": "c",
@@ -544,7 +544,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "language": "c",
@@ -571,7 +571,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
@@ -597,7 +597,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
@@ -632,7 +632,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
@@ -657,7 +657,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
@@ -769,7 +769,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|arm64v8"
                 }
             ],
             "vulnerabilities": [
@@ -794,7 +794,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|arm64v8"
                 }
             ],
             "vulnerabilities": [
@@ -845,7 +845,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|arm64v8"
                 }
             ],
             "vulnerabilities": [
@@ -870,7 +870,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|arm64v8"
                 }
             ],
             "vulnerabilities": [
@@ -895,7 +895,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|arm64v8"
                 }
             ],
             "vulnerabilities": [
@@ -920,7 +920,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|arm64v8"
                 }
             ],
             "vulnerabilities": [
@@ -1956,7 +1956,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
@@ -1981,7 +1981,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
@@ -2007,7 +2007,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
@@ -2033,7 +2033,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 },
                 {
                     "name": "openSSL"
@@ -2503,7 +2503,14 @@
             "display_name": "No binary protection",
             "family": "protection mechanism",
             "description": "binary compiled without protection mechanisms",
-            "dependencies": [],
+            "dependencies": [
+                [
+                    {
+                        "feature": "platform",
+                        "architecture": "x86"
+                    }
+                ]
+            ],
             "vulnerabilities": [
                 "Protection Mechanism Failure"
             ],
