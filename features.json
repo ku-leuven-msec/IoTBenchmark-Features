@@ -265,7 +265,6 @@
         {
             "feature": "interface",
             "name": "mqtt",
-            "type": "interface",
             "display_name": "MQTT interface",
             "language": "python",
             "family": "mqtt",
