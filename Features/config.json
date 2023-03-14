@@ -1,7 +1,7 @@
 {
     "location": "https://github.com/DairodR/Benchmark-Repo-Features.git",
     "branch": "redesign",
-    "featuresPath": "features",
+    "featuresPath": "Features",
     "features": [
         {
             "feature": "platform",
@@ -2338,7 +2338,7 @@
         {
             "feature": "config",
             "name": "badSudoRightsVI",
-            "display_name": "Misconfugured sudo in the vi binary",
+            "display_name": "Misconfigured sudo in the vi binary",
             "description": "Adding a sudo rights that can be exploited. These rights allow path traversal using the vi binary ",
             "dependencies": [
                 {
@@ -2367,7 +2367,7 @@
         {
             "feature": "config",
             "name": "badSudoRightsLDP",
-            "display_name": "Misconfugured sudo rights that result in a privilege escalitaion",
+            "display_name": "Misconfigured sudo rights that result in a privilege escalitaion",
             "description": "Adding a sudo rights that can be exploited. These rights allow code injection with LD_PRELOAD ",
             "dependencies": [
                 {
@@ -2396,7 +2396,7 @@
         {
             "feature": "config",
             "name": "badSudoRightsENV",
-            "display_name": "Misconfugured sudo rights regarding the SETENV variable",
+            "display_name": "Misconfigured sudo rights regarding the SETENV variable",
             "description": "Adding a sudo rights that can be exploited. These rights allow changes to the ENV variables for a specific sudo commando",
             "dependencies": [
                 {
