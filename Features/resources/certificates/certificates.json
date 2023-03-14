@@ -5,9 +5,9 @@
       "dependencies":[
         {"name":"openSSL"}
       ],
-      "scripts": [
+      "scripts":
       {
           "install": "resources/certificates/addCertificates.sh"
       }
-      ]
+
 }
