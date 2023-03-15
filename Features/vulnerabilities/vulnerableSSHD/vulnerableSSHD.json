@@ -1,7 +1,7 @@
 {
   "feature": "vulnerability",
   "name": "vulnerable ssh",
-  "service":"openSSH",
+  "service":"openssh",
   "vulnerabilityType": "backdoor",
   "family":"SSH",
   "description": "SSH service with backdoor",

@@ -7,7 +7,7 @@
         {
             "name": "add users"
         },
-        { "service":"openSSH" }
+        { "service":"openssh" }
 
     ],
     "vulnerabilityType": "misconfiguration",

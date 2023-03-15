@@ -1,7 +1,7 @@
 {
   "feature": "service",
       "name": "openssh",
-      "service":"openSSH",
+      "service":"openssh",
       "display_name": "OpenSSH service",
       "description": "installs a SSH service ",
       "family": "SSH",

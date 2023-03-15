@@ -5,7 +5,7 @@
         "description": "Weak cipher used to secure SSH",
         "dependencies":[
             { "name":"add users" },
-            { "service":"openSSH" }
+            { "service":"openssh" }
         ],
         "vulnerabilityType":"misconfiguration",
         "vulnerabilities":["weak cipher"],

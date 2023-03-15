@@ -8,7 +8,7 @@
             "name": "add users"
             
         },
-        { "service":"openSSH" },
+        { "service":"openssh" },
         {"name": "openSSL"}
 
     ],

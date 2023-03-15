@@ -11,7 +11,6 @@
     { "name": "openrc"}
   ],     
   "port": "1883",   
-  "vulnerabilities":[""],
   "CWEs":["CWE-250"],
   "location":"/opt/dvd/services/mqtt/server.py/",
   "scripts": 

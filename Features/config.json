@@ -87,7 +87,7 @@
         {
             "feature": "service",
             "name": "openssh",
-            "service": "openSSH",
+            "service": "openssh",
             "display_name": "OpenSSH service",
             "description": "installs a SSH service ",
             "family": "SSH",
@@ -2025,7 +2025,7 @@
         {
             "feature": "vulnerability",
             "name": "vulnerable ssh",
-            "service": "openSSH",
+            "service": "openssh",
             "vulnerabilityType": "backdoor",
             "family": "SSH",
             "description": "SSH service with backdoor",
@@ -2524,7 +2524,7 @@
                     "name": "add users"
                 },
                 {
-                    "service": "openSSH"
+                    "service": "openssh"
                 },
                 {
                     "name": "openSSL"
@@ -2554,7 +2554,7 @@
                     "name": "add users"
                 },
                 {
-                    "service": "openSSH"
+                    "service": "openssh"
                 }
             ],
             "vulnerabilityType": "misconfiguration",
@@ -2581,7 +2581,7 @@
                     "name": "add users"
                 },
                 {
-                    "service": "openSSH"
+                    "service": "openssh"
                 }
             ],
             "vulnerabilityType": "misconfiguration",
@@ -2607,7 +2607,7 @@
                     "name": "add users"
                 },
                 {
-                    "service": "openSSH"
+                    "service": "openssh"
                 }
             ],
             "vulnerabilityType": "misconfiguration",
