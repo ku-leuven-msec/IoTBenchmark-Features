@@ -4,7 +4,7 @@
   "display_name": "Cronjob wildcard injection",
   "vulnerabilityType": "scheduler",
   "family": "cron",
-  "description": "adding cronjobs to cron that are vulnerable, one with a wildcard injections, and another with bad permissions",
+  "description": "adding cronjobs to cron that are vulnerable, one with a wildcard injections",
   "dependencies": [
       {
           "name": "cron"

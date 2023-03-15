@@ -8,7 +8,7 @@
     { "name": "sudo" }
  ],        
   "vulnerabilities":["SETENV"],
-  "CWEs":["CWE-269","CWE-250"],
+  "CWEs":["CWE-269","CWE-250","CWE-798"],
   "family":"SUDO",
   "vulnerabilityType":"misconfiguration",
   "location":"/etc/sudoers",

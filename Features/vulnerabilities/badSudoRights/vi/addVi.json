@@ -8,7 +8,7 @@
     { "name": "sudo" }
   ],        
   "vulnerabilities":["Privilege escalation"],
-  "CWEs":["CWE-269"],
+  "CWEs":["CWE-269","CWE-798"],
   "family":"SUDO",
   "vulnerabilityType":"misconfiguration",
   "location":"/etc/sudoers",
