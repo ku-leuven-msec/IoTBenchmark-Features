@@ -522,7 +522,8 @@
             ],
             "location": "/opt/dvd/code/c/SQLInjection",
             "CWEs": [
-                "CWE-89"
+                "CWE-89",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/c/sqli/addCSQLI.sh"
@@ -548,7 +549,8 @@
             "location": "/opt/dvd/code/c/CommandInjection",
             "CWEs": [
                 "CWE-77",
-                "CWE-78"
+                "CWE-78",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/c/ci/addCCI.sh"
@@ -574,7 +576,8 @@
             "location": "/opt/dvd/code/c/BufferOverflow",
             "CWEs": [
                 "CWE-787",
-                "CWE-121"
+                "CWE-121",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/c/bof/addCBOF.sh"
@@ -609,7 +612,8 @@
                 "CWE-416",
                 "CWE-125",
                 "CWE-190",
-                "CWE-400"
+                "CWE-400",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/c/mul/addCMUL.sh"
@@ -634,7 +638,8 @@
             ],
             "location": "/opt/dvd/code/c/FormatString",
             "CWEs": [
-                "CWE-134"
+                "CWE-134",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/c/fs/addCFS.sh"
@@ -659,6 +664,7 @@
             ],
             "location": "/opt/dvd/code/c/PathTraversal",
             "CWEs": [
+                "CWE-22",
                 "CWE-20"
             ],
             "scripts": {
@@ -771,7 +777,8 @@
             ],
             "location": "/opt/dvd/code/java/PathTraversal.jar",
             "CWEs": [
-                "CWE-22"
+                "CWE-22",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/java/PathTraversal/addJavaPT.sh"
@@ -796,7 +803,8 @@
             ],
             "location": "/opt/dvd/code/java/SQLInjection.jar",
             "CWEs": [
-                "CWE-89"
+                "CWE-89",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/java/SQLInjection/addJavaSQLI.sh"
@@ -822,7 +830,8 @@
             "location": "/opt/dvd/code/java/CommandInjection.jar",
             "CWEs": [
                 "CWE-77",
-                "CWE-78"
+                "CWE-78",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/java/CommandInjection/addJavaCI.sh"
@@ -847,7 +856,8 @@
             ],
             "location": "/opt/dvd/code/java/Deserialization.jar",
             "CWEs": [
-                "CWE-502"
+                "CWE-502",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/java/Deserialization/addJavaD.sh"
@@ -872,7 +882,8 @@
             ],
             "location": "/opt/dvd/services/vulns/java/PathTraversal",
             "CWEs": [
-                "CWE-22"
+                "CWE-22",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/javaInterface/PathTraversal/addJavaPT.sh"
@@ -897,7 +908,8 @@
             ],
             "location": "/opt/dvd/services/vulns/java/SQLInjection.jar",
             "CWEs": [
-                "CWE-89"
+                "CWE-89",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/javaInterface/SQLInjection/addJavaSQLI.sh"
@@ -923,7 +935,8 @@
             "location": "/opt/dvd/services/vulns/java/CommandInjection",
             "CWEs": [
                 "CWE-78",
-                "CWE-77"
+                "CWE-77",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/javaInterface/CommandInjection/addJavaCI.sh"
@@ -1958,7 +1971,8 @@
             ],
             "location": "/opt/dvd/services/vulns/c/SQLInjection",
             "CWEs": [
-                "CWE-89"
+                "CWE-89",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/cInterface/sqli/addCSQLI.sh"
@@ -1984,7 +1998,8 @@
             "location": "/opt/dvd/services/vulns/c/CommandInjection",
             "CWEs": [
                 "CWE-77",
-                "CWE-78"
+                "CWE-78",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/cInterface/ci/addCCI.sh"
@@ -2010,7 +2025,8 @@
             "location": "/opt/dvd/services/vulns/c/BufferOverflow",
             "CWEs": [
                 "CWE-787",
-                "CWE-121"
+                "CWE-121",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/cInterface/bof/addCBOF.sh"
@@ -2107,7 +2123,8 @@
             ],
             "location": "/opt/dvd/code/python/PathTraversal.py",
             "CWEs": [
-                "CWE-22"
+                "CWE-22",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonVuln/PathTraversal/addPythonPT.sh"
@@ -2127,7 +2144,8 @@
             ],
             "location": "/opt/dvd/code/python/SQLInjection.py",
             "CWEs": [
-                "CWE-89"
+                "CWE-89",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonVuln/SQLInjection/addPythonSQLI.sh"
@@ -2148,7 +2166,8 @@
             "location": "/opt/dvd/code/python/CommandInjection.py",
             "CWEs": [
                 "CWE-77",
-                "CWE-78"
+                "CWE-78",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonVuln/CommandInjection/addPythonCI.sh"
@@ -2168,7 +2187,8 @@
             ],
             "location": "/opt/dvd/code/python/PathTraversal.py",
             "CWEs": [
-                "CWE-22"
+                "CWE-22",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonVuln/Deserialization/addPythonD.sh"
@@ -2188,7 +2208,8 @@
             ],
             "location": "/opt/dvd/code/python/SSTI.py",
             "CWEs": [
-                "CWE-1336"
+                "CWE-1336",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonVuln/ServerSideTemplateInjection/addPythonSSTI.sh"
@@ -2208,7 +2229,8 @@
             ],
             "location": "/opt/dvd/services/vulns/python/PathTraversal.py",
             "CWEs": [
-                "CWE-22"
+                "CWE-22",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonInterface/PathTraversal/addPythonPT.sh"
@@ -2228,7 +2250,8 @@
             ],
             "location": "/opt/dvd/services/vulns/python/SQLIjection.py",
             "CWEs": [
-                "CWE-89"
+                "CWE-89",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonInterface/SQLInjection/addPythonSQLI.sh"
@@ -2249,7 +2272,8 @@
             "location": "/opt/dvd/services/vulns/python/CommandInjection.py",
             "CWEs": [
                 "CWE-77",
-                "CWE-78"
+                "CWE-78",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonInterface/CommandInjection/addPythonCI.sh"
@@ -2269,7 +2293,8 @@
             ],
             "location": "/opt/dvd/services/vulns/python/Deserialization.py",
             "CWEs": [
-                "CWE-502"
+                "CWE-502",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonInterface/Deserialization/addPythonD.sh"
@@ -2465,6 +2490,7 @@
             ],
             "CWEs": [
                 "CWE-89",
+                "CWE-79",
                 "CWE-20",
                 "CWE-78",
                 "CWE-22",
