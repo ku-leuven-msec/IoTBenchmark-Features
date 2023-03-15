@@ -14,7 +14,7 @@
   ],        
   "vulnerabilities":["Path traversal"],
   "location":"/opt/dvd/code/c/PathTraversal",
-  "CWEs":["CWE-20"],   
+  "CWEs":["CWE-22","CWE-20"],   
   "scripts":
     {
       "install": "vulnerabilities/c/pt/addCPT.sh"

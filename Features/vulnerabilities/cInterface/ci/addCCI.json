@@ -14,7 +14,7 @@
   ],        
   "vulnerabilities":["Command injection"],
   "location":"/opt/dvd/services/vulns/c/CommandInjection",
-  "CWEs":["CWE-77","CWE-78"],
+  "CWEs":["CWE-77","CWE-78","CWE-20"],
   "scripts": 
     {
       "install": "vulnerabilities/cInterface/ci/addCCI.sh"

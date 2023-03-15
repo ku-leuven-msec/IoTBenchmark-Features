@@ -14,7 +14,7 @@
   ],        
   "vulnerabilities":["SQL injection"],
   "location":"/opt/dvd/services/vulns/c/SQLInjection",
-  "CWEs":["CWE-89"],
+  "CWEs":["CWE-89","CWE-20"],
   "scripts": 
   {
       "install": "vulnerabilities/cInterface/sqli/addCSQLI.sh"

@@ -14,7 +14,7 @@
     ],        
     "vulnerabilities":["Path traversal"],
     "location":"/opt/dvd/services/vulns/java/PathTraversal",
-    "CWEs":["CWE-22"],    
+    "CWEs":["CWE-22","CWE-20"],    
     "scripts": 
       {
         "install": "vulnerabilities/javaInterface/PathTraversal/addJavaPT.sh"

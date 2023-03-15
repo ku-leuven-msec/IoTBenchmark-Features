@@ -10,7 +10,7 @@
       "vulnerabilityType":"web vulnerabilities",
       "family":"HTTP",
       "vulnerabilities":["SQL injection", "XSS", "CSRF", "information leak", "directory traversal", "LFI", "RCE", "Command injection"],
-      "CWEs":["CWE-89","CWE-20","CWE-78","CWE-22","CWE-77","CWE-306","CWE-312","CWE-862"],
+      "CWEs":["CWE-89","CWE-79","CWE-20","CWE-78","CWE-22","CWE-77","CWE-306","CWE-312","CWE-862"],
       "location":"/opt/dvd/services/http/",
       "scripts": 
       {

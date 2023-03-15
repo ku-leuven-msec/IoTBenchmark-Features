@@ -9,7 +9,7 @@
     "dependencies": [],        
     "vulnerabilities":["Command injection"],
     "location":"/opt/dvd/services/vulns/python/CommandInjection.py",
-    "CWEs":["CWE-77","CWE-78"],
+    "CWEs":["CWE-77","CWE-78","CWE-20"],
     "scripts":  {
         "install": "vulnerabilities/pythonInterface/CommandInjection/addPythonCI.sh"
       }

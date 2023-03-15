@@ -9,7 +9,7 @@
     "dependencies": [],        
     "vulnerabilities":["Path traversal"],
     "location":"/opt/dvd/code/python/PathTraversal.py",
-    "CWEs":["CWE-22"],
+    "CWEs":["CWE-22","CWE-20"],
     "scripts":  {
         "install": "vulnerabilities/pythonVuln/Deserialization/addPythonD.sh"
       }

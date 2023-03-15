@@ -14,7 +14,7 @@
     ],        
     "vulnerabilities":["Command injection" ],
     "location":"/opt/dvd/services/vulns/java/CommandInjection",
-    "CWEs":["CWE-78","CWE-77"],
+    "CWEs":["CWE-78","CWE-77","CWE-20"],
     "scripts": 
       {
         "install": "vulnerabilities/javaInterface/CommandInjection/addJavaCI.sh"

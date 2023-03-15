@@ -14,7 +14,7 @@
     ],        
     "vulnerabilities":["Object deserialisation"],
     "location":"/opt/dvd/code/java/Deserialization.jar",
-    "CWEs":["CWE-502"],
+    "CWEs":["CWE-502","CWE-20"],
     "scripts": 
       {
         "install": "vulnerabilities/java/Deserialization/addJavaD.sh"
