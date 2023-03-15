@@ -1,7 +1,7 @@
 {
   "feature":"vulnerability",
   "name": "javaCI",
-  "vulnerabilityType":"language",
+  "vulnerabilityType":"language vulnerabilities",
   "language":"Java",
   "family":"Java",
   "display_name": "Java command injection",

@@ -8,7 +8,7 @@
   "CWEs":["CWE-78","CWE-77"],
   "location":"/opt/dvd/code/bash/",
   "family":"bash",
-  "vulnerabilityType":"language",
+  "vulnerabilityType":"language vulnerabilities",
   "scripts": 
     {
       "install": "vulnerabilities/bash/CommandInjection/addBashCI.sh"

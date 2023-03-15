@@ -5,9 +5,8 @@
   "description": "Adding a sudo rights that can be exploited. These rights allow changes to the ENV variables for a specific sudo commando",
   "dependencies": [
     { "name": "add users"},
-    { "name": "sudo" },
-    { "name": "cron" }
-  ],        
+    { "name": "sudo" }
+ ],        
   "vulnerabilities":["SETENV"],
   "CWEs":["CWE-269","CWE-250"],
   "family":"SUDO",

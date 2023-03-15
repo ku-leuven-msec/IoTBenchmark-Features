@@ -12,7 +12,7 @@
           "architecture":"armv7|x86"
       }
   ],        
-  "vulnerabilities":["command injection"],
+  "vulnerabilities":["Command injection"],
   "location":"/opt/dvd/services/vulns/c/CommandInjection",
   "CWEs":["CWE-77","CWE-78"],
   "scripts": 

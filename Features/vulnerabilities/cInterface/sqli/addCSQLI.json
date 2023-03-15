@@ -12,7 +12,7 @@
           "architecture":"armv7|x86"
       }
   ],        
-  "vulnerabilities":["sql injection"],
+  "vulnerabilities":["SQL injection"],
   "location":"/opt/dvd/services/vulns/c/SQLInjection",
   "CWEs":["CWE-89"],
   "scripts": 

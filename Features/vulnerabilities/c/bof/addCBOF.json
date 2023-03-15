@@ -2,7 +2,7 @@
   "feature": "vulnerability",
   "name": "cBOF",    
   "display_name": "c buffer overflow",    
-  "vulnerabilityType": "language",
+  "vulnerabilityType": "language vulnerabilities",
   "language":"c",
   "family": "c",
   "description": "Adding binaries written in c that contains a buffer overflow",
