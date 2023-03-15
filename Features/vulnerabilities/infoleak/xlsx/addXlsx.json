@@ -9,7 +9,7 @@
     { "name": "hardcoded passwords"}
   ],
   "vulnerabilities":["Leaking user password","Leaking root hash"],
-  "CWEs":["CWE-522","CWE-200"],
+  "CWEs":["CWE-522","CWE-200","CWE-798"],
   "location":"/home/manager/.info",
   "scripts": 
     {
