@@ -309,7 +309,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/.info",
             "scripts": {
@@ -336,7 +337,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/login.db",
             "scripts": {
@@ -363,7 +365,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/.info",
             "scripts": {
@@ -390,7 +393,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/.info",
             "scripts": {
@@ -417,7 +421,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/.info",
             "scripts": {
@@ -444,7 +449,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/.info",
             "scripts": {
@@ -471,7 +477,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/.info",
             "scripts": {
