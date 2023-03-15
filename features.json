@@ -518,7 +518,7 @@
             ],
             "language": "c",
             "vulnerabilities": [
-                "sql injection"
+                "SQL injection"
             ],
             "location": "/opt/dvd/code/c/SQLInjection",
             "CWEs": [
@@ -543,7 +543,7 @@
             ],
             "language": "c",
             "vulnerabilities": [
-                "command injection"
+                "Command injection"
             ],
             "location": "/opt/dvd/code/c/CommandInjection",
             "CWEs": [
@@ -558,7 +558,7 @@
             "feature": "vulnerability",
             "name": "cBOF",
             "display_name": "c buffer overflow",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "language": "c",
             "family": "c",
             "description": "Adding binaries written in c that contains a buffer overflow",
@@ -677,7 +677,7 @@
             "CWEs": [
                 "CWE-22"
             ],
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "family": "bash",
             "location": "/opt/dvd/code/bash/",
             "scripts": {
@@ -699,7 +699,7 @@
             ],
             "location": "/opt/dvd/code/bash/",
             "family": "bash",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "scripts": {
                 "install": "vulnerabilities/bash/CommandInjection/addBashCI.sh"
             }
@@ -755,7 +755,7 @@
         {
             "feature": "vulnerability",
             "name": "javaPT",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "family": "Java",
             "language": "Java",
             "display_name": "Java Path traversal",
@@ -780,7 +780,7 @@
         {
             "feature": "vulnerability",
             "name": "javaSQLI",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "family": "Java",
             "language": "Java",
             "display_name": "Java SQL injection",
@@ -805,7 +805,7 @@
         {
             "feature": "vulnerability",
             "name": "javaCI",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "language": "Java",
             "family": "Java",
             "display_name": "Java command injection",
@@ -831,7 +831,7 @@
         {
             "feature": "vulnerability",
             "name": "javaD",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "family": "Java",
             "language": "Java",
             "display_name": "Java object deserialisation",
@@ -1954,7 +1954,7 @@
                 }
             ],
             "vulnerabilities": [
-                "sql injection"
+                "SQL injection"
             ],
             "location": "/opt/dvd/services/vulns/c/SQLInjection",
             "CWEs": [
@@ -1979,7 +1979,7 @@
                 }
             ],
             "vulnerabilities": [
-                "command injection"
+                "Command injection"
             ],
             "location": "/opt/dvd/services/vulns/c/CommandInjection",
             "CWEs": [
@@ -2096,7 +2096,7 @@
         {
             "feature": "vulnerability",
             "name": "pythonPT",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "language": "python",
             "family": "python",
             "display_name": "python Path traversal",
@@ -2116,14 +2116,14 @@
         {
             "feature": "vulnerability",
             "name": "pythonSQLI",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "language": "python",
             "family": "python",
             "display_name": "python sql injection",
             "description": "Adding python sql injection",
             "dependencies": [],
             "vulnerabilities": [
-                "SQL inection"
+                "SQL injection"
             ],
             "location": "/opt/dvd/code/python/SQLInjection.py",
             "CWEs": [
@@ -2136,14 +2136,14 @@
         {
             "feature": "vulnerability",
             "name": "pythonCI",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "family": "python",
             "language": "python",
             "display_name": "python command injection",
             "description": "Adding python command injection",
             "dependencies": [],
             "vulnerabilities": [
-                "command injection"
+                "Command injection"
             ],
             "location": "/opt/dvd/code/python/CommandInjection.py",
             "CWEs": [
@@ -2157,7 +2157,7 @@
         {
             "feature": "vulnerability",
             "name": "pythonD",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "language": "python",
             "family": "python",
             "display_name": "python Path traversal",
@@ -2177,7 +2177,7 @@
         {
             "feature": "vulnerability",
             "name": "pythonSSTI",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "language": "python",
             "family": "python",
             "display_name": "python server side template injection",
@@ -2244,7 +2244,7 @@
             "description": "Adding python command injection that communicates with the ouside world over services",
             "dependencies": [],
             "vulnerabilities": [
-                "command injection"
+                "Command injection"
             ],
             "location": "/opt/dvd/services/vulns/python/CommandInjection.py",
             "CWEs": [
@@ -2339,9 +2339,6 @@
                 },
                 {
                     "name": "sudo"
-                },
-                {
-                    "name": "cron"
                 }
             ],
             "vulnerabilities": [
@@ -2368,9 +2365,6 @@
                 },
                 {
                     "name": "sudo"
-                },
-                {
-                    "name": "cron"
                 }
             ],
             "vulnerabilities": [
@@ -2397,9 +2391,6 @@
                 },
                 {
                     "name": "sudo"
-                },
-                {
-                    "name": "cron"
                 }
             ],
             "vulnerabilities": [
@@ -2427,9 +2418,6 @@
                 },
                 {
                     "name": "sudo"
-                },
-                {
-                    "name": "cron"
                 }
             ],
             "vulnerabilities": [
@@ -2646,7 +2634,7 @@
             "family": "telnet",
             "port": "23",
             "vulnerabilities": [
-                "hardcoded credentials",
+                "hardcoded passwords",
                 "outdated protocol",
                 "unencrypted traffic"
             ],
