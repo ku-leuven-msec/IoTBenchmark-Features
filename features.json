@@ -505,6 +505,31 @@
         },
         {
             "feature": "vulnerability",
+            "name": "cND",
+            "display_name": "c Null pointer dereference",
+            "vulnerabilityType": "language vulnerabilities",
+            "family": "c",
+            "language": "c",
+            "description": "Adding binaries written in c that contains a null pointer dereference",
+            "dependencies": [
+                {
+                    "feature": "platform",
+                    "architecture": "armv7|x86"
+                }
+            ],
+            "vulnerabilities": [
+                "Null pointer dereference"
+            ],
+            "location": "/opt/dvd/code/c/NullDeref",
+            "CWEs": [
+                "CWE-476"
+            ],
+            "scripts": {
+                "install": "vulnerabilities/c/nd/addND.sh"
+            }
+        },
+        {
+            "feature": "vulnerability",
             "name": "cSQLI",
             "display_name": "c sql injection",
             "vulnerabilityType": "language vulnerabilities",
@@ -523,7 +548,8 @@
             "location": "/opt/dvd/code/c/SQLInjection",
             "CWEs": [
                 "CWE-89",
-                "CWE-20"
+                "CWE-20",
+                "CWE-287"
             ],
             "scripts": {
                 "install": "vulnerabilities/c/sqli/addCSQLI.sh"
@@ -804,7 +830,8 @@
             "location": "/opt/dvd/code/java/SQLInjection.jar",
             "CWEs": [
                 "CWE-89",
-                "CWE-20"
+                "CWE-20",
+                "CWE-287"
             ],
             "scripts": {
                 "install": "vulnerabilities/java/SQLInjection/addJavaSQLI.sh"
@@ -909,7 +936,8 @@
             "location": "/opt/dvd/services/vulns/java/SQLInjection.jar",
             "CWEs": [
                 "CWE-89",
-                "CWE-20"
+                "CWE-20",
+                "CWE-287"
             ],
             "scripts": {
                 "install": "vulnerabilities/javaInterface/SQLInjection/addJavaSQLI.sh"
@@ -1972,7 +2000,8 @@
             "location": "/opt/dvd/services/vulns/c/SQLInjection",
             "CWEs": [
                 "CWE-89",
-                "CWE-20"
+                "CWE-20",
+                "CWE-287"
             ],
             "scripts": {
                 "install": "vulnerabilities/cInterface/sqli/addCSQLI.sh"
@@ -2145,7 +2174,8 @@
             "location": "/opt/dvd/code/python/SQLInjection.py",
             "CWEs": [
                 "CWE-89",
-                "CWE-20"
+                "CWE-20",
+                "CWE-287"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonVuln/SQLInjection/addPythonSQLI.sh"
@@ -2251,7 +2281,8 @@
             "location": "/opt/dvd/services/vulns/python/SQLIjection.py",
             "CWEs": [
                 "CWE-89",
-                "CWE-20"
+                "CWE-20",
+                "CWE-287"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonInterface/SQLInjection/addPythonSQLI.sh"
@@ -2492,12 +2523,14 @@
                 "CWE-89",
                 "CWE-79",
                 "CWE-20",
+                "CWE-352",
                 "CWE-78",
                 "CWE-22",
                 "CWE-77",
                 "CWE-306",
                 "CWE-312",
-                "CWE-862"
+                "CWE-862",
+                "CWE-287"
             ],
             "location": "/opt/dvd/services/http/",
             "scripts": {
