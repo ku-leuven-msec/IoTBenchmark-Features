@@ -14,7 +14,7 @@
     ],        
     "vulnerabilities":["SQL injection"],
     "location":"/opt/dvd/services/vulns/java/SQLInjection.jar",
-    "CWEs":["CWE-89","CWE-20"],    
+    "CWEs":["CWE-89","CWE-20","CWE-287"],    
     "scripts": 
       {
         "install": "vulnerabilities/javaInterface/SQLInjection/addJavaSQLI.sh"

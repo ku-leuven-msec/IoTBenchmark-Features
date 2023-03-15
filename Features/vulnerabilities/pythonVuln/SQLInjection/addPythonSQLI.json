@@ -9,7 +9,7 @@
     "dependencies": [],        
     "vulnerabilities":["SQL injection"],
     "location":"/opt/dvd/code/python/SQLInjection.py",
-    "CWEs":["CWE-89","CWE-20"],
+    "CWEs":["CWE-89","CWE-20","CWE-287"],
     "scripts":  {
         "install": "vulnerabilities/pythonVuln/SQLInjection/addPythonSQLI.sh"
       }
