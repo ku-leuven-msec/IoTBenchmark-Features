@@ -1,7 +1,7 @@
 {
     "feature":"vulnerability",
     "name": "No binary protection",
-    "vulnerabilityType":"weak configurations",
+    "vulnerabilityType":"misconfigurations",
     "display_name":"No binary protection",
     "family":"protection mechanism",
     "description": "binary compiled without protection mechanisms",
