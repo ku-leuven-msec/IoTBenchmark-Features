@@ -610,7 +610,8 @@
             "CWEs": [
                 "CWE-787",
                 "CWE-121",
-                "CWE-20"
+                "CWE-20",
+                "CWE-119"
             ],
             "scripts": {
                 "install": "vulnerabilities/c/bof/addCBOF.sh"
