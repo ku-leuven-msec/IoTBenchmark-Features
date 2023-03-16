@@ -25,7 +25,7 @@ def make():
                             jsonfile = directory + "/" + type + "/" + feature + "/" + item
                             jsonfiles.append(jsonfile)
 
-                        elif os.path.isdir(directory + "/" + type + "/" + feature + "/" + item) and item != "sourceCode":
+                        elif os.path.isdir(directory + "/" + type + "/" + feature + "/" + item) and item != "dist":
                             print("         |" + item)
                             for sub in os.listdir(directory + "/" + type + "/" + feature+ "/" + item):
                                 if sub.endswith(".json"):
