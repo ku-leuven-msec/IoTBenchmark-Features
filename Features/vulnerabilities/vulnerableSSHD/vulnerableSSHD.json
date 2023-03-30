@@ -1,7 +1,7 @@
 {
   "feature": "vulnerability",
   "name": "vulnerable ssh",
-  "service":"openSSH",
+  "service":"openssh",
   "vulnerabilityType": "backdoor",
   "family":"SSH",
   "description": "SSH service with backdoor",
@@ -9,7 +9,7 @@
   "dependencies": [
       {
           "feature":"platform",
-          "name":"armv7|x86"
+          "architecture":"armv7|x86"
       },
       {
         "name":"openSSL"

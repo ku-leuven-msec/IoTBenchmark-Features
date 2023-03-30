@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """
 This file should be search for Json files in the backend and make one big file of them, automating the development of the big config file
 """
@@ -24,7 +25,7 @@ def make():
                             jsonfile = directory + "/" + type + "/" + feature + "/" + item
                             jsonfiles.append(jsonfile)
 
-                        elif os.path.isdir(directory + "/" + type + "/" + feature + "/" + item) and item != "sourceCode":
+                        elif os.path.isdir(directory + "/" + type + "/" + feature + "/" + item) and item != "dist":
                             print("         |" + item)
                             for sub in os.listdir(directory + "/" + type + "/" + feature+ "/" + item):
                                 if sub.endswith(".json"):
@@ -46,7 +47,7 @@ def make():
     {
     \"location\": \"https://github.com/DairodR/Benchmark-Repo-Features.git\",
     \"branch\": \"redesign\",
-    \"featuresPath\": \"features\",
+    \"featuresPath\": \"Features\",
     \"features\": [
         {
             \"feature\": \"platform\",
@@ -60,7 +61,7 @@ def make():
         {
             \"feature\": \"platform\",
             \"name\": \"Alpine x86 v3.14\",
-            \"description\":\"Alpine Linux x86 v3.14, contains known vulnerabilities that are available for selection\",
+            \"description\":\"Alpine Linux x86 v3.14\",
             \"os\":\"Alpine\",
             \"architecture\":\"x86\",
             \"baseImage\":\"alpine\",

@@ -1,7 +1,7 @@
 {
   "feature":"interface",
-  "name": "api",
-  "display_name":"Modular API server",
+  "name": "REST interface",
+  "display_name":"REST interface",
   "language":"python",
   "description": "Installs a api server running as root. Does not inherently have vulnerabilities, but serves any vulnerability with the <interface> property",
   "dependencies": [
@@ -11,7 +11,6 @@
   "port":"5000",
   "type":"interface",
   "family":"rest",     
-  "vulnerabilities":[""],
   "CWEs":["CWE-250"],
   "location":"/opt/dvd/services/api/server.py",
   "scripts": 

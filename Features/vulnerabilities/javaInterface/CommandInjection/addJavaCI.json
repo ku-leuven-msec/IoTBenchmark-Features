@@ -9,12 +9,12 @@
     "dependencies": [
         {
             "feature":"platform",
-            "name":"x86|ppc64le|s390x|arm64v8"
+            "architecture":"x86|ppc64le|s390x|arm64v8"
         }
     ],        
     "vulnerabilities":["Command injection" ],
     "location":"/opt/dvd/services/vulns/java/CommandInjection",
-    "CWEs":["CWE-78","CWE-77"],
+    "CWEs":["CWE-78","CWE-77","CWE-20"],
     "scripts": 
       {
         "install": "vulnerabilities/javaInterface/CommandInjection/addJavaCI.sh"

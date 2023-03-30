@@ -1,15 +1,14 @@
 {
   "feature": "config",
   "name": "badSudoRightsLDP",
-  "display_name":"Misconfugured sudo rights that result in a privilege escalitaion",
+  "display_name":"Misconfigured sudo rights that result in a privilege escalitaion",
   "description": "Adding a sudo rights that can be exploited. These rights allow code injection with LD_PRELOAD ",
   "dependencies": [
     { "name": "add users"},
-    { "name": "sudo" },
-    { "name": "cron" }
+    { "name": "sudo" }
   ],        
-  "vulnerabilities":["privilege escalation"],
-  "CWEs":["CWE-250"],
+  "vulnerabilities":["Privilege escalation"],
+  "CWEs":["CWE-250","CWE-798"],
   "family":"SUDO",
   "vulnerabilityType":"misconfiguration",
   "location":"/etc/sudoers",

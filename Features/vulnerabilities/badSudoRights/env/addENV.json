@@ -1,15 +1,14 @@
 {
   "feature": "config",
   "name": "badSudoRightsENV",
-  "display_name":"Misconfugured sudo rights regarding the SETENV variable",
+  "display_name":"Misconfigured sudo rights regarding the SETENV variable",
   "description": "Adding a sudo rights that can be exploited. These rights allow changes to the ENV variables for a specific sudo commando",
   "dependencies": [
     { "name": "add users"},
-    { "name": "sudo" },
-    { "name": "cron" }
-  ],        
+    { "name": "sudo" }
+ ],        
   "vulnerabilities":["SETENV"],
-  "CWEs":["CWE-269","CWE-250"],
+  "CWEs":["CWE-269","CWE-250","CWE-798"],
   "family":"SUDO",
   "vulnerabilityType":"misconfiguration",
   "location":"/etc/sudoers",

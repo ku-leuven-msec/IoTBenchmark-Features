@@ -1,6 +1,6 @@
 {
   "feature": "server",
-      "name": "rest",
+      "name": "REST service",
       "display_name": "REST server with mutual authentication",
       "description": "installs a REST service ",
       "family": "rest",

@@ -5,7 +5,7 @@
         "description": "SSH that permits root login",
         "dependencies":[
             { "name":"add users" },
-            { "service":"openSSH" }
+            { "service":"openssh" }
         ],
         "vulnerabilityType":"misconfiguration",
         "vulnerabilities":["Permitted root login"],

@@ -1,15 +1,15 @@
 {
     "feature":"vulnerability",
     "name": "pythonCI",
-    "vulnerabilityType": "language",
+    "vulnerabilityType": "language vulnerabilities",
     "family": "python",
     "language":"python",
     "display_name": "python command injection",
     "description": "Adding python command injection",
     "dependencies": [],        
-    "vulnerabilities":["command injection"],
+    "vulnerabilities":["Command injection"],
     "location":"/opt/dvd/code/python/CommandInjection.py",
-    "CWEs":["CWE-77","CWE-78"],
+    "CWEs":["CWE-77","CWE-78","CWE-20"],
     "scripts":  {
         "install": "vulnerabilities/pythonVuln/CommandInjection/addPythonCI.sh"
       }

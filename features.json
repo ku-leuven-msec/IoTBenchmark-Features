@@ -1,7 +1,7 @@
 {
     "location": "https://github.com/DairodR/Benchmark-Repo-Features.git",
     "branch": "redesign",
-    "featuresPath": "features",
+    "featuresPath": "Features",
     "features": [
         {
             "feature": "platform",
@@ -15,7 +15,7 @@
         {
             "feature": "platform",
             "name": "Alpine x86 v3.14",
-            "description": "Alpine Linux x86 v3.14, contains known vulnerabilities that are available for selection",
+            "description": "Alpine Linux x86 v3.14",
             "os": "Alpine",
             "architecture": "x86",
             "baseImage": "alpine",
@@ -87,7 +87,7 @@
         {
             "feature": "service",
             "name": "openssh",
-            "service": "openSSH",
+            "service": "openssh",
             "display_name": "OpenSSH service",
             "description": "installs a SSH service ",
             "family": "SSH",
@@ -178,11 +178,9 @@
                     "name": "openSSL"
                 }
             ],
-            "scripts": [
-                {
-                    "install": "resources/certificates/addCertificates.sh"
-                }
-            ]
+            "scripts": {
+                "install": "resources/certificates/addCertificates.sh"
+            }
         },
         {
             "feature": "resource",
@@ -195,7 +193,7 @@
         },
         {
             "feature": "server",
-            "name": "rest",
+            "name": "REST service",
             "display_name": "REST server with mutual authentication",
             "description": "installs a REST service ",
             "family": "rest",
@@ -267,8 +265,7 @@
         {
             "feature": "interface",
             "name": "mqtt",
-            "type": "interface",
-            "display_name": "MQTT server",
+            "display_name": "MQTT interface",
             "language": "python",
             "family": "mqtt",
             "description": "install a modular mqtt server and a broker running as root. Does not inherently have vulnerabilities, but serves any vulnerability with the <interface> property",
@@ -284,9 +281,6 @@
                 }
             ],
             "port": "1883",
-            "vulnerabilities": [
-                ""
-            ],
             "CWEs": [
                 "CWE-250"
             ],
@@ -315,7 +309,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/.info",
             "scripts": {
@@ -342,7 +337,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/login.db",
             "scripts": {
@@ -369,7 +365,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/.info",
             "scripts": {
@@ -396,7 +393,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/.info",
             "scripts": {
@@ -423,7 +421,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/.info",
             "scripts": {
@@ -450,7 +449,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/.info",
             "scripts": {
@@ -477,7 +477,8 @@
             ],
             "CWEs": [
                 "CWE-522",
-                "CWE-200"
+                "CWE-200",
+                "CWE-798"
             ],
             "location": "/home/manager/.info",
             "scripts": {
@@ -486,8 +487,8 @@
         },
         {
             "feature": "interface",
-            "name": "api",
-            "display_name": "Modular API server",
+            "name": "REST interface",
+            "display_name": "REST interface",
             "language": "python",
             "description": "Installs a api server running as root. Does not inherently have vulnerabilities, but serves any vulnerability with the <interface> property",
             "dependencies": [
@@ -501,15 +502,37 @@
             "port": "5000",
             "type": "interface",
             "family": "rest",
-            "vulnerabilities": [
-                ""
-            ],
             "CWEs": [
                 "CWE-250"
             ],
             "location": "/opt/dvd/services/api/server.py",
             "scripts": {
                 "install": "vulnerabilities/api/addApi.sh"
+            }
+        },
+        {
+            "feature": "vulnerability",
+            "name": "cND",
+            "display_name": "c Null pointer dereference",
+            "vulnerabilityType": "language vulnerabilities",
+            "family": "c",
+            "language": "c",
+            "description": "Adding binaries written in c that contains a null pointer dereference",
+            "dependencies": [
+                {
+                    "feature": "platform",
+                    "architecture": "armv7|x86"
+                }
+            ],
+            "vulnerabilities": [
+                "Null pointer dereference"
+            ],
+            "location": "/opt/dvd/code/c/NullDeref",
+            "CWEs": [
+                "CWE-476"
+            ],
+            "scripts": {
+                "install": "vulnerabilities/c/nd/addND.sh"
             }
         },
         {
@@ -522,16 +545,18 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "language": "c",
             "vulnerabilities": [
-                "sql injection"
+                "SQL injection"
             ],
             "location": "/opt/dvd/code/c/SQLInjection",
             "CWEs": [
-                "CWE-89"
+                "CWE-89",
+                "CWE-20",
+                "CWE-287"
             ],
             "scripts": {
                 "install": "vulnerabilities/c/sqli/addCSQLI.sh"
@@ -547,17 +572,18 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "language": "c",
             "vulnerabilities": [
-                "command injection"
+                "Command injection"
             ],
             "location": "/opt/dvd/code/c/CommandInjection",
             "CWEs": [
                 "CWE-77",
-                "CWE-78"
+                "CWE-78",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/c/ci/addCCI.sh"
@@ -567,14 +593,14 @@
             "feature": "vulnerability",
             "name": "cBOF",
             "display_name": "c buffer overflow",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "language": "c",
             "family": "c",
             "description": "Adding binaries written in c that contains a buffer overflow",
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
@@ -583,7 +609,9 @@
             "location": "/opt/dvd/code/c/BufferOverflow",
             "CWEs": [
                 "CWE-787",
-                "CWE-121"
+                "CWE-121",
+                "CWE-20",
+                "CWE-119"
             ],
             "scripts": {
                 "install": "vulnerabilities/c/bof/addCBOF.sh"
@@ -600,7 +628,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
@@ -618,7 +646,9 @@
                 "CWE-416",
                 "CWE-125",
                 "CWE-190",
-                "CWE-400"
+                "CWE-400",
+                "CWE-20",
+                "CWE-119"
             ],
             "scripts": {
                 "install": "vulnerabilities/c/mul/addCMUL.sh"
@@ -635,7 +665,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
@@ -643,7 +673,8 @@
             ],
             "location": "/opt/dvd/code/c/FormatString",
             "CWEs": [
-                "CWE-134"
+                "CWE-134",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/c/fs/addCFS.sh"
@@ -652,22 +683,23 @@
         {
             "feature": "vulnerability",
             "name": "cPT",
-            "display_name": "c path traversal",
+            "display_name": "c Path traversal",
             "vulnerabilityType": "language vulnerabilities",
             "family": "c",
             "language": "c",
-            "description": "Adding binaries written in c that contains a path traversal",
+            "description": "Adding binaries written in c that contains a Path traversal",
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
-                "path traversal"
+                "Path traversal"
             ],
             "location": "/opt/dvd/code/c/PathTraversal",
             "CWEs": [
+                "CWE-22",
                 "CWE-20"
             ],
             "scripts": {
@@ -678,7 +710,7 @@
             "feature": "vulnerability",
             "name": "bashPT",
             "display_name": "bash Path Traversal",
-            "description": "Adding scripts written in in the language bash that contains path traversal vulnerabilities",
+            "description": "Adding scripts written in in the language bash that contains Path traversal vulnerabilities",
             "language": "bash",
             "vulnerabilities": [
                 "Path traversal"
@@ -686,7 +718,7 @@
             "CWEs": [
                 "CWE-22"
             ],
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "family": "bash",
             "location": "/opt/dvd/code/bash/",
             "scripts": {
@@ -708,7 +740,7 @@
             ],
             "location": "/opt/dvd/code/bash/",
             "family": "bash",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "scripts": {
                 "install": "vulnerabilities/bash/CommandInjection/addBashCI.sh"
             }
@@ -764,23 +796,24 @@
         {
             "feature": "vulnerability",
             "name": "javaPT",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "family": "Java",
             "language": "Java",
-            "display_name": "Java path traversal",
-            "description": "Adding java path traversal",
+            "display_name": "Java Path traversal",
+            "description": "Adding java Path traversal",
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|arm64v8"
                 }
             ],
             "vulnerabilities": [
-                "path traversal"
+                "Path traversal"
             ],
             "location": "/opt/dvd/code/java/PathTraversal.jar",
             "CWEs": [
-                "CWE-22"
+                "CWE-22",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/java/PathTraversal/addJavaPT.sh"
@@ -789,7 +822,7 @@
         {
             "feature": "vulnerability",
             "name": "javaSQLI",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "family": "Java",
             "language": "Java",
             "display_name": "Java SQL injection",
@@ -797,7 +830,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|arm64v8"
                 }
             ],
             "vulnerabilities": [
@@ -805,7 +838,9 @@
             ],
             "location": "/opt/dvd/code/java/SQLInjection.jar",
             "CWEs": [
-                "CWE-89"
+                "CWE-89",
+                "CWE-20",
+                "CWE-287"
             ],
             "scripts": {
                 "install": "vulnerabilities/java/SQLInjection/addJavaSQLI.sh"
@@ -814,7 +849,7 @@
         {
             "feature": "vulnerability",
             "name": "javaCI",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "language": "Java",
             "family": "Java",
             "display_name": "Java command injection",
@@ -822,7 +857,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|armv8"
                 }
             ],
             "vulnerabilities": [
@@ -831,7 +866,8 @@
             "location": "/opt/dvd/code/java/CommandInjection.jar",
             "CWEs": [
                 "CWE-77",
-                "CWE-78"
+                "CWE-78",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/java/CommandInjection/addJavaCI.sh"
@@ -840,7 +876,7 @@
         {
             "feature": "vulnerability",
             "name": "javaD",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "family": "Java",
             "language": "Java",
             "display_name": "Java object deserialisation",
@@ -848,7 +884,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|arm64v8"
                 }
             ],
             "vulnerabilities": [
@@ -856,7 +892,8 @@
             ],
             "location": "/opt/dvd/code/java/Deserialization.jar",
             "CWEs": [
-                "CWE-502"
+                "CWE-502",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/java/Deserialization/addJavaD.sh"
@@ -868,20 +905,21 @@
             "vulnerabilityType": "servlet",
             "language": "Java",
             "family": "Java",
-            "display_name": "java path traversal, interface",
-            "description": "Adding java path traversal, that communicates with the ouside world over services",
+            "display_name": "java Path traversal, interface",
+            "description": "Adding java Path traversal, that communicates with the ouside world over services",
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|arm64v8"
                 }
             ],
             "vulnerabilities": [
-                "path traversal"
+                "Path traversal"
             ],
             "location": "/opt/dvd/services/vulns/java/PathTraversal",
             "CWEs": [
-                "CWE-22"
+                "CWE-22",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/javaInterface/PathTraversal/addJavaPT.sh"
@@ -898,7 +936,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|arm64v8"
                 }
             ],
             "vulnerabilities": [
@@ -906,7 +944,9 @@
             ],
             "location": "/opt/dvd/services/vulns/java/SQLInjection.jar",
             "CWEs": [
-                "CWE-89"
+                "CWE-89",
+                "CWE-20",
+                "CWE-287"
             ],
             "scripts": {
                 "install": "vulnerabilities/javaInterface/SQLInjection/addJavaSQLI.sh"
@@ -923,7 +963,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "x86|ppc64le|s390x|arm64v8"
+                    "architecture": "x86|ppc64le|s390x|arm64v8"
                 }
             ],
             "vulnerabilities": [
@@ -932,7 +972,8 @@
             "location": "/opt/dvd/services/vulns/java/CommandInjection",
             "CWEs": [
                 "CWE-78",
-                "CWE-77"
+                "CWE-77",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/javaInterface/CommandInjection/addJavaCI.sh"
@@ -1812,7 +1853,7 @@
         {
             "feature": "interface",
             "name": "coap",
-            "display_name": "CoAP server",
+            "display_name": "CoAP interface",
             "vulnerabilityType": "interface",
             "language": "python",
             "family": "coap",
@@ -1959,15 +2000,17 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
-                "sql injection"
+                "SQL injection"
             ],
             "location": "/opt/dvd/services/vulns/c/SQLInjection",
             "CWEs": [
-                "CWE-89"
+                "CWE-89",
+                "CWE-20",
+                "CWE-287"
             ],
             "scripts": {
                 "install": "vulnerabilities/cInterface/sqli/addCSQLI.sh"
@@ -1984,16 +2027,17 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
-                "command injection"
+                "Command injection"
             ],
             "location": "/opt/dvd/services/vulns/c/CommandInjection",
             "CWEs": [
                 "CWE-77",
-                "CWE-78"
+                "CWE-78",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/cInterface/ci/addCCI.sh"
@@ -2010,7 +2054,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 }
             ],
             "vulnerabilities": [
@@ -2019,7 +2063,9 @@
             "location": "/opt/dvd/services/vulns/c/BufferOverflow",
             "CWEs": [
                 "CWE-787",
-                "CWE-121"
+                "CWE-121",
+                "CWE-20",
+                "CWE-119"
             ],
             "scripts": {
                 "install": "vulnerabilities/cInterface/bof/addCBOF.sh"
@@ -2028,7 +2074,7 @@
         {
             "feature": "vulnerability",
             "name": "vulnerable ssh",
-            "service": "openSSH",
+            "service": "openssh",
             "vulnerabilityType": "backdoor",
             "family": "SSH",
             "description": "SSH service with backdoor",
@@ -2036,7 +2082,7 @@
             "dependencies": [
                 {
                     "feature": "platform",
-                    "name": "armv7|x86"
+                    "architecture": "armv7|x86"
                 },
                 {
                     "name": "openSSL"
@@ -2105,18 +2151,19 @@
         {
             "feature": "vulnerability",
             "name": "pythonPT",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "language": "python",
             "family": "python",
-            "display_name": "python path traversal",
-            "description": "Adding python path traversal",
+            "display_name": "python Path traversal",
+            "description": "Adding python Path traversal",
             "dependencies": [],
             "vulnerabilities": [
-                "path traversal"
+                "Path traversal"
             ],
             "location": "/opt/dvd/code/python/PathTraversal.py",
             "CWEs": [
-                "CWE-22"
+                "CWE-22",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonVuln/PathTraversal/addPythonPT.sh"
@@ -2125,18 +2172,20 @@
         {
             "feature": "vulnerability",
             "name": "pythonSQLI",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "language": "python",
             "family": "python",
             "display_name": "python sql injection",
             "description": "Adding python sql injection",
             "dependencies": [],
             "vulnerabilities": [
-                "SQL inection"
+                "SQL injection"
             ],
             "location": "/opt/dvd/code/python/SQLInjection.py",
             "CWEs": [
-                "CWE-89"
+                "CWE-89",
+                "CWE-20",
+                "CWE-287"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonVuln/SQLInjection/addPythonSQLI.sh"
@@ -2145,19 +2194,20 @@
         {
             "feature": "vulnerability",
             "name": "pythonCI",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "family": "python",
             "language": "python",
             "display_name": "python command injection",
             "description": "Adding python command injection",
             "dependencies": [],
             "vulnerabilities": [
-                "command injection"
+                "Command injection"
             ],
             "location": "/opt/dvd/code/python/CommandInjection.py",
             "CWEs": [
                 "CWE-77",
-                "CWE-78"
+                "CWE-78",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonVuln/CommandInjection/addPythonCI.sh"
@@ -2165,28 +2215,29 @@
         },
         {
             "feature": "vulnerability",
-            "name": "pythonPT",
-            "vulnerabilityType": "language",
+            "name": "pythonD",
+            "vulnerabilityType": "language vulnerabilities",
             "language": "python",
             "family": "python",
-            "display_name": "python path traversal",
-            "description": "Adding python path traversal",
+            "display_name": "python Path traversal",
+            "description": "Adding python Path traversal",
             "dependencies": [],
             "vulnerabilities": [
-                "path traversal"
+                "Path traversal"
             ],
             "location": "/opt/dvd/code/python/PathTraversal.py",
             "CWEs": [
-                "CWE-22"
+                "CWE-22",
+                "CWE-20"
             ],
             "scripts": {
-                "install": "vulnerabilities/pythonVuln/PathTraversal/addPythonPT.sh"
+                "install": "vulnerabilities/pythonVuln/Deserialization/addPythonD.sh"
             }
         },
         {
             "feature": "vulnerability",
             "name": "pythonSSTI",
-            "vulnerabilityType": "language",
+            "vulnerabilityType": "language vulnerabilities",
             "language": "python",
             "family": "python",
             "display_name": "python server side template injection",
@@ -2197,7 +2248,8 @@
             ],
             "location": "/opt/dvd/code/python/SSTI.py",
             "CWEs": [
-                "CWE-1336"
+                "CWE-1336",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonVuln/ServerSideTemplateInjection/addPythonSSTI.sh"
@@ -2209,15 +2261,16 @@
             "vulnerabilityType": "servlet",
             "family": "python",
             "language": "python",
-            "display_name": "python path traversal, interface",
-            "description": "Adding python path traversal that communicates with the ouside world over services",
+            "display_name": "python Path traversal, interface",
+            "description": "Adding python Path traversal that communicates with the ouside world over services",
             "dependencies": [],
             "vulnerabilities": [
-                "path traversal"
+                "Path traversal"
             ],
             "location": "/opt/dvd/services/vulns/python/PathTraversal.py",
             "CWEs": [
-                "CWE-22"
+                "CWE-22",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonInterface/PathTraversal/addPythonPT.sh"
@@ -2237,7 +2290,9 @@
             ],
             "location": "/opt/dvd/services/vulns/python/SQLIjection.py",
             "CWEs": [
-                "CWE-89"
+                "CWE-89",
+                "CWE-20",
+                "CWE-287"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonInterface/SQLInjection/addPythonSQLI.sh"
@@ -2253,12 +2308,13 @@
             "description": "Adding python command injection that communicates with the ouside world over services",
             "dependencies": [],
             "vulnerabilities": [
-                "command injection"
+                "Command injection"
             ],
             "location": "/opt/dvd/services/vulns/python/CommandInjection.py",
             "CWEs": [
                 "CWE-77",
-                "CWE-78"
+                "CWE-78",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonInterface/CommandInjection/addPythonCI.sh"
@@ -2278,7 +2334,8 @@
             ],
             "location": "/opt/dvd/services/vulns/python/Deserialization.py",
             "CWEs": [
-                "CWE-502"
+                "CWE-502",
+                "CWE-20"
             ],
             "scripts": {
                 "install": "vulnerabilities/pythonInterface/Deserialization/addPythonD.sh"
@@ -2290,7 +2347,7 @@
             "display_name": "Cronjob wildcard injection",
             "vulnerabilityType": "scheduler",
             "family": "cron",
-            "description": "adding cronjobs to cron that are vulnerable, one with a wildcard injections, and another with bad permissions",
+            "description": "adding cronjobs to cron that are vulnerable, one with a wildcard injections",
             "dependencies": [
                 {
                     "name": "cron"
@@ -2331,7 +2388,8 @@
                 "CWE-78",
                 "CWE-77",
                 "CWE-269",
-                "CWE-732"
+                "CWE-732",
+                "CWE-862"
             ],
             "scripts": {
                 "install": "vulnerabilities/vulnerableCron/cwbp/addCWBP.sh"
@@ -2340,24 +2398,22 @@
         {
             "feature": "config",
             "name": "badSudoRightsVI",
-            "display_name": "Misconfugured sudo in the vi binary",
-            "description": "Adding a sudo rights that can be exploited. These rights allow path traversal using the vi binary ",
+            "display_name": "Misconfigured sudo in the vi binary",
+            "description": "Adding a sudo rights that can be exploited. These rights allow Path traversal using the vi binary ",
             "dependencies": [
                 {
                     "name": "add users"
                 },
                 {
                     "name": "sudo"
-                },
-                {
-                    "name": "cron"
                 }
             ],
             "vulnerabilities": [
-                "privilege escalation"
+                "Privilege escalation"
             ],
             "CWEs": [
-                "CWE-269"
+                "CWE-269",
+                "CWE-798"
             ],
             "family": "SUDO",
             "vulnerabilityType": "misconfiguration",
@@ -2369,7 +2425,7 @@
         {
             "feature": "config",
             "name": "badSudoRightsLDP",
-            "display_name": "Misconfugured sudo rights that result in a privilege escalitaion",
+            "display_name": "Misconfigured sudo rights that result in a privilege escalitaion",
             "description": "Adding a sudo rights that can be exploited. These rights allow code injection with LD_PRELOAD ",
             "dependencies": [
                 {
@@ -2377,16 +2433,14 @@
                 },
                 {
                     "name": "sudo"
-                },
-                {
-                    "name": "cron"
                 }
             ],
             "vulnerabilities": [
-                "privilege escalation"
+                "Privilege escalation"
             ],
             "CWEs": [
-                "CWE-250"
+                "CWE-250",
+                "CWE-798"
             ],
             "family": "SUDO",
             "vulnerabilityType": "misconfiguration",
@@ -2398,7 +2452,7 @@
         {
             "feature": "config",
             "name": "badSudoRightsENV",
-            "display_name": "Misconfugured sudo rights regarding the SETENV variable",
+            "display_name": "Misconfigured sudo rights regarding the SETENV variable",
             "description": "Adding a sudo rights that can be exploited. These rights allow changes to the ENV variables for a specific sudo commando",
             "dependencies": [
                 {
@@ -2406,9 +2460,6 @@
                 },
                 {
                     "name": "sudo"
-                },
-                {
-                    "name": "cron"
                 }
             ],
             "vulnerabilities": [
@@ -2416,7 +2467,8 @@
             ],
             "CWEs": [
                 "CWE-269",
-                "CWE-250"
+                "CWE-250",
+                "CWE-798"
             ],
             "family": "SUDO",
             "vulnerabilityType": "misconfiguration",
@@ -2428,17 +2480,14 @@
         {
             "feature": "config",
             "name": "badSudoRightsPT",
-            "display_name": "Misconfugured sudo rights leading to path traversal",
-            "description": "Adding a sudo rights that can be exploited. These rights allow path traversal using the vi binary ",
+            "display_name": "Misconfigured sudo rights leading to Path traversal",
+            "description": "Adding a sudo rights that can be exploited. These rights allow Path traversal using the vi binary ",
             "dependencies": [
                 {
                     "name": "add users"
                 },
                 {
                     "name": "sudo"
-                },
-                {
-                    "name": "cron"
                 }
             ],
             "vulnerabilities": [
@@ -2447,7 +2496,8 @@
             "CWEs": [
                 "CWE-427",
                 "CWE-22",
-                "CWE-668"
+                "CWE-668",
+                "CWE-798"
             ],
             "family": "SUDO",
             "vulnerabilityType": "misconfiguration",
@@ -2486,13 +2536,16 @@
             ],
             "CWEs": [
                 "CWE-89",
+                "CWE-79",
                 "CWE-20",
+                "CWE-352",
                 "CWE-78",
                 "CWE-22",
                 "CWE-77",
                 "CWE-306",
                 "CWE-312",
-                "CWE-862"
+                "CWE-862",
+                "CWE-287"
             ],
             "location": "/opt/dvd/services/http/",
             "scripts": {
@@ -2502,11 +2555,18 @@
         {
             "feature": "vulnerability",
             "name": "No binary protection",
-            "vulnerabilityType": "weak configurations",
+            "vulnerabilityType": "misconfigurations",
             "display_name": "No binary protection",
             "family": "protection mechanism",
             "description": "binary compiled without protection mechanisms",
-            "dependencies": [],
+            "dependencies": [
+                [
+                    {
+                        "feature": "platform",
+                        "architecture": "x86"
+                    }
+                ]
+            ],
             "vulnerabilities": [
                 "Protection Mechanism Failure"
             ],
@@ -2527,7 +2587,7 @@
                     "name": "add users"
                 },
                 {
-                    "service": "openSSH"
+                    "service": "openssh"
                 },
                 {
                     "name": "openSSL"
@@ -2557,7 +2617,7 @@
                     "name": "add users"
                 },
                 {
-                    "service": "openSSH"
+                    "service": "openssh"
                 }
             ],
             "vulnerabilityType": "misconfiguration",
@@ -2584,7 +2644,7 @@
                     "name": "add users"
                 },
                 {
-                    "service": "openSSH"
+                    "service": "openssh"
                 }
             ],
             "vulnerabilityType": "misconfiguration",
@@ -2610,7 +2670,7 @@
                     "name": "add users"
                 },
                 {
-                    "service": "openSSH"
+                    "service": "openssh"
                 }
             ],
             "vulnerabilityType": "misconfiguration",
@@ -2648,7 +2708,7 @@
             "family": "telnet",
             "port": "23",
             "vulnerabilities": [
-                "hardcoded credentials",
+                "hardcoded passwords",
                 "outdated protocol",
                 "unencrypted traffic"
             ],

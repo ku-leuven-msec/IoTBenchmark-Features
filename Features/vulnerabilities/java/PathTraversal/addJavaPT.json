@@ -1,20 +1,20 @@
 {
     "feature":"vulnerability",
     "name": "javaPT",
-    "vulnerabilityType":"language",
+    "vulnerabilityType":"language vulnerabilities",
     "family":"Java",
     "language":"Java",
-    "display_name": "Java path traversal",
-    "description": "Adding java path traversal",
+    "display_name": "Java Path traversal",
+    "description": "Adding java Path traversal",
     "dependencies": [
         {
             "feature":"platform",
-            "name":"x86|ppc64le|s390x|arm64v8"
+            "architecture":"x86|ppc64le|s390x|arm64v8"
         }
     ],        
-    "vulnerabilities":["path traversal"],
+    "vulnerabilities":["Path traversal"],
     "location":"/opt/dvd/code/java/PathTraversal.jar",
-    "CWEs":["CWE-22"],
+    "CWEs":["CWE-22","CWE-20"],
     "scripts": 
       {
         "install": "vulnerabilities/java/PathTraversal/addJavaPT.sh"

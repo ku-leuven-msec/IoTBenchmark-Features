@@ -9,12 +9,12 @@
   "dependencies": [
       {
           "feature":"platform",
-          "name":"armv7|x86"
+          "architecture":"armv7|x86"
       }
   ],        
   "vulnerabilities":["buffer overflow"],
   "location":"/opt/dvd/services/vulns/c/BufferOverflow",
-  "CWEs":["CWE-787","CWE-121"],
+  "CWEs":["CWE-787","CWE-121","CWE-20","CWE-119"],
   "scripts": 
     {
       "install": "vulnerabilities/cInterface/bof/addCBOF.sh"
